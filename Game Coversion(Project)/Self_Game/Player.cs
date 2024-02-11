@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Self_Game
 {
+    // players state
     internal class Player
     {
         public char DisplayChar { get; }

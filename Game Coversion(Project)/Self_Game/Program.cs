@@ -14,10 +14,10 @@ namespace Self_Game
         { 
             Game game = new Game('P', 2, 10);
             string direction = "r";
-            string player_direction = null; // initially direction is nul/
+            string player_direction = null; // initially direction is null
 
 
-            // Add 
+            // Add eneimies
             game.AddEnemy('E', 4, 2);
             game.AddEnemy('W', 5, 3);
             game.AddEnemy('O', 6, 6);
@@ -30,6 +30,7 @@ namespace Self_Game
                 game.DisplayState();
                 direction = game.DirectionControl(direction);
                 game.MoveEnemies(direction);
+                // moving  playre functions
                 if (Keyboard.IsKeyPressed(Key.RightArrow))
                 {
                     player_direction = "right";
