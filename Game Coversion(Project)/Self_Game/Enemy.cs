@@ -17,7 +17,7 @@ namespace Self_Game
         {
             DisplayChar = displayChar;
             X = x;
-            Y = y;
+            Y = y;//
         }
 
         public void Move(string enemy_direction)
