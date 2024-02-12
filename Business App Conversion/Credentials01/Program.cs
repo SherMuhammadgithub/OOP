@@ -53,6 +53,7 @@ namespace Credentials01
                         {
                             while (true)
                             {
+                                Console.Clear();
                                 int AdminOption = AdminMenu();
                                 if (AdminOption == 1)
                                 {
@@ -60,7 +61,8 @@ namespace Credentials01
                                 }
                                 else if (AdminOption == 2)
                                 {
-                                    Console.Write("Enter user to delete");
+                                    Console.Clear();
+                                    Console.Write("Enter user to delete:  ");
                                     string user_to_delete = Console.ReadLine();
                                     bool is_user_exists = credentials.UserExists(user_to_delete);
                                     if (is_user_exists)
@@ -79,11 +81,11 @@ namespace Credentials01
                                     {
                                         Console.WriteLine("User not found");
                                     }
-
                                 }
                                 else if (AdminOption == 3)
                                 {
-                                    Console.Write("Enter user to update");
+                                    Console.Clear();
+                                    Console.Write("Enter user to update: ");
                                     string user_to_update = Console.ReadLine();
                                     bool is_user_exists = credentials.UserExists(user_to_update);
                                     if (is_user_exists)
@@ -119,7 +121,6 @@ namespace Credentials01
                     {
                         Console.WriteLine("Invalid Credentials.....");
                     }
-
                 }
                 else if(op == 3)
                 {
