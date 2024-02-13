@@ -17,7 +17,7 @@ namespace algo
         public string home_town;
         public bool is_hostelite;
         public bool is_taking_schloarship;
-        //Creating a constructor
+        //Creating a constructor 
         public Student(int matric, int fcs, bool is_hostelite)
         {
             matric_marks = matric;
