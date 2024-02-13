@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algo", "algo\algo.csproj", "{2646E495-89C9-4A6D-969B-A069CF158FB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF6ECCF2-894F-4E2C-A694-AC5078EC40BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2646E495-89C9-4A6D-969B-A069CF158FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2646E495-89C9-4A6D-969B-A069CF158FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2646E495-89C9-4A6D-969B-A069CF158FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2646E495-89C9-4A6D-969B-A069CF158FB3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D90259E6-DA65-45A7-9A43-752BF8DE4941}
+	EndGlobalSection
+EndGlobal
