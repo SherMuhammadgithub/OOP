@@ -16,13 +16,11 @@ namespace Books_Management__Data_Frames___member_functions_
         public int no_of_copies;
         public int no_of_authors;
 
-        public Book(string title, string[] author, string publisher, int ISBN, int price, int no_of_copies, int no_of_authors) { 
+        public Book(string title, string[] author, int ISBN, int price, int no_of_copies) { 
             this.title = title;
             this.author = author;
-            this.publisher = publisher;
             this.ISBN = ISBN;
             this.price = price;
-            this.no_of_authors = no_of_authors;
             this.no_of_copies = no_of_copies;
         }
     }

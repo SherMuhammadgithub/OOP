@@ -28,12 +28,30 @@ namespace Books_Management__Data_Frames___member_functions_
             Console.WriteLine("****BookStore****");
             while(true)
             {
+                Console.Clear();
                 MenuOption choice = UserMenu();
                 if(choice == MenuOption.AddBook)
                 {
-
+                    bookStore.AddBook(InputBookDetails());
+                    Console.WriteLine("Book added Successfully.....");
                 }
-            
+                else if(choice == MenuOption.SearchBookByISBN)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Enter IBSN number: ");
+                    int IBSN = int.Parse(Console.ReadLine());
+                    Book book = bookStore.SearchBookByIBSN(IBSN);
+                    if(book != null)
+                    {
+                        ShowBookDetails(book);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Book Not Found");
+                    }
+                    Console.ReadKey();
+                }
+                
                 }
         }
         static MenuOption UserMenu()
@@ -54,6 +72,29 @@ namespace Books_Management__Data_Frames___member_functions_
             }
             return (MenuOption)option;
 
+        }
+        static Book InputBookDetails()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter Title: ");
+            string title = Console.ReadLine();
+            string[] authors = new string[4];
+            authors[0] = "sd";
+            Console.WriteLine("Enter ISBN: ");
+            int ISBN = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter price: ");
+            int price = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter no of copies: ");
+            int copies = int.Parse(Console.ReadLine());
+            Book book = new Book(title, authors, ISBN, price, copies);
+            return book;
+        }
+        static void ShowBookDetails(Book book)
+        {
+            Console.WriteLine("****Book Detail****");
+            Console.WriteLine($"Title: {book.title}");
+            Console.WriteLine($"Author {book.author[0]}");
+            Console.WriteLine($"Stock: {book.no_of_copies}");
         }
     }
 }

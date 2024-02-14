@@ -25,9 +25,9 @@ namespace Books_Management__Data_Frames___member_functions_
         public Book SearchBookByTitle(string title) {
             return books_repo.SearchBookByTitle(title);
         }
-        public Book SearchBookById(int id)
+        public Book SearchBookByIBSN(int IBSN)
         {
-            return books_repo.SearchBookByISBN(id);
+            return books_repo.SearchBookByISBN(IBSN);
         }
         public bool UpdateBook(int id, Book updated_book)
         {
