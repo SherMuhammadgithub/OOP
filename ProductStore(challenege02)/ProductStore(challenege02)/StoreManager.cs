@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace ProductStore_challenege02_
     {
       public MUserDL User;
       public ProductDL Product;
-        public CustomerDL Customer;
+      public CustomerDL Customer;
       
         public StoreManager()
         {
@@ -30,9 +31,9 @@ namespace ProductStore_challenege02_
         {
             return Product.FindProductByHighPrice();
         }
-        public void SaleTax()
+        public double SaleTax()
         {
-            Product.SaleTax();
+           return Product.SaleTax();
         }
         public List<Product> ProductsToBeReordered()
         {
@@ -60,9 +61,13 @@ namespace ProductStore_challenege02_
         {
             return Customer.Login(customer.Username, customer.Password);
         }
-        public void BuyProduct(Product product, int qty)
+        public void BuyProduct(Product product, int qty,string customerName)
         {
-            Customer.BuyProduct(product, qty);
+            Customer.BuyProduct(product, qty, customerName);
+        }
+        public double GenerateBill(string customerName)
+        {
+            return Customer.GenerateBill(customerName);
         }
         public void ViewProfile(Customer customer)
         {

@@ -13,7 +13,7 @@ namespace ProductStore_challenege02_
         public string Email { get; set; }
         public string Address { get; set; }
         public string ContactNumber { get; set; }
-        public static List<Product> products = new List<Product>();
+        public List<Product> products;
         public Customer(string username, string password, string email, string address, string contactNumber)
         {
             Username = username;
@@ -21,22 +21,9 @@ namespace ProductStore_challenege02_
             Email = email;
             Address = address;
             ContactNumber = contactNumber;
-        }
-        // for addding products in customer's cart
-        // it will run when customer will buy products
-        public static void AddProductsInCart(Product product)
-        {
-             Customer.products.Add(product);
+            products = new List<Product>();
         }
        
-        public static double GenerateBill()
-        {
-            double total = 0;
-            foreach (Product product in Customer.products)
-            {
-                total += product.Price;
-            }
-            return total;
-        }
+     
     }
 }

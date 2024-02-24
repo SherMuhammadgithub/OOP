@@ -1,9 +1,11 @@
-﻿using System;
+﻿using ProductStore_challenege02_.DL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace ProductStore_challenege02_
 {
@@ -49,20 +51,36 @@ namespace ProductStore_challenege02_
             Console.WriteLine("Password: " + customer.Password);
             Console.WriteLine("Email: " + customer.Email);
         }
-        
-        public void BuyProduct(Product product, int qty)
+        // adding products in customer's cart
+        public void BuyProduct(Product product, int qty, string customerName)
         {
-            if (product.StockQty >= qty)
+          Customer customer = customers.Find(c => c.Username == customerName);
+            if(customer != null)
             {
-                product.StockQty -= qty;
-                Console.WriteLine("Product bought successfully");
-                Customer.AddProductsInCart(product);
-            }
-            else
-            {
-                Console.WriteLine("Product out of stock");
+                if(qty <= product.StockQty)
+                {
+                customer.products.Add(product);
+                    product.StockQty -= qty;
+                }
+                else
+                {
+                    Console.WriteLine("Product is out of stock");
+                }
+
             }
         }
-
+        public double GenerateBill(string customerName)
+        {
+            int totalBill = 0;
+            Customer customer = customers.Find(c => c.Username == customerName);
+            if(customer != null)
+            {
+               foreach(Product product in customer.products)
+                {
+                    totalBill += product.Price;
+                }
+            }
+            return totalBill;
+        }
     }
 }

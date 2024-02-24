@@ -50,12 +50,28 @@ namespace ProductStore_challenege02_
                                 else if(option == 4)
                                 {
                                     Console.Clear();
-                                    storeManager.SaleTax();
+                                    double totalSaleTax = storeManager.SaleTax();
+                                    Console.WriteLine($"Total Sale Tax is {totalSaleTax}");
                                 }
                                 else if(option == 5)
                                 {
                                     Console.Clear();
-                                    storeManager.ProductsToBeReordered();
+                                    List<Product> productsToOrder = storeManager.ProductsToBeReordered();
+                                    if(productsToOrder != null)
+                                    {
+                                        foreach (Product product in productsToOrder)
+                                        {
+                                            Console.WriteLine("Name: " + product.Name);
+                                            Console.WriteLine("Category: " + product.Category);
+                                            Console.WriteLine("Price: " + product.Price);
+                                            Console.WriteLine("StockQty: " + product.StockQty);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("No Products to be ordered");
+                                    }
+                                   
                                 }
                                 else if(option == 6)
                                 {
@@ -106,7 +122,8 @@ namespace ProductStore_challenege02_
                                     Product product = storeManager.IsProductExists(name);
                                     if (product != null)
                                     {
-                                        storeManager.BuyProduct(product, qty);
+                                        storeManager.BuyProduct(product, qty,loggedInCustomer.Username);
+                                        Console.WriteLine($"{product.Name} bought successfully......");
                                     }
                                     else
                                     {
@@ -117,7 +134,7 @@ namespace ProductStore_challenege02_
                                 else if (op == 4)
                                 {
                                     Console.Clear();
-                                    double totalBill = Customer.GenerateBill();
+                                    double totalBill = storeManager.GenerateBill(loggedInCustomer.Username);
                                     Console.WriteLine("Total Bill: " + totalBill);
                                 }
                                 else if (op == 5)
