@@ -8,7 +8,7 @@ namespace CofeeShop
 {
     internal class CofeeShopUI
     {
-        public static string TakeInput()
+        public static string TakeNameAndOrder()
         {
             Console.WriteLine("Enter the name of the menu item: ");
             string name = Console.ReadLine();
@@ -16,6 +16,12 @@ namespace CofeeShop
             string order = Console.ReadLine();
             string concat = name + "," + order;
             return concat;
+        }
+        public static string TakeInput()
+        {
+            Console.WriteLine("Enter the name of the coffee shop: ");
+            string name = Console.ReadLine();
+            return name;
         }
     }
 }

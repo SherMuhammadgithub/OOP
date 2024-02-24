@@ -1,4 +1,4 @@
-﻿using CofeeShop.BL;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +24,17 @@ namespace CofeeShop.DL
             {
                 Array.Resize(ref coffeeShop.Orders, coffeeShop.Orders.Length + 1);
                 coffeeShop.Orders[coffeeShop.Orders.Length - 1] = order;
+                return true;
+            }
+            return false;
+        }
+        public bool AddMenuItemInCoffeeShop(string coffeeShopName, string menuItemName)
+        {
+            CoffeeShop coffeeShop = CofeeShop.cofeeShops.FirstOrDefault(x => x.Name == coffeeShopName);
+            MenuItem menuItem = Menu.MenuItems.FirstOrDefault(x => x.Name == menuItemName);
+            if (coffeeShop != null && menuItem != null)
+            {
+                coffeeShop.MenuItems.Add(menuItem);
                 return true;
             }
             return false;
@@ -55,6 +66,25 @@ namespace CofeeShop.DL
         public double TotalIncome(string coffeeShopName)
         {
             return CofeeShop.TotalSales(coffeeShopName);
+        }
+        public bool FulFillOrder(string coffeeShopName, string order)
+        {
+            CoffeeShop coffeeShop = CofeeShop.cofeeShops.FirstOrDefault(x => x.Name == coffeeShopName);
+            if (coffeeShop != null)
+            {
+                if (coffeeShop.Orders.Contains(order))
+                {
+                    MenuItem menuItem = Menu.MenuItems.FirstOrDefault(x => x.Name == order);
+                    if (menuItem != null)
+                    {
+                        coffeeShop.TotalSales += menuItem.Price;
+                    }
+
+                    coffeeShop.Orders = coffeeShop.Orders.Where(x => x != order).ToArray(); // filter out the order
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

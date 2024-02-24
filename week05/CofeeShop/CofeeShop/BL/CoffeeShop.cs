@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CofeeShop.BL
+namespace CofeeShop
 {
     internal class CoffeeShop
     {
         public string Name { get; set; }
         public List<MenuItem> MenuItems;
         public string[] Orders;
+        public int TotalSales { get; set; }
 
         public CoffeeShop(string name)
         {
