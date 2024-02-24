@@ -1,0 +1,7 @@
+C:\Users\dell\Pictures\C#OOP(Programmig)\CofeeShop\CofeeShop\obj\Debug\CofeeShop.csproj.AssemblyReference.cache
+C:\Users\dell\Pictures\C#OOP(Programmig)\CofeeShop\CofeeShop\obj\Debug\CofeeShop.csproj.CoreCompileInputs.cache
+C:\Users\dell\Pictures\C#OOP(Programmig)\CofeeShop\CofeeShop\bin\Debug\CofeeShop.exe.config
+C:\Users\dell\Pictures\C#OOP(Programmig)\CofeeShop\CofeeShop\bin\Debug\CofeeShop.exe
+C:\Users\dell\Pictures\C#OOP(Programmig)\CofeeShop\CofeeShop\bin\Debug\CofeeShop.pdb
+C:\Users\dell\Pictures\C#OOP(Programmig)\CofeeShop\CofeeShop\obj\Debug\CofeeShop.exe
+C:\Users\dell\Pictures\C#OOP(Programmig)\CofeeShop\CofeeShop\obj\Debug\CofeeShop.pdb
