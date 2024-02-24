@@ -18,7 +18,8 @@ namespace Credentials01
         {
             view = 1,
             delete,
-            update
+            update,
+            exit
         }
         public enum UserMneuOption
         {

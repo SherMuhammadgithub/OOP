@@ -49,8 +49,27 @@ namespace Books_Management__Data_Frames___member_functions_
                     {
                         Console.WriteLine("Book Not Found");
                     }
-                    Console.ReadKey();
                 }
+                else if(choice == MenuOption.SearchBookByTitle)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Enter Book title: ");
+                    string book_title = Console.ReadLine();
+                    Book book_details = bookStore.SearchBookByTitle(book_title);
+                    if (book_details != null)
+                    {
+                        ShowBookDetails(book_details);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Book Not Found");
+                    }
+                }
+                else if (choice == MenuOption.UpdateStock)
+                {
+                    
+                }
+                    Console.ReadKey();
                 
                 }
         }
