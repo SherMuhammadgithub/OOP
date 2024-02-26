@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace CofeeShop
 {
@@ -41,7 +44,7 @@ namespace CofeeShop
                 }
             return cheapestItem;
             }   
-            return "No such coffee shop";
+            return null;
         }
         public List<MenuItem> ViewDrinkItems(string coffeeShopName)
         {
@@ -85,7 +88,19 @@ namespace CofeeShop
             }
             return 0;
         }
+        public  void StoreCoffeeShops(string path, CoffeeShop coffeeShop, string coffeShopName)
+        {
+            StreamWriter streamWriter = new StreamWriter(path, true);
+            string degree = "";
+            for(int i = 0; i < coffeeShop.MenuItems.Count - 1; i++)
+            {
+                degree += coffeeShop.MenuItems[i].Name + ";";
+            }
+            degree += coffeeShop.MenuItems[coffeeShop.MenuItems.Count - 1].Name;
+            streamWriter.WriteLine(coffeeShop.Name +  "," + degree);
 
-
+            streamWriter.Flush();
+            streamWriter.Close();
+        }
     }
 }

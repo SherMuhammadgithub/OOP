@@ -5,14 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.IO;
 
 namespace CofeeShop
 {
     internal class Program
     {
+           static CoffeeShop coffeeShopObject; // to be used later in program
         static void Main(string[] args)
         {
+            string CoffeeShopPath = "C:\\Users\\dell\\Pictures\\C#OOP(Programmig)\\week05\\CofeeShop\\CofeeShop\\Data\\CoffeShopData.txt";
+            string MenuItemPath ="C:\\Users\\dell\\Pictures\\C#OOP(Programmig)\\week05\\CofeeShop\\CofeeShop\\Data\\MenuItemData.txt";
             CoffeeShopManager coffeeShopManager = new CoffeeShopManager();
+            MenuItemDL.LoadMenuItems(MenuItemPath);
+            coffeeShopManager.LoadCoffeeShopData(CoffeeShopPath);
             while(true)
             {
                 Console.Clear();
@@ -21,14 +27,16 @@ namespace CofeeShop
                 if(option == 1)
                 {
                     Console.Clear();
-                    coffeeShopManager.AddMenuItem(MenuItemUI.TakeInput());
+                    MenuItem menuItem = MenuItemUI.TakeInput();
+                    coffeeShopManager.AddMenuItem(menuItem);
+                    MenuItemDL.StoreMenuItems(MenuItemPath, menuItem);
                 }
                 else if(option == 2)
                 {
                     Console.Clear();
                     string name = CofeeShopUI.TakeInput();
-                    
-                    coffeeShopManager.AddCoffeeShop(new CoffeeShop(name));
+                    coffeeShopObject = new CoffeeShop(name);
+                    coffeeShopManager.AddCoffeeShop(coffeeShopObject);
                 }
                 else if(option == 3)
                 {
@@ -40,6 +48,7 @@ namespace CofeeShop
                     if (coffeeShopManager.AddMenuItemInCoffeeShop(name, order))
                     {
                         Console.WriteLine($"Menu Item added successfully");
+                        coffeeShopManager.StoreCoffeeShops(CoffeeShopPath, coffeeShopObject, name);
                     }
                     else
                     {
@@ -50,7 +59,14 @@ namespace CofeeShop
                 {
                     Console.Clear();
                    string cheapestItem =  coffeeShopManager.CheapestItem(CofeeShopUI.TakeInput());
+                    if(cheapestItem != null)
+                    {
                     Console.WriteLine($"The cheapest item is {cheapestItem}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No item found");
+                    }
                 }
                 else if(option == 5)
                 {

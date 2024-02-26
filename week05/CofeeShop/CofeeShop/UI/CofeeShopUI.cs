@@ -10,7 +10,7 @@ namespace CofeeShop
     {
         public static string TakeNameAndOrder()
         {
-            Console.WriteLine("Enter the name of the menu item: ");
+            Console.WriteLine("Enter the name of the Coffee Shop: ");
             string name = Console.ReadLine();
             Console.WriteLine("Enter the oreder name: ");
             string order = Console.ReadLine();

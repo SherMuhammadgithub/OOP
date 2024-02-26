@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace CofeeShop.DL
 {
@@ -17,10 +18,18 @@ namespace CofeeShop.DL
             Menu = new MenuItemDL();
         }
         public bool AddOrder(string coffeeShopName, string order)
-        {
+        {  
             CoffeeShop coffeeShop = CofeeShop.cofeeShops.FirstOrDefault(x => x.Name == coffeeShopName);
-            MenuItem menuItem = Menu.MenuItems.FirstOrDefault(x => x.Name == order);
-            if (coffeeShop != null && menuItem != null)
+            bool flag = false;
+            foreach(var shop in CofeeShop.cofeeShops)
+            {
+                MenuItem menuItem = shop.MenuItems.FirstOrDefault(x => x.Name == order);
+                if (menuItem != null)
+                {
+                    flag = true;
+                }
+            }
+            if (coffeeShop != null && flag)
             {
                 Array.Resize(ref coffeeShop.Orders, coffeeShop.Orders.Length + 1);
                 coffeeShop.Orders[coffeeShop.Orders.Length - 1] = order;
@@ -31,7 +40,7 @@ namespace CofeeShop.DL
         public bool AddMenuItemInCoffeeShop(string coffeeShopName, string menuItemName)
         {
             CoffeeShop coffeeShop = CofeeShop.cofeeShops.FirstOrDefault(x => x.Name == coffeeShopName);
-            MenuItem menuItem = Menu.MenuItems.FirstOrDefault(x => x.Name == menuItemName);
+            MenuItem menuItem = MenuItemDL.MenuItems.FirstOrDefault(x => x.Name == menuItemName);
             if (coffeeShop != null && menuItem != null)
             {
                 coffeeShop.MenuItems.Add(menuItem);
@@ -74,7 +83,7 @@ namespace CofeeShop.DL
             {
                 if (coffeeShop.Orders.Contains(order))
                 {
-                    MenuItem menuItem = Menu.MenuItems.FirstOrDefault(x => x.Name == order);
+                    MenuItem menuItem = MenuItemDL.MenuItems.FirstOrDefault(x => x.Name == order);
                     if (menuItem != null)
                     {
                         coffeeShop.TotalSales += menuItem.Price;
@@ -85,6 +94,43 @@ namespace CofeeShop.DL
                 }
             }
             return false;
+        }
+        public void StoreCoffeeShops(string path, CoffeeShop coffeeShop, string name)
+        {
+            CofeeShop.StoreCoffeeShops(path, coffeeShop, name);
+        }
+
+        //for loading CoffeeShop data
+        public  void LoadCoffeeShopData(string path)
+        {
+            StreamReader streamReader = new StreamReader(path);
+            string line = streamReader.ReadLine();
+            while (line != null)
+            {
+                string[] splittedString = line.Split(',');
+                string coffeeShopName = splittedString[0];
+                double totalSales = Convert.ToDouble(splittedString[1]);
+                string[] menuItems = splittedString[2].Split(';');
+                  CofeeShop.cofeeShops.Add(new CoffeeShop(coffeeShopName));
+                foreach(var item in menuItems)
+                {
+                    foreach(var menu in MenuItemDL.MenuItems)
+                    {
+                        if(item == menu.Name)
+                        {
+                            if (CofeeShop.cofeeShops.FirstOrDefault(x => x.Name == coffeeShopName) != null)
+                            {
+                            MenuItem menuItem = new MenuItem(menu.Name, menu.Type, menu.Price);
+                                CofeeShop.cofeeShops.FirstOrDefault(x => x.Name == coffeeShopName).MenuItems.Add(menuItem);
+                            }
+
+                            break;
+                        }
+                    }    
+                }
+               
+            }
+                streamReader.Close();
         }
 
     }

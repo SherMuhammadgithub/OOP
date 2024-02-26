@@ -1,0 +1,4 @@
+coca cola,Drink,200
+chana chat,Food,200
+shwarma,Food,300
+burger,Food,550
