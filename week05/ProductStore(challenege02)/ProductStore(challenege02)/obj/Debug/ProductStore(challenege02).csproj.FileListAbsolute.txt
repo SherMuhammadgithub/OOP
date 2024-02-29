@@ -1,7 +1,0 @@
-C:\Users\dell\Pictures\C#OOP(Programmig)\ProductStore(challenege02)\ProductStore(challenege02)\bin\Debug\ProductStore(challenege02).exe.config
-C:\Users\dell\Pictures\C#OOP(Programmig)\ProductStore(challenege02)\ProductStore(challenege02)\bin\Debug\ProductStore(challenege02).exe
-C:\Users\dell\Pictures\C#OOP(Programmig)\ProductStore(challenege02)\ProductStore(challenege02)\bin\Debug\ProductStore(challenege02).pdb
-C:\Users\dell\Pictures\C#OOP(Programmig)\ProductStore(challenege02)\ProductStore(challenege02)\obj\Debug\ProductStore(challenege02).csproj.AssemblyReference.cache
-C:\Users\dell\Pictures\C#OOP(Programmig)\ProductStore(challenege02)\ProductStore(challenege02)\obj\Debug\ProductStore(challenege02).csproj.CoreCompileInputs.cache
-C:\Users\dell\Pictures\C#OOP(Programmig)\ProductStore(challenege02)\ProductStore(challenege02)\obj\Debug\ProductStore(challenege02).exe
-C:\Users\dell\Pictures\C#OOP(Programmig)\ProductStore(challenege02)\ProductStore(challenege02)\obj\Debug\ProductStore(challenege02).pdb
