@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessApp", "FitnessApp\FitnessApp.csproj", "{DFA24E85-C175-4E61-85C4-ED1F98D0F5AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "problem03(assciations)", "problem03(assciations)\problem03(assciations).csproj", "{8710B2B0-8DFB-4DE6-A87F-915BD2D70A89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DFA24E85-C175-4E61-85C4-ED1F98D0F5AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFA24E85-C175-4E61-85C4-ED1F98D0F5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFA24E85-C175-4E61-85C4-ED1F98D0F5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFA24E85-C175-4E61-85C4-ED1F98D0F5AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8710B2B0-8DFB-4DE6-A87F-915BD2D70A89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8710B2B0-8DFB-4DE6-A87F-915BD2D70A89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8710B2B0-8DFB-4DE6-A87F-915BD2D70A89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8710B2B0-8DFB-4DE6-A87F-915BD2D70A89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E3449115-8F9A-472C-B8F0-F3B8703466AF}
+		SolutionGuid = {20AB5A10-9EFC-4720-AB39-F2185BF062D8}
 	EndGlobalSection
 EndGlobal
