@@ -11,9 +11,6 @@ namespace ums
     {
         static void Main(string[] args)
         {
-
-
-
             Utillity utility = new Utillity();
             while (true)
             {
