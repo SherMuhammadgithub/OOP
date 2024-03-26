@@ -17,14 +17,6 @@ namespace BlackJackGame
         {
             cards.Add(card);
         }
-        public void PrintDealerHand()
-        {
-            foreach (Card card in cards)
-            {
-                Console.WriteLine(card.GetSuitAsString() + " " + card.GetValueAsString());
-                break;
-            }
-        }
         public void PrintHand()
         {
             foreach (Card card in cards)

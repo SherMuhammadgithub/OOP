@@ -25,7 +25,7 @@ namespace BlackJackGame
             Console.WriteLine("Player's hand:");
             playerHand.PrintHand();
             Console.WriteLine("Dealer's hand:");
-            dealerHand.PrintDealerHand();
+            dealerHand.PrintHand();
             if(playerHand.IsBlackjack() && dealerHand.IsBlackjack())
             {
                 Console.WriteLine("Both player and dealer have blackjack! It's a tie!");
