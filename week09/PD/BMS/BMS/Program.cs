@@ -1,4 +1,5 @@
 ﻿using BMS.DL;
+using BMS.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,13 @@ namespace BMS
         {
             // load the data from the database
             MUserDL.LoadData();
+            // Accounts Data
+            AccountDL.LoadAccounts();
+            // Transactions Data
+            TransactionDL.LoadTransactionData();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignUp());
+            Application.Run(new MainFrom());
         }
     }
 }

@@ -49,7 +49,7 @@
             // 
             // SignInBtn
             // 
-            this.SignInBtn.Location = new System.Drawing.Point(320, 281);
+            this.SignInBtn.Location = new System.Drawing.Point(323, 277);
             this.SignInBtn.Name = "SignInBtn";
             this.SignInBtn.Size = new System.Drawing.Size(110, 42);
             this.SignInBtn.TabIndex = 4;

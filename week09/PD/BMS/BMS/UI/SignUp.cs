@@ -29,7 +29,7 @@ namespace BMS
                 string Query = "INSERT INTO BMSUsers (Name, Password, Role) VALUES ('{0}','{1}','{2}')";
                 Query = string.Format(Query, newUser.GetUsername(), newUser.GetPassword(), newUser.GetRole());
                 int isStored = Function.SetData(Query);
-                if(isStored > 0)
+                if(isStored > 0) // rowsAffected
                 {
                     MessageBox.Show("User added to the database");
                 }

@@ -11,6 +11,7 @@ namespace BMS.DL
     internal class MUserDL
     {
         public static List<MUser> users = new List<MUser>();
+        public static MUser currentUser;
         public static void AddUser(MUser user)
         {
             users.Add(user);
@@ -57,6 +58,15 @@ namespace BMS.DL
             }
             return false;
 
+        }
+       public static void StoreCurrentUser(MUser user)
+        {
+             currentUser = user; //  store the current user
+        }
+        // get the current user
+        public static MUser GetCurrentUser()
+        {
+            return MUserDL.currentUser;
         }
     }
 }

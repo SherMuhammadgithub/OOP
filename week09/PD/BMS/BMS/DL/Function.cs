@@ -24,8 +24,8 @@ namespace BMS.DL
             sda = new SqlDataAdapter(query, Con);
             dt = new DataTable();
             sda.Fill(dt);
+                MessageBox.Show("Data Loaded");
             return dt;
-
             }
             catch (Exception err)
             {

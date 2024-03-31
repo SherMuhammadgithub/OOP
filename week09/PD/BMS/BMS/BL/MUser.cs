@@ -19,6 +19,10 @@ namespace BMS.BL
             this.password = password;
             this.role = role;
         }
+        public MUser(string username)
+        {
+            this.username = username;
+        }
         // for sign in
         public MUser(string uesr, string password)
         {
