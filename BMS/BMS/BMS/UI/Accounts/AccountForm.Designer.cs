@@ -54,8 +54,10 @@ namespace BMS.UI
             // 
             this.IpName.Location = new System.Drawing.Point(126, 113);
             this.IpName.Name = "IpName";
+            this.IpName.ReadOnly = true;
             this.IpName.Size = new System.Drawing.Size(147, 22);
             this.IpName.TabIndex = 0;
+            this.IpName.TextChanged += new System.EventHandler(this.IpName_TextChanged);
             // 
             // IpAddress
             // 
@@ -70,6 +72,7 @@ namespace BMS.UI
             this.IpDOB.Name = "IpDOB";
             this.IpDOB.Size = new System.Drawing.Size(147, 22);
             this.IpDOB.TabIndex = 2;
+            this.IpDOB.TextChanged += new System.EventHandler(this.IpDOB_TextChanged);
             // 
             // IpPhone
             // 
@@ -164,6 +167,7 @@ namespace BMS.UI
             // 
             // AddBtn
             // 
+            this.AddBtn.Enabled = false;
             this.AddBtn.Location = new System.Drawing.Point(264, 458);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(301, 29);

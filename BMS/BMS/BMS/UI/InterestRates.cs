@@ -21,8 +21,8 @@ namespace BMS
         }
         private void OnLoad()
         {
-            Account account = CustomerDL.GetCurrentCustomer().GetAccount();
-
+            
+            Account account =MUserDL.GetCurrentUser().GetAccount();
             string type = account.GetType();
             if (type == "Savings")
             {

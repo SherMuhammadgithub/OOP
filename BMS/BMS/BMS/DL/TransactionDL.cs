@@ -47,5 +47,18 @@ namespace BMS.DL
             return false;
             
         }
+        // get transactions for a specific account holder
+        public static List<Transactions> GetTransactionsForSpecificAccount(string AccountHolder)
+        {
+            List<Transactions> transactionsForAccountHolder = new List<Transactions>();
+            foreach (Transactions transaction in transactions)
+            {
+                if (transaction.GetAccountHolder().Trim().Equals(AccountHolder.Trim()))
+                {
+                    transactionsForAccountHolder.Add(transaction);
+                }
+            }
+            return transactionsForAccountHolder;
+        }
     }
 }

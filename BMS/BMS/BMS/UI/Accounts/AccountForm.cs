@@ -28,7 +28,7 @@ namespace BMS.UI
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-          Customer currentCustomer = CustomerDL.GetCurrentCustomer();
+          MUser currentUser = MUserDL.GetCurrentUser();
             string AccountHolder = IpName.Text.ToString();
             string DateOfBirth = IpDOB.Text.ToString();
             string Address = IpAddress.Text.ToString();
@@ -38,31 +38,29 @@ namespace BMS.UI
             int IntialDeposit = Convert.ToInt32(IpIntialDeposite.Text.ToString());
             // check if there is savings or checkings
             string type = AccountTypeCb.SelectedItem.ToString();
-            
+
             //check if account type is checkings
-            if (type == "checkings")
-            {
-                currentCustomer.CreateCheckingAccount(DateOfBirth, Address,
-                                   Phone, SocialSecurityNumber, MonthlyIncome, IntialDeposit, AccountHolder,type);
-
-            }
-            else
-            {
-                currentCustomer.CreateSavingsAccount(DateOfBirth, Address,
-                Phone, SocialSecurityNumber, MonthlyIncome, IntialDeposit, AccountHolder, type);
-
-                
-            }
-            currentCustomer.GetAccount().GenerateAccountNumber(); // generate account number
+            currentUser.CreateCheckingAccount(DateOfBirth, Address, Phone, SocialSecurityNumber, MonthlyIncome, IntialDeposit, AccountHolder, type);
+            currentUser.GetAccount().GenerateAccountNumber(); // generate account number
                                                                   // store in the database
-            AccountDL.SaveAccountToDataBase(currentCustomer.GetAccount());
+            AccountDL.SaveAccountToDataBase(currentUser.GetAccount());
             // store in the List
-            AccountDL.AddAccount(currentCustomer.GetAccount());
+            AccountDL.AddAccount(currentUser.GetAccount());
             MessageBox.Show("Account created successfully");
             this.Hide();
             AccountzDet accountzDet = new AccountzDet();
             accountzDet.Show();
             
+        }
+
+        private void IpName_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void IpDOB_TextChanged(object sender, EventArgs e)
+        {
+            AddBtn.Enabled = !string.IsNullOrEmpty(IpDOB.Text); 
         }
     }
 }

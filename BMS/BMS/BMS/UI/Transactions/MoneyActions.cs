@@ -14,8 +14,8 @@ namespace BMS.UI
 {
     public partial class MoneyActions : Form
     {
-            static Customer customer = CustomerDL.GetCurrentCustomer(); // get current customer
-            static Account account = customer.GetAccount(); // get current account
+            static MUser currentUser = MUserDL.GetCurrentUser(); // get current user
+            static Account account = currentUser.GetAccount(); // get current account
         public MoneyActions()
         {
             InitializeComponent();

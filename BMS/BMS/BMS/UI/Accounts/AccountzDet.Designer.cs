@@ -44,6 +44,8 @@
             this.IpDOB = new System.Windows.Forms.TextBox();
             this.IpAddress = new System.Windows.Forms.TextBox();
             this.IpName = new System.Windows.Forms.TextBox();
+            this.EditBtn = new System.Windows.Forms.Button();
+            this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SuspendLayout();
             // 
             // label8
@@ -59,6 +61,7 @@
             // 
             this.IpAccountNum.Location = new System.Drawing.Point(425, 352);
             this.IpAccountNum.Name = "IpAccountNum";
+            this.IpAccountNum.ReadOnly = true;
             this.IpAccountNum.Size = new System.Drawing.Size(147, 22);
             this.IpAccountNum.TabIndex = 44;
             // 
@@ -143,6 +146,7 @@
             // 
             this.IpSSN.Location = new System.Drawing.Point(317, 234);
             this.IpSSN.Name = "IpSSN";
+            this.IpSSN.ReadOnly = true;
             this.IpSSN.Size = new System.Drawing.Size(147, 22);
             this.IpSSN.TabIndex = 34;
             // 
@@ -174,11 +178,33 @@
             this.IpName.Size = new System.Drawing.Size(147, 22);
             this.IpName.TabIndex = 30;
             // 
+            // EditBtn
+            // 
+            this.EditBtn.Location = new System.Drawing.Point(667, 466);
+            this.EditBtn.Name = "EditBtn";
+            this.EditBtn.Size = new System.Drawing.Size(75, 23);
+            this.EditBtn.TabIndex = 46;
+            this.EditBtn.Text = "Edit";
+            this.EditBtn.UseVisualStyleBackColor = true;
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
+            // 
+            // BalanceLbl
+            // 
+            this.BalanceLbl.BackColor = System.Drawing.Color.Transparent;
+            this.BalanceLbl.Location = new System.Drawing.Point(12, 12);
+            this.BalanceLbl.Name = "BalanceLbl";
+            this.BalanceLbl.Size = new System.Drawing.Size(87, 18);
+            this.BalanceLbl.TabIndex = 47;
+            this.BalanceLbl.Text = "Total Balance";
+            this.BalanceLbl.Click += new System.EventHandler(this.BalanceLbl_Click);
+            // 
             // AccountzDet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 519);
+            this.Controls.Add(this.BalanceLbl);
+            this.Controls.Add(this.EditBtn);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.IpAccountNum);
             this.Controls.Add(this.label7);
@@ -221,5 +247,7 @@
         private System.Windows.Forms.TextBox IpDOB;
         private System.Windows.Forms.TextBox IpAddress;
         private System.Windows.Forms.TextBox IpName;
+        private System.Windows.Forms.Button EditBtn;
+        private Guna.UI2.WinForms.Guna2HtmlLabel BalanceLbl;
     }
 }

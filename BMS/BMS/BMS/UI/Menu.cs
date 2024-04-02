@@ -29,12 +29,12 @@ namespace BMS.UI
 
         private void AddAccount_Click(object sender, EventArgs e)
         {
-           
 
 
-            Customer currentCustomer = CustomerDL.GetCurrentCustomer();
 
-            Account account = currentCustomer.GetAccount();
+            MUser currentUser = MUserDL.GetCurrentUser();
+
+            Account account = currentUser.GetAccount();
             if (account != null)
             {
                 MessageBox.Show("Account already exists");
@@ -55,5 +55,24 @@ namespace BMS.UI
             InterestRates interestRates = new InterestRates();
             interestRates.Show();
         }
+
+        private void GoToHistoryPg_Click(object sender, EventArgs e)
+        {
+            History history = new History();
+            history.Show();
+        }
+
+        private void SettingsBtn_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
+
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

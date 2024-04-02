@@ -1,8 +1,9 @@
 ﻿using BMS.DL;
-using BMS.UI;
+using BMS.UI;                                        // Remaing code
+using DatabaseProject;                  // enabled or diSabled button will be added
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Collections.Generic;      // Edit Info
+using System.Linq;                       // Apply for loan
 using System.Threading.Tasks;
 using System.Windows.Forms;
 

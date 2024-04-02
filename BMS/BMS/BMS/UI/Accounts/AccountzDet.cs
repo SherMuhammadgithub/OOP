@@ -14,6 +14,9 @@ namespace BMS.UI.Accounts
 {
     public partial class AccountzDet : Form
     {
+       static MUser currentUser = MUserDL.GetCurrentUser();
+       static Account currentAccount = currentUser.GetAccount();
+
         public AccountzDet()
         {
             InitializeComponent();
@@ -26,10 +29,10 @@ namespace BMS.UI.Accounts
         }
         private void LoadAccountInfo()
         {
-           Customer customer =  CustomerDL.GetCurrentCustomer(); 
-           Account currentAccount =  customer.GetAccount();
-            
-            
+            // loading Balance 
+
+           
+
             if (currentAccount == null)
             {
                 MessageBox.Show("Account not found");
@@ -43,6 +46,39 @@ namespace BMS.UI.Accounts
             IpMontlySalary.Text = currentAccount.GetMonthlyIncome().ToString();
             IpIntialDeposite.Text = currentAccount.GetIntialDeposit().ToString();
             IpAccountNum.Text = currentAccount.GetAccountNumber().ToString();
+            BalanceLbl.Text = currentAccount.GetIntialDeposit().ToString();
+            BalanceLbl.Text = $"Current Amount: {currentAccount.GetIntialDeposit()}";
+            MessageBox.Show(currentAccount.GetIntialDeposit().ToString());
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            // update the account
+            MUser prevUser = MUserDL.GetCurrentUser();
+            Account currentAccount = prevUser.GetAccount();
+            // get the previous account holder name
+            string prevAccountHolder = currentAccount.GetAccountHolder(); 
+            currentAccount.SetAccountHolder(IpName.Text);
+            currentAccount.SetDateOfBirth(IpDOB.Text);
+            currentAccount.SetAddress(IpAddress.Text);
+            currentAccount.SetPhone(Convert.ToInt32(IpPhone.Text));
+            currentAccount.SetSocialSecurityNumber(IpSSN.Text);
+            currentAccount.SetMonthlyIncome(Convert.ToInt32(IpMontlySalary.Text));
+            currentAccount.SetIntialDeposit(Convert.ToInt32(IpIntialDeposite.Text));
+            currentAccount.SetAccountNumber(Convert.ToInt32(IpAccountNum.Text));
+            prevUser.SetUsername(IpName.Text);
+            MessageBox.Show("Account updated successfully");
+            // updating data in the list
+            AccountDL.UpdateAccountInList(currentAccount, prevAccountHolder);
+            MUserDL.UpdateUserList(prevUser, prevAccountHolder);
+            // updating in the database
+            AccountDL.UpdateAccountInfo(currentAccount, prevAccountHolder);
+            MUserDL.UpdateUserInfo(prevUser, prevAccountHolder);
+        }
+
+        private void BalanceLbl_Click(object sender, EventArgs e)
+        {
+        
         }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using BMS.BL;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BMS.DL
 {
@@ -67,6 +69,31 @@ namespace BMS.DL
         public static MUser GetCurrentUser()
         {
             return MUserDL.currentUser;
+        }
+        public static void UpdateUserInfo(MUser user, string prevUserName)
+        {
+            string Query = $"UPDATE BMSUsers SET Name = '{user.GetUsername()}', Password = '{user.GetPassword()}' WHERE Name = '{prevUserName}'";
+            int rowsAffected = Function.SetData(Query);
+            if (rowsAffected > 0)
+            {
+                Console.WriteLine("User updated");
+            }
+        }
+        // perform updation on List of users
+        public static void UpdateUserList(MUser user, string prevUserName)
+        {
+            foreach (MUser u in users)
+            {
+                if (u.GetUsername() == prevUserName)
+                {
+                    MessageBox.Show("Matchings");
+                    MessageBox.Show(u.GetUsername());
+                    u.SetUsername(user.GetUsername());
+                    u.SetPassword(user.GetPassword());
+                    StoreCurrentUser(user);
+                    break;
+                }
+            }
         }
     }
 }

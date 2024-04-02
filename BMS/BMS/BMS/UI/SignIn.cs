@@ -17,33 +17,30 @@ namespace BMS.UI
         public SignIn()
         {
             InitializeComponent();
+
         }
         private void SignInBtn_Click(object sender, EventArgs e)
         {
             MUser user = new MUser(InputName.Text, InputPass.Text);
+
             if (MUserDL.SignIn(user))
             {
                 MessageBox.Show("User signed in successfully");
                 MUserDL.StoreCurrentUser(user); // a middleware to store current user
-                // setting current customer
-                bool isSet = CustomerDL.SetCurrentCustomer(user);
-                if (isSet)
-                {
-                    MessageBox.Show("Current customer set successfully");
-                }
+           
                 // setting current customer Account
-                 Customer currentCustomer = CustomerDL.GetCurrentCustomer();
-                Account account = AccountDL.isAccountExists(currentCustomer.GetCustomerName());
+                MUser currentUser = MUserDL.GetCurrentUser();
+                Account account = AccountDL.isAccountExists(currentUser.GetUsername());
                 if (account != null)
                 {
                     MessageBox.Show("Account found");
-                    currentCustomer.SetCurrentAccount(account);
+                    currentUser.SetCurrentAccount(account);
                 }
                 // if account not found
                 else
                 {
                     MessageBox.Show("Account not found");
-                    currentCustomer.SetCurrentAccount(null); // set null
+                    currentUser.SetCurrentAccount(null); // set null
                 }
                 this.Hide();
                 Menu menu = new Menu();

@@ -79,6 +79,37 @@ namespace BMS.BL
         {
             AccountNumber = accNo;
         }
+
+        // all setter methods
+        public void SetAccountHolder(string AccountHolder)
+        {
+            this.AccountHolder = AccountHolder;
+        }
+        public void SetDateOfBirth(string DateOfBirth)
+        {
+            this.DateOfBirth = DateOfBirth;
+        }
+        public void SetAddress(string Address)
+        {
+            this.Address = Address;
+        }
+        public void SetPhone(int Phone)
+        {
+            this.Phone = Phone;
+        }
+        public void SetSocialSecurityNumber(string SocialSecurityNumber)
+        {
+            this.SocialSecurityNumber = SocialSecurityNumber;
+        }
+        public void SetMonthlyIncome(int MonthlyIncome)
+        {
+            this.MonthlyIncome = MonthlyIncome;
+        }
+        public void SetIntialDeposit(int IntialDeposit)
+        {
+            this.IntialDeposit = IntialDeposit;
+        }
+
         public void Deposit(int amount)
         {
             if(amount > 0)

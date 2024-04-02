@@ -69,6 +69,32 @@ namespace BMS.DL
                 MessageBox.Show("Balance updated");
             }
         }
+        public static void UpdateAccountInfo(Account account, string prevAccountHolder)
+        {
+            string Query = $"UPDATE Accounts SET AccountHolder = '{account.GetAccountHolder()}', DOB = '{account.GetDateOfBirth()}', Address = '{account.GetAddress()}', Phone = {account.GetPhone()}, SSN = '{account.GetSocialSecurityNumber()}', Income = {account.GetMonthlyIncome()}, Balance = {account.GetIntialDeposit()} WHERE AccountHolder = '{prevAccountHolder}'";
+            int rowsAffected = Function.SetData(Query);
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show("Account updated");
+            }
+        }
+        // update account in the list when the account holder name is updated
+        public static void UpdateAccountInList(Account account, string prevAccountHolder)
+        {
+            foreach (Account acc in accounts)
+            {
+                if (acc.GetAccountHolder().Equals(prevAccountHolder))
+                {
+                    acc.SetAccountHolder(account.GetAccountHolder());
+                    acc.SetDateOfBirth(account.GetDateOfBirth());
+                    acc.SetAddress(account.GetAddress());
+                    acc.SetPhone(account.GetPhone());
+                    acc.SetSocialSecurityNumber(account.GetSocialSecurityNumber());
+                    acc.SetMonthlyIncome(account.GetMonthlyIncome());
+                    acc.SetIntialDeposit(account.GetIntialDeposit());
+                }
+            }
+        }
        
     }
 }

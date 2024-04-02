@@ -32,11 +32,13 @@
             this.FormDetPage = new System.Windows.Forms.Button();
             this.MoneyActBtn = new System.Windows.Forms.Button();
             this.BankFeePgBtn = new System.Windows.Forms.Button();
+            this.GoToHistoryPg = new System.Windows.Forms.Button();
+            this.SettingsBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddAccount
             // 
-            this.AddAccount.Location = new System.Drawing.Point(330, 244);
+            this.AddAccount.Location = new System.Drawing.Point(330, 203);
             this.AddAccount.Name = "AddAccount";
             this.AddAccount.Size = new System.Drawing.Size(141, 23);
             this.AddAccount.TabIndex = 5;
@@ -46,7 +48,7 @@
             // 
             // FormDetPage
             // 
-            this.FormDetPage.Location = new System.Drawing.Point(330, 183);
+            this.FormDetPage.Location = new System.Drawing.Point(330, 142);
             this.FormDetPage.Name = "FormDetPage";
             this.FormDetPage.Size = new System.Drawing.Size(141, 23);
             this.FormDetPage.TabIndex = 4;
@@ -56,7 +58,7 @@
             // 
             // MoneyActBtn
             // 
-            this.MoneyActBtn.Location = new System.Drawing.Point(330, 119);
+            this.MoneyActBtn.Location = new System.Drawing.Point(330, 78);
             this.MoneyActBtn.Name = "MoneyActBtn";
             this.MoneyActBtn.Size = new System.Drawing.Size(141, 23);
             this.MoneyActBtn.TabIndex = 6;
@@ -66,7 +68,7 @@
             // 
             // BankFeePgBtn
             // 
-            this.BankFeePgBtn.Location = new System.Drawing.Point(330, 307);
+            this.BankFeePgBtn.Location = new System.Drawing.Point(330, 266);
             this.BankFeePgBtn.Name = "BankFeePgBtn";
             this.BankFeePgBtn.Size = new System.Drawing.Size(141, 23);
             this.BankFeePgBtn.TabIndex = 7;
@@ -74,17 +76,40 @@
             this.BankFeePgBtn.UseVisualStyleBackColor = true;
             this.BankFeePgBtn.Click += new System.EventHandler(this.BankFeePgBtn_Click);
             // 
+            // GoToHistoryPg
+            // 
+            this.GoToHistoryPg.Location = new System.Drawing.Point(330, 324);
+            this.GoToHistoryPg.Name = "GoToHistoryPg";
+            this.GoToHistoryPg.Size = new System.Drawing.Size(141, 23);
+            this.GoToHistoryPg.TabIndex = 8;
+            this.GoToHistoryPg.Text = "Recent History";
+            this.GoToHistoryPg.UseVisualStyleBackColor = true;
+            this.GoToHistoryPg.Click += new System.EventHandler(this.GoToHistoryPg_Click);
+            // 
+            // SettingsBtn
+            // 
+            this.SettingsBtn.Location = new System.Drawing.Point(330, 380);
+            this.SettingsBtn.Name = "SettingsBtn";
+            this.SettingsBtn.Size = new System.Drawing.Size(141, 23);
+            this.SettingsBtn.TabIndex = 9;
+            this.SettingsBtn.Text = "Settings";
+            this.SettingsBtn.UseVisualStyleBackColor = true;
+            this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SettingsBtn);
+            this.Controls.Add(this.GoToHistoryPg);
             this.Controls.Add(this.BankFeePgBtn);
             this.Controls.Add(this.MoneyActBtn);
             this.Controls.Add(this.AddAccount);
             this.Controls.Add(this.FormDetPage);
             this.Name = "Menu";
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.ResumeLayout(false);
 
         }
@@ -95,5 +120,7 @@
         private System.Windows.Forms.Button FormDetPage;
         private System.Windows.Forms.Button MoneyActBtn;
         private System.Windows.Forms.Button BankFeePgBtn;
+        private System.Windows.Forms.Button GoToHistoryPg;
+        private System.Windows.Forms.Button SettingsBtn;
     }
 }

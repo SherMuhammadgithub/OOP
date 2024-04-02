@@ -36,7 +36,7 @@ namespace BMS.UI
         private void TransferBtn_Click(object sender, EventArgs e)
         {
    
-             Account currectAccount = CustomerDL.GetCurrentCustomer().GetAccount();
+             Account currectAccount = MUserDL.GetCurrentUser().GetAccount();
             string accountHolder = AccountCb.SelectedItem.ToString();
             int amount = Convert.ToInt32(IpAmount.Text);
             Account account = AccountDL.isAccountExists(accountHolder);
