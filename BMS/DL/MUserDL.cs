@@ -20,7 +20,6 @@ namespace BMS.DL
         }
         public static bool SignIn(MUser user)
         {
-            // check if the user is in the list
             foreach (MUser u in users)
             {
                 if (u.GetUsername() == user.GetUsername() && u.GetPassword() == user.GetPassword())
@@ -32,7 +31,6 @@ namespace BMS.DL
         }
         public static bool SignUp(MUser user)
         {
-            // check if the user is in the list
             foreach (MUser u in users)
             {
                 if (u.GetUsername() == user.GetUsername())
@@ -63,13 +61,13 @@ namespace BMS.DL
         }
        public static void StoreCurrentUser(MUser user)
         {
-             currentUser = user; //  store the current user
+             currentUser = user; 
         }
-        // get the current user
         public static MUser GetCurrentUser()
         {
             return MUserDL.currentUser;
         }
+        // updating in database
         public static void UpdateUserInfo(MUser user, string prevUserName)
         {
             string Query = $"UPDATE BMSUsers SET Name = '{user.GetUsername()}', Password = '{user.GetPassword()}' WHERE Name = '{prevUserName}'";
@@ -79,7 +77,7 @@ namespace BMS.DL
                 Console.WriteLine("User updated");
             }
         }
-        // perform updation on List of users
+        // updating in List
         public static void UpdateUserList(MUser user, string prevUserName)
         {
             foreach (MUser u in users)

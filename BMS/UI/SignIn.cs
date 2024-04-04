@@ -26,7 +26,7 @@ namespace BMS.UI
             if (MUserDL.SignIn(user))
             {
                 MessageBox.Show("User signed in successfully");
-                MUserDL.StoreCurrentUser(user); // a middleware to store current user
+                MUserDL.StoreCurrentUser(user); 
            
                 // setting current customer Account
                 MUser currentUser = MUserDL.GetCurrentUser();
@@ -34,13 +34,15 @@ namespace BMS.UI
                 if (account != null)
                 {
                     MessageBox.Show("Account found");
+                   int monthlyFee =  account.MonthlyFee();
+                    MessageBox.Show(monthlyFee.ToString());
                     currentUser.SetCurrentAccount(account);
                 }
                 // if account not found
                 else
                 {
                     MessageBox.Show("Account not found");
-                    currentUser.SetCurrentAccount(null); // set null
+                    currentUser.SetCurrentAccount(null); 
                 }
                 this.Hide();
                 Menu menu = new Menu();

@@ -27,9 +27,14 @@ namespace BMS.UI
         private void LoadAccount()
         {
             List<Account> accounts = AccountDL.GetAccounts();
-            // load accounHolder names in combobox
+             
             foreach (Account account in accounts)
             {
+                // skip the current account
+                if (account.GetAccountHolder() == MUserDL.GetCurrentUser().GetUsername())
+                {
+                    continue;
+                }
                 AccountCb.Items.Add(account.GetAccountHolder());
             }
         }

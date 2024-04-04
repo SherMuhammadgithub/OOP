@@ -32,7 +32,7 @@ namespace BMS.BL
         {
             return Date;
         }
-        public void SetDate(DateTime date) // in case of data loading from the database
+        public void SetDate(DateTime date)
         {
             Date = date;
         }

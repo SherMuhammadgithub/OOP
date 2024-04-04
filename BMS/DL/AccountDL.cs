@@ -21,7 +21,7 @@ namespace BMS.DL
         {
             return accounts;
         }
-        public static void LoadAccounts() // try catch has been used
+        public static void LoadAccounts() 
         {
             string Query = "SELECT * FROM Accounts";
             DataTable dt = Function.GetData(Query);
@@ -29,23 +29,28 @@ namespace BMS.DL
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    Account account = new Account(row["DOB"].ToString(),
-                        row["Address"].ToString(), Convert.ToInt32(row["Phone"]),
-                        row["SSN"].ToString(), Convert.ToInt32(row["Income"]),
-                        Convert.ToInt32(row["Balance"]), row["AccountHolder"].ToString(), row["AccountType"].ToString());
-                    account.SetAccountNumber(Convert.ToInt32(row["AccountNumber"]));
-                    AddAccount(account);
+                    if (row["AccountType"].ToString().Equals("savings"))
+                    {
+                        Savings savings = new Savings(row["DOB"].ToString(), row["Address"].ToString(), Convert.ToInt32(row["Phone"]), row["SSN"].ToString(), Convert.ToInt32(row["Income"]), Convert.ToInt32(row["Balance"]), row["AccountHolder"].ToString(), row["AccountType"].ToString());
+                        savings.SetAccountNumber(Convert.ToInt32(row["AccountNumber"]));
+                        AddAccount(savings);
+                    }
+                    else
+                    {
+                        Checking checking = new Checking(row["DOB"].ToString(), row["Address"].ToString(), Convert.ToInt32(row["Phone"]), row["SSN"].ToString(), Convert.ToInt32(row["Income"]), Convert.ToInt32(row["Balance"]), row["AccountHolder"].ToString(), row["AccountType"].ToString());
+                        checking.SetAccountNumber(Convert.ToInt32(row["AccountNumber"]));
+                        AddAccount(checking);
+                    }
                 }
             }
 
         }
         public static Account isAccountExists(string CurrentCustomerName)
         {
-            // check if the user is in the list
             foreach (Account account in accounts)
             {
                 MessageBox.Show(CurrentCustomerName + "" + account.GetAccountHolder());
-                // check if the account holder name is in the list and trim spaces
+
                 if (account.GetAccountHolder().Trim().Equals(CurrentCustomerName.Trim()))
                 {
                     return account;
@@ -57,7 +62,7 @@ namespace BMS.DL
         {
             string Query = "INSERT INTO Accounts (DOB, Address, Phone, SSN, Income, Balance, AccountHolder,AccountType,AccountNumber) VALUES ('{0}','{1}',{2},'{3}',{4},{5},'{6}','{7}',{8})";
             MessageBox.Show(account.GetAccountNumber().ToString());
-            Query = string.Format(Query, account.GetDateOfBirth(), account.GetAddress(), account.GetPhone(), account.GetSocialSecurityNumber(), account.GetMonthlyIncome(), account.GetIntialDeposit(), account.GetAccountHolder(),account.GetType(),account.GetAccountNumber());
+            Query = string.Format(Query, account.GetDateOfBirth(), account.GetAddress(), account.GetPhone(), account.GetSocialSecurityNumber(), account.GetMonthlyIncome(), account.GetIntialDeposit(), account.GetAccountHolder(),account.GetAccountType(),account.GetAccountNumber());
             Function.SetData(Query);
         }
         public static void UpdateBalanceOnTransactions(int newBalance, string AccountHolder)
@@ -69,6 +74,7 @@ namespace BMS.DL
                 MessageBox.Show("Balance updated");
             }
         }
+        // updating in database
         public static void UpdateAccountInfo(Account account, string prevAccountHolder)
         {
             string Query = $"UPDATE Accounts SET AccountHolder = '{account.GetAccountHolder()}', DOB = '{account.GetDateOfBirth()}', Address = '{account.GetAddress()}', Phone = {account.GetPhone()}, SSN = '{account.GetSocialSecurityNumber()}', Income = {account.GetMonthlyIncome()}, Balance = {account.GetIntialDeposit()} WHERE AccountHolder = '{prevAccountHolder}'";
@@ -78,7 +84,7 @@ namespace BMS.DL
                 MessageBox.Show("Account updated");
             }
         }
-        // update account in the list when the account holder name is updated
+        // updating in List
         public static void UpdateAccountInList(Account account, string prevAccountHolder)
         {
             foreach (Account acc in accounts)

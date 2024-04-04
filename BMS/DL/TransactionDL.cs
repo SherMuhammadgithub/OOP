@@ -20,7 +20,7 @@ namespace BMS.DL
             return transactions;
             
         }
-        public static void LoadTransactionData() // bool will be made
+        public static void LoadTransactionData() 
         {
             string Query = "SELECT * FROM Transactions";
             DataTable dataTable = Function.GetData(Query);
@@ -47,7 +47,7 @@ namespace BMS.DL
             return false;
             
         }
-        // get transactions for a specific account holder
+        // specific Transactions for specific account holder
         public static List<Transactions> GetTransactionsForSpecificAccount(string AccountHolder)
         {
             List<Transactions> transactionsForAccountHolder = new List<Transactions>();

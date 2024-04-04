@@ -181,7 +181,7 @@ namespace BMS.UI
             this.AccountTypeCb.FormattingEnabled = true;
             this.AccountTypeCb.Items.AddRange(new object[] {
             "savings",
-            "checkings"});
+            "checking"});
             this.AccountTypeCb.Location = new System.Drawing.Point(473, 338);
             this.AccountTypeCb.Name = "AccountTypeCb";
             this.AccountTypeCb.Size = new System.Drawing.Size(121, 24);

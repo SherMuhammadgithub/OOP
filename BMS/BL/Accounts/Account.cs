@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace BMS.BL
 {
-    internal class Account
+    internal abstract class Account
     {
         protected string DateOfBirth;
         protected string Address;
@@ -33,11 +33,11 @@ namespace BMS.BL
             this.AccountType = AccountType;
             transactions = new List<Transactions>();
         }
-        public string GetType()
+        public string GetAccountType()
         {
             return AccountType;
         }
-        public string GetAccountHolder() // get account holder name
+        public string GetAccountHolder() 
         {
            return AccountHolder;
         }
@@ -64,7 +64,6 @@ namespace BMS.BL
         {
             return IntialDeposit;
         }
-        // generate account number for the user
         public void GenerateAccountNumber()
         {
             Random random = new Random();
@@ -74,13 +73,11 @@ namespace BMS.BL
         {
            return AccountNumber;
         }
-        // in case when account number is already generated and stored in the database
         public void SetAccountNumber(int accNo)
         {
             AccountNumber = accNo;
         }
 
-        // all setter methods
         public void SetAccountHolder(string AccountHolder)
         {
             this.AccountHolder = AccountHolder;
@@ -109,13 +106,16 @@ namespace BMS.BL
         {
             this.IntialDeposit = IntialDeposit;
         }
+        private void SetBalance(int amount)
+        {
+            IntialDeposit = amount;
+        }
 
         public void Deposit(int amount)
         {
             if(amount > 0)
             {
                 IntialDeposit += amount;
-                // Add to transaction
                 Transactions transaction = new Transactions("Deposit",amount,AccountHolder);
                 bool isSaved = TransactionDL.SaveToDatabase(transaction);
                 if (isSaved)
@@ -131,7 +131,6 @@ namespace BMS.BL
            if(IntialDeposit - amount >= 0)
             {
                 IntialDeposit -= amount;
-                // Add to transaction
                 Transactions transaction = new Transactions("Withdraw", amount, AccountHolder);
                 bool isSaved = TransactionDL.SaveToDatabase(transaction);
                 if (isSaved)
@@ -146,7 +145,6 @@ namespace BMS.BL
                  MessageBox.Show("Insufficient balance");
             }
         }
-        // in case of transfer we are using two accounts
         public void Transfer(int amount, Account accountToTransfer,Account currentAccount)
         {
             int Balance = currentAccount.GetIntialDeposit();
@@ -154,8 +152,8 @@ namespace BMS.BL
             {
                 Balance -= amount;
                 currentAccount.SetBalance(Balance);
-                accountToTransfer.Deposit(amount, accountToTransfer); // deposit to the other account
-                // Add to transaction
+                accountToTransfer.Deposit(amount, accountToTransfer); // deposit to other account
+
                 Transactions transaction = new Transactions("Transfer", amount, currentAccount.GetAccountHolder());
                 transactions.Add(transaction);
                 bool isSaved = TransactionDL.SaveToDatabase(transaction);
@@ -166,12 +164,8 @@ namespace BMS.BL
                 }
             }
         }
-        // set balance in case of transfer
-        private void SetBalance(int amount)
-        {
-            IntialDeposit = amount;
-        }
-        // deposit money to other account
+       
+       //polymorphic method
         private void Deposit(int amount,Account account)
         {
             int Balance = account.GetIntialDeposit();
@@ -190,5 +184,8 @@ namespace BMS.BL
                 }
             }
         }
+        // abstract methods
+        public abstract int MonthlyFee();
+        public abstract int InterestRate();
     }
 }

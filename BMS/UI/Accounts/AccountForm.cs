@@ -40,7 +40,7 @@ namespace BMS.UI
             string type = AccountTypeCb.SelectedItem.ToString();
 
             //check if account type is checkings
-            currentUser.CreateCheckingAccount(DateOfBirth, Address, Phone, SocialSecurityNumber, MonthlyIncome, IntialDeposit, AccountHolder, type);
+            currentUser.CreateAccount(DateOfBirth, Address, Phone, SocialSecurityNumber, MonthlyIncome, IntialDeposit, AccountHolder, type);
             currentUser.GetAccount().GenerateAccountNumber(); // generate account number
                                                                   // store in the database
             AccountDL.SaveAccountToDataBase(currentUser.GetAccount());
