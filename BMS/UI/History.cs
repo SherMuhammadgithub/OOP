@@ -27,14 +27,13 @@ namespace BMS.UI
         private void OnLoad()
         {
            MUser currentUser = MUserDL.GetCurrentUser();
-           List<Transactions> transactions = TransactionDL.GetTransactionsForSpecificAccount(currentUser.GetAccount().GetAccountHolder());
+            List<Transactions> transactions = currentUser.GetAccount().GetTransactions();
             foreach (Transactions transaction in transactions)
             {
                 TransactionDataGrid.Rows.Add(transaction.GetTransactionType(), transaction.GetAmount(), transaction.GetDate());
             }
 
         }
-
         private void Transactions_Load(object sender, EventArgs e)
         {
 

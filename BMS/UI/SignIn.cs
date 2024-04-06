@@ -34,9 +34,9 @@ namespace BMS.UI
                 if (account != null)
                 {
                     MessageBox.Show("Account found");
-                   int monthlyFee =  account.MonthlyFee();
-                    MessageBox.Show(monthlyFee.ToString());
                     currentUser.SetCurrentAccount(account);
+                    // setting transactions for the account
+                    account.SetTransactions(TransactionDL.GetTransactionsForSpecificAccount(account.GetAccountHolder()));
                 }
                 // if account not found
                 else

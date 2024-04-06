@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -123,6 +124,7 @@ namespace BMS.BL
                     MessageBox.Show("Transaction saved successfully");
                     AccountDL.UpdateBalanceOnTransactions(IntialDeposit, AccountHolder);
                 }
+                TransactionDL.AddTransaction(transaction);
                 transactions.Add(transaction);
             }
         }
@@ -138,6 +140,7 @@ namespace BMS.BL
                     MessageBox.Show("Transaction saved successfully");
                     AccountDL.UpdateBalanceOnTransactions(IntialDeposit, AccountHolder);
                 }
+                TransactionDL.AddTransaction(transaction);
                 transactions.Add(transaction);
             }
            else
@@ -155,13 +158,18 @@ namespace BMS.BL
                 accountToTransfer.Deposit(amount, accountToTransfer); // deposit to other account
 
                 Transactions transaction = new Transactions("Transfer", amount, currentAccount.GetAccountHolder());
-                transactions.Add(transaction);
                 bool isSaved = TransactionDL.SaveToDatabase(transaction);
                 if(isSaved)
                 {
                     MessageBox.Show("Transaction saved successfully");
                     AccountDL.UpdateBalanceOnTransactions(Balance, currentAccount.GetAccountHolder());
                 }
+                TransactionDL.AddTransaction(transaction);
+                currentAccount.SetTransactions(transaction);
+            }
+            else
+            {
+               MessageBox.Show("Insufficient balance");
             }
         }
        
@@ -176,15 +184,28 @@ namespace BMS.BL
                 // Add to transaction
                 Transactions transaction = new Transactions("Deposit", amount, account.GetAccountHolder());
                 bool isSaved = TransactionDL.SaveToDatabase(transaction);
-                transactions.Add(transaction);
                 if (isSaved)
                 {
                     MessageBox.Show("Transaction saved successfully");
                     AccountDL.UpdateBalanceOnTransactions(Balance, account.GetAccountHolder());
                 }
+                TransactionDL.AddTransaction(transaction);
+                account.SetTransactions(transaction);
+                
             }
         }
-        // abstract methods
+        public void SetTransactions(List<Transactions> transactions) // overloading method for adding list of transactions
+        {
+            this.transactions = transactions;
+        }
+        public void SetTransactions(Transactions transaction) // overloading method for adding single transaction
+        {
+            this.transactions.Add(transaction);
+        }
+        public List<Transactions> GetTransactions()
+        {
+            return transactions;
+        }
         public abstract int MonthlyFee();
         public abstract int InterestRate();
     }
