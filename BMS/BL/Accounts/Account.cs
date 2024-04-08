@@ -1,4 +1,6 @@
 ﻿using BMS.DL;
+using BMS.DLInterfaces;
+using BMS.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -118,14 +120,14 @@ namespace BMS.BL
             {
                 IntialDeposit += amount;
                 Transactions transaction = new Transactions("Deposit",amount,AccountHolder);
-                bool isSaved = TransactionDL.SaveToDatabase(transaction);
+                bool isSaved = ObjectHandler.GetTransactionDL().SaveTransactionInfo(transaction);
                 if (isSaved)
                 {
                     MessageBox.Show("Transaction saved successfully");
-                    AccountDL.UpdateBalanceOnTransactions(IntialDeposit, AccountHolder);
+                    ObjectHandler.GetAccountDL().UpdateBalanceOnTransactions(IntialDeposit, AccountHolder);
                 }
-                TransactionDL.AddTransaction(transaction);
                 transactions.Add(transaction);
+
             }
         }
         public void Withdraw(int amount)
@@ -134,13 +136,12 @@ namespace BMS.BL
             {
                 IntialDeposit -= amount;
                 Transactions transaction = new Transactions("Withdraw", amount, AccountHolder);
-                bool isSaved = TransactionDL.SaveToDatabase(transaction);
+                bool isSaved = ObjectHandler.GetTransactionDL().SaveTransactionInfo(transaction);
                 if (isSaved)
                 {
                     MessageBox.Show("Transaction saved successfully");
-                    AccountDL.UpdateBalanceOnTransactions(IntialDeposit, AccountHolder);
+                    ObjectHandler.GetAccountDL().UpdateBalanceOnTransactions(IntialDeposit, AccountHolder);
                 }
-                TransactionDL.AddTransaction(transaction);
                 transactions.Add(transaction);
             }
            else
@@ -158,14 +159,13 @@ namespace BMS.BL
                 accountToTransfer.Deposit(amount, accountToTransfer); // deposit to other account
 
                 Transactions transaction = new Transactions("Transfer", amount, currentAccount.GetAccountHolder());
-                bool isSaved = TransactionDL.SaveToDatabase(transaction);
+                bool isSaved = ObjectHandler.GetTransactionDL().SaveTransactionInfo(transaction);
                 if(isSaved)
                 {
                     MessageBox.Show("Transaction saved successfully");
-                    AccountDL.UpdateBalanceOnTransactions(Balance, currentAccount.GetAccountHolder());
+                    ObjectHandler.GetAccountDL().UpdateBalanceOnTransactions(Balance, currentAccount.GetAccountHolder());
                 }
-                TransactionDL.AddTransaction(transaction);
-                currentAccount.SetTransactions(transaction);
+                currentAccount.SetTransactions(transaction); 
             }
             else
             {
@@ -183,13 +183,12 @@ namespace BMS.BL
                 account.SetBalance(Balance);
                 // Add to transaction
                 Transactions transaction = new Transactions("Deposit", amount, account.GetAccountHolder());
-                bool isSaved = TransactionDL.SaveToDatabase(transaction);
+                bool isSaved = ObjectHandler.GetTransactionDL().SaveTransactionInfo(transaction);
                 if (isSaved)
                 {
                     MessageBox.Show("Transaction saved successfully");
-                    AccountDL.UpdateBalanceOnTransactions(Balance, account.GetAccountHolder());
+                    ObjectHandler.GetAccountDL().UpdateBalanceOnTransactions(Balance, account.GetAccountHolder());
                 }
-                TransactionDL.AddTransaction(transaction);
                 account.SetTransactions(transaction);
                 
             }

@@ -18,11 +18,14 @@ namespace BMS
         static void Main()
         {
             // load the data from the database
-            MUserDL.LoadData();
+            MessageBox.Show("Loading User Data");
+            ObjectHandler.GetUserDL().LoadData();
             // Accounts Data
-            AccountDL.LoadAccounts();
+            MessageBox.Show("Loading Accounts Data");
+            ObjectHandler.GetAccountDL().LoadAccounts();
             // Transactions Data
-            TransactionDL.LoadTransactionData();
+            MessageBox.Show("Loading Transactions Data");
+            ObjectHandler.GetTransactionDL().LoadTransactionData();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainFrom());

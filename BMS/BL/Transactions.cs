@@ -36,6 +36,10 @@ namespace BMS.BL
         {
             Date = date;
         }
+        public void SetAccountHolder(string accountHolder)
+        {
+            AccountHolder = accountHolder;
+        }
         public string GetAccountHolder()
         {
             return AccountHolder;

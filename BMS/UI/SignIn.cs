@@ -23,20 +23,20 @@ namespace BMS.UI
         {
             MUser user = new MUser(InputName.Text, InputPass.Text);
 
-            if (MUserDL.SignIn(user))
+            if (ObjectHandler.GetUserDL().SignIn(user))
             {
                 MessageBox.Show("User signed in successfully");
-                MUserDL.StoreCurrentUser(user); 
+                ObjectHandler.GetUserDL().StoreCurrentUser(user); 
            
                 // setting current customer Account
-                MUser currentUser = MUserDL.GetCurrentUser();
-                Account account = AccountDL.isAccountExists(currentUser.GetUsername());
+                MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+                Account account = ObjectHandler.GetAccountDL().isAccountExists(currentUser.GetUsername());
                 if (account != null)
                 {
                     MessageBox.Show("Account found");
                     currentUser.SetCurrentAccount(account);
                     // setting transactions for the account
-                    account.SetTransactions(TransactionDL.GetTransactionsForSpecificAccount(account.GetAccountHolder()));
+                    account.SetTransactions(ObjectHandler.GetTransactionDL().GetTransactionsForSpecificAccount(account.GetAccountHolder()));
                 }
                 // if account not found
                 else
@@ -52,6 +52,11 @@ namespace BMS.UI
             {
                 MessageBox.Show("User not found");
             }
+        }
+
+        private void SignIn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

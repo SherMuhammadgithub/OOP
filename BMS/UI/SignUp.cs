@@ -1,5 +1,6 @@
 ﻿using BMS.BL;
 using BMS.DL;
+using BMS.DLInterfaces;
 using BMS.UI;
 using System;
 using System.Collections.Generic;
@@ -22,17 +23,12 @@ namespace BMS
 
         private void SignUpBtn_Click(object sender, EventArgs e)
         {
+            IMUserDL userDL = ObjectHandler.GetUserDL(); // get user data layer
             MUser newUser = new MUser(InputName.Text, InputPass.Text, InputRole.Text);
-            if (MUserDL.SignUp(newUser))
+            if (userDL.SignUp(newUser))
             {
                 MessageBox.Show("User added successfully");
-                string Query = "INSERT INTO BMSUsers (Name, Password, Role) VALUES ('{0}','{1}','{2}')";
-                Query = string.Format(Query, newUser.GetUsername(), newUser.GetPassword(), newUser.GetRole());
-                int isStored = Function.SetData(Query);
-                if(isStored > 0) // rowsAffected
-                {
-                    MessageBox.Show("User added to the database");
-                }
+                userDL.SaveUserInfo(newUser);
                 this.Hide();
                 SignIn signIn = new SignIn();
                 signIn.Show();

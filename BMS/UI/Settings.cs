@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BMS.BL;
+using BMS.DL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,11 @@ namespace BMS.UI
 {
     public partial class Settings : Form
     {
+           MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
         public Settings()
         {
             InitializeComponent();
+            LoadData();
         }
 
         private void UploadBtn_Click(object sender, EventArgs e)
@@ -35,6 +39,28 @@ namespace BMS.UI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void LoadData()
+        {
+            IpPass.Text = currentUser.GetPassword();
+        }
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            // updating password only 
+            currentUser.SetPassword(IpPass.Text);
+            ObjectHandler.GetUserDL().UpdateUserInfo(currentUser, currentUser.GetUsername());
+            MessageBox.Show("Password Updated");
+        }
+
+        private void IpPass_TextChanged(object sender, EventArgs e)
+        {
+            EditBtn.Enabled = !string.IsNullOrEmpty(IpPass.Text);
+
         }
     }
 }

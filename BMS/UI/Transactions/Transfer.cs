@@ -26,12 +26,12 @@ namespace BMS.UI
         }
         private void LoadAccount()
         {
-            List<Account> accounts = AccountDL.GetAccounts();
+            List<Account> accounts = ObjectHandler.GetAccountDL().GetAccounts();
              
             foreach (Account account in accounts)
             {
                 // skip the current account
-                if (account.GetAccountHolder() == MUserDL.GetCurrentUser().GetUsername())
+                if (account.GetAccountHolder() == ObjectHandler.GetUserDL().GetCurrentUser().GetUsername())
                 {
                     continue;
                 }
@@ -41,10 +41,10 @@ namespace BMS.UI
         private void TransferBtn_Click(object sender, EventArgs e)
         {
    
-             Account currectAccount = MUserDL.GetCurrentUser().GetAccount();
+             Account currectAccount = ObjectHandler.GetUserDL().GetCurrentUser().GetAccount();
             string accountHolder = AccountCb.SelectedItem.ToString();
             int amount = Convert.ToInt32(IpAmount.Text);
-            Account account = AccountDL.isAccountExists(accountHolder);
+            Account account = ObjectHandler.GetAccountDL().isAccountExists(accountHolder);
             if (account == null)
             {
                 MessageBox.Show("Account not found");

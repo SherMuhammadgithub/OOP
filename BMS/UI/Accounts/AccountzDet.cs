@@ -1,5 +1,6 @@
 ﻿using BMS.BL;
 using BMS.DL;
+using BMS.DLInterfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,12 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace BMS.UI.Accounts
 {
     public partial class AccountzDet : Form
     {
-       static MUser currentUser = MUserDL.GetCurrentUser();
-       static Account currentAccount = currentUser.GetAccount();
 
         public AccountzDet()
         {
@@ -30,6 +30,8 @@ namespace BMS.UI.Accounts
         private void LoadAccountInfo()
         {
             // loading Balance 
+        MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+        Account currentAccount = currentUser.GetAccount();
 
            
 
@@ -53,8 +55,11 @@ namespace BMS.UI.Accounts
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
+            IAccountDL accountDL = ObjectHandler.GetAccountDL();
+            IMUserDL mUserDL = ObjectHandler.GetUserDL();
+            ITransactionDL transactionDL = ObjectHandler.GetTransactionDL();
             // update the account
-            MUser prevUser = MUserDL.GetCurrentUser();
+            MUser prevUser = mUserDL.GetCurrentUser();
             Account currentAccount = prevUser.GetAccount();
             // get the previous account holder name
             string prevAccountHolder = currentAccount.GetAccountHolder(); 
@@ -68,12 +73,10 @@ namespace BMS.UI.Accounts
             currentAccount.SetAccountNumber(Convert.ToInt32(IpAccountNum.Text));
             prevUser.SetUsername(IpName.Text);
             MessageBox.Show("Account updated successfully");
-            // updating data in the list
-            AccountDL.UpdateAccountInList(currentAccount, prevAccountHolder);
-            MUserDL.UpdateUserList(prevUser, prevAccountHolder);
-            // updating in the database
-            AccountDL.UpdateAccountInfo(currentAccount, prevAccountHolder);
-            MUserDL.UpdateUserInfo(prevUser, prevAccountHolder);
+            // updating in the database & list
+            accountDL.UpdateAccountInfo(currentAccount, prevAccountHolder);
+            transactionDL.UpdtateAccountHolder(prevAccountHolder, IpName.Text); // update account holder in transactions                                                                    
+            mUserDL.UpdateUserInfo(prevUser, prevAccountHolder);
         }
 
         private void BalanceLbl_Click(object sender, EventArgs e)

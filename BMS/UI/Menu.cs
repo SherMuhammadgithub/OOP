@@ -32,7 +32,7 @@ namespace BMS.UI
 
 
 
-            MUser currentUser = MUserDL.GetCurrentUser();
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
 
             Account account = currentUser.GetAccount();
             if (account != null)

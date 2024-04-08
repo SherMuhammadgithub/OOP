@@ -1,5 +1,6 @@
 ﻿using BMS.BL;
 using BMS.DL;
+using BMS.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,7 @@ namespace BMS
         private void OnLoad()
         {
             
-            Account account =MUserDL.GetCurrentUser().GetAccount();
+            Account account = ObjectHandler.GetUserDL().GetCurrentUser().GetAccount();
             IpBankFee.Text = account.MonthlyFee().ToString();
             IpInterestRate.Text = account.InterestRate().ToString();
 

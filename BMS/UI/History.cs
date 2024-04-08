@@ -26,7 +26,7 @@ namespace BMS.UI
         }
         private void OnLoad()
         {
-           MUser currentUser = MUserDL.GetCurrentUser();
+           MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
             List<Transactions> transactions = currentUser.GetAccount().GetTransactions();
             foreach (Transactions transaction in transactions)
             {

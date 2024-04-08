@@ -1,4 +1,5 @@
 ﻿using BMS.BL;
+using BMS.DLInterfaces;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -10,15 +11,15 @@ using System.Windows;
 
 namespace BMS.DL
 {
-    internal class MUserDL
+    internal class MUserDB : IMUserDL
     {
-        public static List<MUser> users = new List<MUser>();
-        public static MUser currentUser;
-        public static void AddUser(MUser user)
+        public  static List<MUser> users = new List<MUser>();
+        public  MUser currentUser;
+        public  void AddUser(MUser user)
         {
             users.Add(user);
         }
-        public static bool SignIn(MUser user)
+        public  bool SignIn(MUser user)
         {
             foreach (MUser u in users)
             {
@@ -29,7 +30,7 @@ namespace BMS.DL
             }
             return false;
         }
-        public static bool SignUp(MUser user)
+        public  bool SignUp(MUser user)
         {
             foreach (MUser u in users)
             {
@@ -38,15 +39,13 @@ namespace BMS.DL
                     return false;
                 }
             }
-            AddUser(user); 
-            
             return true;
         }
 
-        public static bool LoadData()
+        public  void LoadData()
         {
             string Query = "SELECT * FROM BMSUsers";
-            DataTable dt = Function.GetData(Query);
+            DataTable dt = utills.GetData(Query);
             if (dt != null)
             {
                 foreach (DataRow row in dt.Rows)
@@ -54,31 +53,29 @@ namespace BMS.DL
                     MUser user = new MUser(row["Name"].ToString(), row["Password"].ToString(), row["Role"].ToString());
                     AddUser(user);
                 }
-                return true;
             }
-            return false;
 
         }
-       public static void StoreCurrentUser(MUser user)
+       public  void StoreCurrentUser(MUser user)
         {
              currentUser = user; 
         }
-        public static MUser GetCurrentUser()
+        public  MUser GetCurrentUser()
         {
-            return MUserDL.currentUser;
+            return currentUser; // this was changed from static to instance
         }
         // updating in database
-        public static void UpdateUserInfo(MUser user, string prevUserName)
+        public  void UpdateUserInfo(MUser user, string prevUserName)
         {
             string Query = $"UPDATE BMSUsers SET Name = '{user.GetUsername()}', Password = '{user.GetPassword()}' WHERE Name = '{prevUserName}'";
-            int rowsAffected = Function.SetData(Query);
+            int rowsAffected = utills.SetData(Query);
             if (rowsAffected > 0)
             {
                 Console.WriteLine("User updated");
+                UpdateUserList(user, prevUserName); // updating in List
             }
         }
-        // updating in List
-        public static void UpdateUserList(MUser user, string prevUserName)
+        public  void UpdateUserList(MUser user, string prevUserName)
         {
             foreach (MUser u in users)
             {
@@ -93,5 +90,16 @@ namespace BMS.DL
                 }
             }
         }
+        public void SaveUserInfo(MUser user)
+        {
+            string Query = "INSERT INTO BMSUsers (Name, Password, Role) VALUES ('{0}','{1}','{2}')";
+            Query = string.Format(Query, user.GetUsername(), user.GetPassword(), user.GetRole());
+            int isStored = utills.SetData(Query);
+            if (isStored > 0) // rowsAffected
+            {
+                MessageBox.Show("User added to the database");
+                AddUser(user); // add user to the list
+            }
+        }   
     }
 }

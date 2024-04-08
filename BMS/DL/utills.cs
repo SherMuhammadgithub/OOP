@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace BMS.DL
 {
-    internal class Function
+    internal class utills
     {
         public static string conStr = @"Server=localhost\SQLEXPRESS02;Database=BMS;Trusted_Connection=True";
         public static SqlConnection Con;

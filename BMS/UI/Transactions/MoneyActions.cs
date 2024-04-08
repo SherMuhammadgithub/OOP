@@ -14,7 +14,7 @@ namespace BMS.UI
 {
     public partial class MoneyActions : Form
     {
-            static MUser currentUser = MUserDL.GetCurrentUser(); // get current user
+            static MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser(); // get current user
             static Account account = currentUser.GetAccount(); // get current account
         public MoneyActions()
         {
@@ -59,7 +59,10 @@ namespace BMS.UI
             Transfer transfer = new Transfer();
             transfer.Show();
 
+        }
 
+        private void MoneyActions_Load(object sender, EventArgs e)
+        {
 
         }
     }

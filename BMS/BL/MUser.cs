@@ -44,6 +44,10 @@ namespace BMS.BL
         {
             this.password = password;
         }
+        public void SetRole(string role)
+        {
+            this.role = role;
+        }
         // create account
       public void CreateAccount(string DateOfBirth, string Address, int Phone, string SocialSecurityNumber,
                      int MonthlyIncome, int IntialDeposit, string AccountHolder, string AccountType)

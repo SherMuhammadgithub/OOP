@@ -93,6 +93,7 @@
             this.Controls.Add(this.IpAmount);
             this.Name = "MoneyActions";
             this.Text = "MoneyActions";
+            this.Load += new System.EventHandler(this.MoneyActions_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
