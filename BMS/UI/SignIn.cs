@@ -35,6 +35,15 @@ namespace BMS.UI
                 {
                     MessageBox.Show("Account found");
                     currentUser.SetCurrentAccount(account);
+                    Loan loan = ObjectHandler.GetLoanDL().isLoanExists(account.GetAccountHolder());
+                    if (loan != null)
+                    {
+                        account.SetLoan(loan);
+                    }
+                    else
+                    {
+                        account.SetLoan(null);
+                    }
                     // setting transactions for the account
                     account.SetTransactions(ObjectHandler.GetTransactionDL().GetTransactionsForSpecificAccount(account.GetAccountHolder()));
                 }

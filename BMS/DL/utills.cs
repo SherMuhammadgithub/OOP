@@ -61,6 +61,15 @@ namespace BMS.DL
             }
             return cnt;
         }
-
+        // update Account Holder from Accounts + Transactions
+        public static void UpdateAccountHolder(string OldAccountHolder, string NewAccountHolder)
+        {
+            string Query = "UPDATE Accounts SET AccountHolder = '{0}' WHERE AccountHolder = '{1}'";
+            Query = string.Format(Query, NewAccountHolder, OldAccountHolder);
+            SetData(Query);
+            Query = "UPDATE Transactions SET AccountHolder = '{0}' WHERE AccountHolder = '{1}'";
+            Query = string.Format(Query, NewAccountHolder, OldAccountHolder);
+            SetData(Query);
+        }
     }
 }

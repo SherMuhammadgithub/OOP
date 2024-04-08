@@ -28,7 +28,7 @@ namespace BMS.UI
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-          MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
             string AccountHolder = IpName.Text.ToString();
             string DateOfBirth = IpDOB.Text.ToString();
             string Address = IpAddress.Text.ToString();

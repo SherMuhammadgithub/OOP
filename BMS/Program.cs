@@ -26,9 +26,12 @@ namespace BMS
             // Transactions Data
             MessageBox.Show("Loading Transactions Data");
             ObjectHandler.GetTransactionDL().LoadTransactionData();
+            // Loans Data
+            MessageBox.Show("Loading Loans Data");
+            ObjectHandler.GetLoanDL().LoadLoanData(); // bool
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainFrom());
+            Application.Run(new AdminPannel());
         }
     }
 }

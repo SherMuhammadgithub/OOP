@@ -34,6 +34,7 @@
             this.BankFeePgBtn = new System.Windows.Forms.Button();
             this.GoToHistoryPg = new System.Windows.Forms.Button();
             this.SettingsBtn = new System.Windows.Forms.Button();
+            this.LoanPgBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddAccount
@@ -96,11 +97,22 @@
             this.SettingsBtn.UseVisualStyleBackColor = true;
             this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
             // 
+            // LoanPgBtn
+            // 
+            this.LoanPgBtn.Location = new System.Drawing.Point(330, 28);
+            this.LoanPgBtn.Name = "LoanPgBtn";
+            this.LoanPgBtn.Size = new System.Drawing.Size(141, 23);
+            this.LoanPgBtn.TabIndex = 10;
+            this.LoanPgBtn.Text = "Apply Loan";
+            this.LoanPgBtn.UseVisualStyleBackColor = true;
+            this.LoanPgBtn.Click += new System.EventHandler(this.LoanPgBtn_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LoanPgBtn);
             this.Controls.Add(this.SettingsBtn);
             this.Controls.Add(this.GoToHistoryPg);
             this.Controls.Add(this.BankFeePgBtn);
@@ -122,5 +134,6 @@
         private System.Windows.Forms.Button BankFeePgBtn;
         private System.Windows.Forms.Button GoToHistoryPg;
         private System.Windows.Forms.Button SettingsBtn;
+        private System.Windows.Forms.Button LoanPgBtn;
     }
 }

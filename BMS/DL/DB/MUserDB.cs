@@ -72,22 +72,6 @@ namespace BMS.DL
             if (rowsAffected > 0)
             {
                 Console.WriteLine("User updated");
-                UpdateUserList(user, prevUserName); // updating in List
-            }
-        }
-        public  void UpdateUserList(MUser user, string prevUserName)
-        {
-            foreach (MUser u in users)
-            {
-                if (u.GetUsername() == prevUserName)
-                {
-                    MessageBox.Show("Matchings");
-                    MessageBox.Show(u.GetUsername());
-                    u.SetUsername(user.GetUsername());
-                    u.SetPassword(user.GetPassword());
-                    StoreCurrentUser(user);
-                    break;
-                }
             }
         }
         public void SaveUserInfo(MUser user)

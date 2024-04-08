@@ -221,7 +221,7 @@ namespace BMS.DL.FH
                     }
                 }
 
-                MessageBox.Show("Account information updated");
+                MessageBox.Show("Account information updated in file");
             }
             catch (Exception ex)
             {

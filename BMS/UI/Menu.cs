@@ -74,5 +74,10 @@ namespace BMS.UI
 
         }
 
+        private void LoanPgBtn_Click(object sender, EventArgs e)
+        {
+            LoanForm loanForm = new LoanForm();
+            loanForm.Show();
+        }
     }
 }

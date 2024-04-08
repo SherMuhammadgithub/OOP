@@ -1,5 +1,6 @@
 ﻿using BMS.BL;
 using BMS.DL;
+using BMS.DL.FH;
 using BMS.DLInterfaces;
 using System;
 using System.Collections.Generic;
@@ -72,11 +73,13 @@ namespace BMS.UI.Accounts
             currentAccount.SetIntialDeposit(Convert.ToInt32(IpIntialDeposite.Text));
             currentAccount.SetAccountNumber(Convert.ToInt32(IpAccountNum.Text));
             prevUser.SetUsername(IpName.Text);
-            MessageBox.Show("Account updated successfully");
+            currentAccount.GetLoan().SetAccountHolder(IpName.Text);
+            MessageBox.Show("Account updated successfully..........");
             // updating in the database & list
             accountDL.UpdateAccountInfo(currentAccount, prevAccountHolder);
             transactionDL.UpdtateAccountHolder(prevAccountHolder, IpName.Text); // update account holder in transactions                                                                    
             mUserDL.UpdateUserInfo(prevUser, prevAccountHolder);
+            ObjectHandler.GetLoanDL().UpdateLoanInfo(currentAccount.GetLoan(), prevAccountHolder);
         }
 
         private void BalanceLbl_Click(object sender, EventArgs e)

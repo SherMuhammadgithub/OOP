@@ -22,6 +22,7 @@ namespace BMS.BL
         protected int AccountNumber;
         protected string AccountHolder;   // name for account holder foreign key****
         protected List<Transactions> transactions;
+        private Loan loan;
         protected string AccountType;
         public Account( string DateOfBirth, string Address, int Phone, string SocialSecurityNumber,
             int MonthlyIncome, int IntialDeposit,string AccountHolder, string AccountType)
@@ -109,11 +110,19 @@ namespace BMS.BL
         {
             this.IntialDeposit = IntialDeposit;
         }
-        private void SetBalance(int amount)
+        public void SetBalance(int amount)
         {
             IntialDeposit = amount;
         }
-
+       
+        public void SetLoan(Loan loan)
+        {
+            this.loan = loan;
+        }
+        public Loan GetLoan()
+        {
+            return loan;
+        }
         public void Deposit(int amount)
         {
             if(amount > 0)
@@ -200,6 +209,16 @@ namespace BMS.BL
         public void SetTransactions(Transactions transaction) // overloading method for adding single transaction
         {
             this.transactions.Add(transaction);
+        }
+        public bool CreateLoan(string AccountHolder, int LoanAmount, int MonthlyPayment)
+        {
+            if(loan != null)
+            {
+                return false;
+            }
+            loan = new Loan(AccountHolder, LoanAmount, MonthlyPayment);
+            ObjectHandler.GetLoanDL().SaveLoan(loan); /// save loan
+            return true;
         }
         public List<Transactions> GetTransactions()
         {

@@ -15,7 +15,7 @@ namespace BMS.DL
     internal class AccountDB : IAccountDL
     {
         public  static List<Account> accounts = new List<Account>();
-        public  void AddAccount(Account account)
+        public void AddAccount(Account account)
         {
             accounts.Add(account);
         }

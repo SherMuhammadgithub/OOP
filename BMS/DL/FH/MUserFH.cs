@@ -14,7 +14,7 @@ namespace BMS.DL.FH
     internal class MUserFH : IMUserDL
     {
         public static List<MUser> users = new List<MUser>();
-        public MUser currentUser;
+        public static MUser currentUser;
         public void SaveUserInfo(MUser user)
         {
             users.Add(user);
@@ -77,6 +77,7 @@ namespace BMS.DL.FH
         public void UpdateUserInfoInFile(MUser user, string prevUserName)
         {
             string usersFile = "user.txt";
+            // add the first line as column header
 
             try
             {
@@ -127,8 +128,8 @@ namespace BMS.DL.FH
             {
                 if (u.GetUsername() == prevUserName)
                 {
-                    MessageBox.Show("Matchings");
-                    MessageBox.Show(u.GetUsername());
+                   // MessageBox.Show("Matchings");
+                   // MessageBox.Show(u.GetUsername());
                     u.SetUsername(user.GetUsername());
                     u.SetPassword(user.GetPassword());
                     u.SetRole(user.GetRole());
