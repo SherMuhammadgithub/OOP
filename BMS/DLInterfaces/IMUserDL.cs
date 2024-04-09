@@ -14,7 +14,7 @@ namespace BMS.DLInterfaces
         void LoadData();
         void StoreCurrentUser(MUser user);
         MUser GetCurrentUser();
-        void UpdateUserInfo(MUser user, string prevUserName);
-         void SaveUserInfo(MUser user);
+        bool UpdateUserInfo(MUser user, string prevUserName);
+         bool SaveUserInfo(MUser user);
     }
 }

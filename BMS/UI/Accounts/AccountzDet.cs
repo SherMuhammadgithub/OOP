@@ -30,7 +30,6 @@ namespace BMS.UI.Accounts
         }
         private void LoadAccountInfo()
         {
-            // loading Balance 
         MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
         Account currentAccount = currentUser.GetAccount();
 
@@ -59,7 +58,6 @@ namespace BMS.UI.Accounts
             IAccountDL accountDL = ObjectHandler.GetAccountDL();
             IMUserDL mUserDL = ObjectHandler.GetUserDL();
             ITransactionDL transactionDL = ObjectHandler.GetTransactionDL();
-            // update the account
             MUser prevUser = mUserDL.GetCurrentUser();
             Account currentAccount = prevUser.GetAccount();
             // get the previous account holder name
@@ -73,13 +71,22 @@ namespace BMS.UI.Accounts
             currentAccount.SetIntialDeposit(Convert.ToInt32(IpIntialDeposite.Text));
             currentAccount.SetAccountNumber(Convert.ToInt32(IpAccountNum.Text));
             prevUser.SetUsername(IpName.Text);
+            // updating loan information if loan exists
+            if (currentAccount.GetLoan() != null) 
+            {
             currentAccount.GetLoan().SetAccountHolder(IpName.Text);
-            MessageBox.Show("Account updated successfully..........");
-            // updating in the database & list
-            accountDL.UpdateAccountInfo(currentAccount, prevAccountHolder);
-            transactionDL.UpdtateAccountHolder(prevAccountHolder, IpName.Text); // update account holder in transactions                                                                    
-            mUserDL.UpdateUserInfo(prevUser, prevAccountHolder);
-            ObjectHandler.GetLoanDL().UpdateLoanInfo(currentAccount.GetLoan(), prevAccountHolder);
+
+            }
+            // updating information
+            bool isUpdated = accountDL.UpdateAccountInfo(currentAccount, prevAccountHolder);
+            bool isAccountUpdated = transactionDL.UpdtateAccountHolder(prevAccountHolder, IpName.Text); 
+            bool isUserUpdated = mUserDL.UpdateUserInfo(prevUser, prevAccountHolder);
+            bool isLoanUpdated = ObjectHandler.GetLoanDL().UpdateLoanInfo(currentAccount.GetLoan(), prevAccountHolder);
+            if(isAccountUpdated && isUpdated && isUserUpdated && isLoanUpdated)
+            {
+                MessageBox.Show("Information Updated"); return;
+            }
+            MessageBox.Show("Error Updating information");
         }
 
         private void BalanceLbl_Click(object sender, EventArgs e)

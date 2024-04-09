@@ -57,6 +57,7 @@ namespace BMS.UI
             singleUser.IpMontlySalary.Text = dataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
             singleUser.IpIntialDeposite.Text = dataGridView.Rows[e.RowIndex].Cells[6].Value.ToString();
             singleUser.IpAccountNum.Text = dataGridView.Rows[e.RowIndex].Cells[8].Value.ToString();
+            singleUser.BalanceLbl.Text = $"Current Amount: {dataGridView.Rows[e.RowIndex].Cells[6].Value}";
             singleUser.Show();
 
         }

@@ -42,5 +42,11 @@ namespace BMS.UI
             AccountForm account = new AccountForm();
             account.Show();
         }
+
+        private void adminPg_Click(object sender, EventArgs e)
+        {
+            AdminPannel adminPannel = new AdminPannel();
+            adminPannel.Show();
+        }
     }
 }

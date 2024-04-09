@@ -41,8 +41,16 @@ namespace BMS.UI
            // currentUser.SetCurrentAccount(currentUser.GetAccount());
             currentUser.GetAccount().GenerateAccountNumber(); // generate account number
                                                               // store in the database & list
-            ObjectHandler.GetAccountDL().SaveAccountInfo(currentUser.GetAccount());
+           bool isSaved = ObjectHandler.GetAccountDL().SaveAccountInfo(currentUser.GetAccount());
+            if(isSaved)
+            {
             MessageBox.Show("Account created successfully");
+
+            }
+            else
+            {
+                MessageBox.Show("Account not created successfully");
+            }
             this.Hide();
             AccountzDet accountzDet = new AccountzDet();
             accountzDet.Show();

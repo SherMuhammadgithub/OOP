@@ -45,21 +45,21 @@
             // TransactionDataGrid
             // 
             this.TransactionDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TransactionDataGrid.Location = new System.Drawing.Point(93, 204);
+            this.TransactionDataGrid.Location = new System.Drawing.Point(107, 170);
             this.TransactionDataGrid.Name = "TransactionDataGrid";
             this.TransactionDataGrid.RowHeadersWidth = 51;
             this.TransactionDataGrid.RowTemplate.Height = 24;
             this.TransactionDataGrid.Size = new System.Drawing.Size(546, 207);
             this.TransactionDataGrid.TabIndex = 1;
             // 
-            // Transactions
+            // History
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.TransactionDataGrid);
             this.Controls.Add(this.label1);
-            this.Name = "Transactions";
+            this.Controls.Add(this.TransactionDataGrid);
+            this.Name = "History";
             this.Text = "Transactions";
             this.Load += new System.EventHandler(this.Transactions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TransactionDataGrid)).EndInit();

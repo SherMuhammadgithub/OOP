@@ -50,8 +50,16 @@ namespace BMS.UI
                 MessageBox.Show("Account not found");
                 return;
             }
-            account.Transfer(amount, account, currectAccount); // deposit money
+            bool isTransferred =  account.Transfer(amount, account, currectAccount); // deposit money
+            if (isTransferred)
+            {
+
             MessageBox.Show("Transfer successful");
+            }
+            else
+            {
+             MessageBox.Show("Trnsaction wwas not successful......");
+            }
         }
     }
 }

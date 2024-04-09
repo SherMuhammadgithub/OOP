@@ -27,8 +27,8 @@ namespace BMS.UI
         private void OnLoad()
         {
            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
-            List<Transactions> transactions = currentUser.GetAccount().GetTransactions();
-            foreach (Transactions transaction in transactions)
+            List<trans> transactions = currentUser.GetAccount().GetTransactions();
+            foreach (trans transaction in transactions)
             {
                 TransactionDataGrid.Rows.Add(transaction.GetTransactionType(), transaction.GetAmount(), transaction.GetDate());
             }

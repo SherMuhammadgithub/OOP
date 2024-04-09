@@ -28,7 +28,15 @@ namespace BMS
             if (userDL.SignUp(newUser))
             {
                 MessageBox.Show("User added successfully");
-                userDL.SaveUserInfo(newUser);
+               bool isSaved = userDL.SaveUserInfo(newUser);
+                if (isSaved)
+                {
+                    MessageBox.Show("User Saved  Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("User not Saved....");
+                }
                 this.Hide();
                 SignIn signIn = new SignIn();
                 signIn.Show();

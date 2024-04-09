@@ -79,5 +79,40 @@ namespace BMS.DL.DB
             }
             return false;
         }
+
+        // delete  loan  from list and database
+        public bool DeleteLoan(Loan loan)
+        {
+            if (loan == null)
+            {
+                return true; // Indicate nothing was deleted 
+            }
+
+            // Remove from list only if it exists (prevents errors)
+            bool removedFromList = loans.Remove(loan);
+
+            if (removedFromList)
+            {
+                bool isDeletedFromDb = DeleteLoanFromDb(loan);
+                return isDeletedFromDb;
+            }
+            else
+            {
+                // Loan not found in list (optional logging or message)
+                MessageBox.Show("Loan not found in list for deletion.");
+                return false;
+            }
+        }
+        public bool DeleteLoanFromDb(Loan loan)
+        {
+
+            string Query = $"DELETE FROM Loan WHERE AccountHolder = '{loan.GetAccountHolder()}'";
+            int rowsAffected = utills.SetData(Query);
+            if (rowsAffected > 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

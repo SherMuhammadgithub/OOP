@@ -14,11 +14,16 @@ namespace BMS.DL.FH
     internal class AccountFH : IAccountDL
     {
         public static List<Account> accounts = new List<Account>();
-        public void SaveAccountInfo(Account account)
+        public bool SaveAccountInfo(Account account)
         {
             accounts.Add(account);
             // saving to file
-            SaveAccountInfoInFile(account);
+           bool isSavedInFile = SaveAccountInfoInFile(account);
+            if(isSavedInFile)
+            {
+                return true;
+            }
+            return false;
         }
         public List<Account> GetAccounts()
         {
@@ -86,7 +91,7 @@ namespace BMS.DL.FH
             return null;
         }
         // saving to file
-        public void SaveAccountInfoInFile(Account account)
+        public bool SaveAccountInfoInFile(Account account)
         {
             try
             {
@@ -105,15 +110,17 @@ namespace BMS.DL.FH
                     );
                     writer.WriteLine(accountData);
                 }
+                return true;
             }
             catch (Exception ex)
             {
              
                 Console.WriteLine("Error saving account to file: " + ex.Message);
+                return false;
             }
         }
         // updating balance in file
-        public void UpdateBalanceOnTransactions(int newBalance,  string AccountHolder)
+        public bool UpdateBalanceOnTransactions(int newBalance,  string AccountHolder)
         {
             
             try
@@ -160,16 +167,18 @@ namespace BMS.DL.FH
                 }
                 File.Delete("accounts.txt");
                 File.Move(tempFile, "accounts.txt");
+                return true;
             }
             catch (Exception ex)
             {
                 
                 Console.WriteLine("Error updating balance in file: " + ex.Message);
+                return false;
             }
         }
 
         //  updating in file
-        public void UpdateAccountInfo(Account account, string prevAccountHolder)
+        public bool UpdateAccountInfo(Account account, string prevAccountHolder)
         {
             string accountsFile = "accounts.txt"; 
 
@@ -221,11 +230,68 @@ namespace BMS.DL.FH
                     }
                 }
 
-                MessageBox.Show("Account information updated in file");
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error updating account information: " + ex.Message);
+                Console.WriteLine("Error updating account information: " + ex.Message);
+                return false;
+            }
+        }
+        // delete account in list
+        public bool DeleteAccount(Account accountToDelete)
+        {
+            // Use RemoveAll to remove matching accounts while iterating
+            accounts.RemoveAll(account => account.GetAccountHolder().Trim().Equals(accountToDelete.GetAccountHolder().Trim()));
+
+            bool isDeletedFromDb = DeleteAccountInFile(accountToDelete);
+            if (isDeletedFromDb)
+            {
+                MessageBox.Show("d    Accccount");
+                return true;
+            }
+            MessageBox.Show("i am not runned");
+            return false;
+        }
+
+        // delete account in file
+        public bool DeleteAccountInFile(Account account)
+        {
+            try
+            {
+                // Create a temporary file
+                string tempFile = Path.GetTempFileName();
+                // Read all lines from the file
+                using (StreamReader reader = new StreamReader("accounts.txt"))
+                using (StreamWriter writer = new StreamWriter(tempFile))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        string[] data = line.Split(',');
+                        if (data.Length >= 9)
+                        {
+                            string accountHolder = data[7];
+
+                            // Check if account holder does NOT match 
+                            if (!accountHolder.Equals(account.GetAccountHolder()))
+                            {
+                                writer.WriteLine(line);
+                            }
+                        }
+                    }
+                }
+
+                // Delete original file
+                File.Delete("accounts.txt");
+                // Rename temporary file to original file
+                File.Move(tempFile, "accounts.txt");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error deleting account from file: " + ex.Message);
+                return false;
             }
         }
     }

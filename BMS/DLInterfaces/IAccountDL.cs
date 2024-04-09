@@ -12,8 +12,10 @@ namespace BMS.DLInterfaces
         List<Account> GetAccounts();
         void LoadAccounts();
         Account isAccountExists(string currentUserName);
-        void SaveAccountInfo(Account account);
-        void UpdateBalanceOnTransactions(int newBalance, string AccountHolder);
-        void UpdateAccountInfo(Account account, string prevAccountHolder);
+        bool SaveAccountInfo(Account account);
+        bool UpdateBalanceOnTransactions(int newBalance, string AccountHolder);
+        bool UpdateAccountInfo(Account account, string prevAccountHolder);
+
+        bool DeleteAccount(Account accountToDelete);
     }
 }

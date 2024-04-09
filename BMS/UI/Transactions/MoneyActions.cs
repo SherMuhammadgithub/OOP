@@ -14,8 +14,7 @@ namespace BMS.UI
 {
     public partial class MoneyActions : Form
     {
-            static MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser(); // get current user
-            static Account account = currentUser.GetAccount(); // get current account
+            
         public MoneyActions()
         {
             InitializeComponent();
@@ -23,6 +22,8 @@ namespace BMS.UI
         }
         private void CheckIfAccountExists()
         {
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser(); // get current user
+            Account account = currentUser.GetAccount(); // get current account
             if (account == null)
             {
                 MessageBox.Show("Account not found");
@@ -32,16 +33,37 @@ namespace BMS.UI
 
         private void DepositeBtn_Click(object sender, EventArgs e)
         {
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser(); // get current user
+            Account account = currentUser.GetAccount(); // get current account
             int amount = Convert.ToInt32(IpAmount.Text);
-            account.Deposit(amount);
+           bool isDeposited = account.Deposit(amount);
+            if(isDeposited)
+            {
             MessageBox.Show("Deposite successful");
+
+
+            }
+            else
+            {
+                MessageBox.Show("Deposite was not successful.....");
+            }
         }
 
         private void WithDrawBtn_Click(object sender, EventArgs e)
         {
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser(); // get current user
+            Account account = currentUser.GetAccount(); // get current account
             int amount = Convert.ToInt32(IpAmount.Text);
-            account.Withdraw(amount);
+            bool isWithdrawed = account.Withdraw(amount);
+            if(isWithdrawed)
+            {
             MessageBox.Show("Withdraw successful");
+
+            }
+            else
+            {
+                MessageBox.Show("Withdraw was not successful");
+            }
         }
 
         private void TransferBtn_Click(object sender, EventArgs e)

@@ -30,6 +30,7 @@
         {
             this.LoginPage = new System.Windows.Forms.Button();
             this.SignUpPage = new System.Windows.Forms.Button();
+            this.adminPg = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LoginPage
@@ -52,11 +53,22 @@
             this.SignUpPage.UseVisualStyleBackColor = true;
             this.SignUpPage.Click += new System.EventHandler(this.SignUpPage_Click);
             // 
+            // adminPg
+            // 
+            this.adminPg.Location = new System.Drawing.Point(330, 320);
+            this.adminPg.Name = "adminPg";
+            this.adminPg.Size = new System.Drawing.Size(75, 23);
+            this.adminPg.TabIndex = 3;
+            this.adminPg.Text = "AdminPannel";
+            this.adminPg.UseVisualStyleBackColor = true;
+            this.adminPg.Click += new System.EventHandler(this.adminPg_Click);
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.adminPg);
             this.Controls.Add(this.SignUpPage);
             this.Controls.Add(this.LoginPage);
             this.Name = "MainFrom";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button LoginPage;
         private System.Windows.Forms.Button SignUpPage;
+        private System.Windows.Forms.Button adminPg;
     }
 }

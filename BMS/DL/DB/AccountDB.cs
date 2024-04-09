@@ -59,7 +59,7 @@ namespace BMS.DL
             }
                 return null;
         }
-        public  void SaveAccountInfo(Account account)
+        public  bool SaveAccountInfo(Account account)
         {
             string Query = "INSERT INTO Accounts (DOB, Address, Phone, SSN, Income, Balance, AccountHolder,AccountType,AccountNumber) VALUES ('{0}','{1}',{2},'{3}',{4},{5},'{6}','{7}',{8})";
             MessageBox.Show(account.GetAccountNumber().ToString());
@@ -67,30 +67,56 @@ namespace BMS.DL
           int rowsAffected =   utills.SetData(Query);
             if (rowsAffected > 0)
             {
-                MessageBox.Show("Account added");
                 AddAccount(account);
+                return true;
             }
+            return false;
         }
-        public  void UpdateBalanceOnTransactions(int newBalance, string AccountHolder)
+        public  bool UpdateBalanceOnTransactions(int newBalance, string AccountHolder)
         {
             string Query = $"UPDATE Accounts SET Balance = {newBalance} WHERE AccountHolder = '{AccountHolder}'";
             int rowsAffected = utills.SetData(Query);
             if (rowsAffected > 0)
             {
-                MessageBox.Show("Balance updated");
+                return true;
             }
+            return false;
         }
         // updating in database & list
-        public void UpdateAccountInfo(Account account, string prevAccountHolder)
+        public bool UpdateAccountInfo(Account account, string prevAccountHolder)
         {
             string Query = $"UPDATE Accounts SET AccountHolder = '{account.GetAccountHolder()}', DOB = '{account.GetDateOfBirth()}', Address = '{account.GetAddress()}', Phone = {account.GetPhone()}, SSN = '{account.GetSocialSecurityNumber()}', Income = {account.GetMonthlyIncome()}, Balance = {account.GetIntialDeposit()} WHERE AccountHolder = '{prevAccountHolder}'";
             int rowsAffected = utills.SetData(Query);
             if (rowsAffected > 0)
             {
-                MessageBox.Show("Account updated");
+                return true;
             }
+            return false;
         }
-    
-       
+        // delete account in list
+        public bool DeleteAccount(Account accountToDelete)
+        {
+            // Use RemoveAll to remove matching accounts while iterating
+            accounts.RemoveAll(account => account.GetAccountHolder().Trim().Equals(accountToDelete.GetAccountHolder().Trim()));
+
+            bool isDeletedFromDb = DeleteAccountInDb(accountToDelete);
+            if (isDeletedFromDb)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        // delete account in database
+        public bool DeleteAccountInDb(Account account)
+        {
+            string Query = $"DELETE FROM Accounts WHERE AccountHolder = '{account.GetAccountHolder()}'";
+            int rowsAffected = utills.SetData(Query); 
+            if(rowsAffected > 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

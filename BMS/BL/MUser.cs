@@ -12,7 +12,6 @@ namespace BMS.BL
         private string password;
         private string role;
         private Account account;
-
         public MUser(string username, string password, string role)
         {
             this.username = username;
@@ -77,6 +76,7 @@ namespace BMS.BL
             }
             return false;
         }
+    
        
 
     }

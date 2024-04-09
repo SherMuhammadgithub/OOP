@@ -65,25 +65,27 @@ namespace BMS.DL
             return currentUser; // this was changed from static to instance
         }
         // updating in database
-        public  void UpdateUserInfo(MUser user, string prevUserName)
+        public  bool UpdateUserInfo(MUser user, string prevUserName)
         {
             string Query = $"UPDATE BMSUsers SET Name = '{user.GetUsername()}', Password = '{user.GetPassword()}' WHERE Name = '{prevUserName}'";
             int rowsAffected = utills.SetData(Query);
             if (rowsAffected > 0)
             {
-                Console.WriteLine("User updated");
+                return true;
             }
+            return false;
         }
-        public void SaveUserInfo(MUser user)
+        public bool SaveUserInfo(MUser user)
         {
             string Query = "INSERT INTO BMSUsers (Name, Password, Role) VALUES ('{0}','{1}','{2}')";
             Query = string.Format(Query, user.GetUsername(), user.GetPassword(), user.GetRole());
             int isStored = utills.SetData(Query);
             if (isStored > 0) // rowsAffected
             {
-                MessageBox.Show("User added to the database");
                 AddUser(user); // add user to the list
+                return true;
             }
+            return false;
         }   
     }
 }

@@ -13,7 +13,6 @@ namespace BMS.BL
                 MonthlyIncome, IntialDeposit, AccountHolder, AccountType)
         {
         }
-
         public override int MonthlyFee()
         {
             if (MonthlyIncome < 1000)

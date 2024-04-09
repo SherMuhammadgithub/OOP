@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BMS.DL.FH
 {
@@ -98,6 +100,58 @@ namespace BMS.DL.FH
                             sw.WriteLine(loan.GetAccountHolder() + "," + loan.GetLoanAmount() + "," + loan.GetMonthlyPayment());
                         }
                         else
+                        {
+                            sw.WriteLine(line);
+                        }
+                    }
+                }
+                File.Delete("loan.txt");
+                File.Move(tempFile, "loan.txt");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+        // delete loan from list and file
+        public bool DeleteLoan(Loan loan)
+        {
+            if (loan == null)
+            {
+                return true; // Indicate nothing was deleted 
+            }
+
+            // Remove from list only if it exists (prevents errors)
+            bool removedFromList = loans.Remove(loan);
+
+            if (removedFromList)
+            {
+                bool isDeletedFromFile = DeleteLoanFromFile(loan);
+                return isDeletedFromFile;
+            }
+            else
+            {
+                // Loan not found in list (optional logging or message)
+                MessageBox.Show("Loan not found in list for deletion.");
+                return false;
+            }
+        }
+
+        public bool DeleteLoanFromFile(Loan loan)
+        {
+            try
+            {
+                string tempFile = Path.GetTempFileName();
+                using (var sr = new StreamReader("loan.txt"))
+                using (var sw = new StreamWriter(tempFile))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] data = line.Split(',');
+                        if (data[0] != loan.GetAccountHolder()) // if not equal then write to temp file
                         {
                             sw.WriteLine(line);
                         }

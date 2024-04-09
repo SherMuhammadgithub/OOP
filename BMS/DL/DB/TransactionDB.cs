@@ -7,17 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace BMS.DL
 {
     internal class TransactionDB : ITransactionDL
     {
-        public static List<Transactions> transactions = new List<Transactions>();
-        public  void AddTransaction(Transactions transaction)
+        public static List<trans> transactions = new List<trans>();
+        public  void AddTransaction(trans transaction)
         {
             transactions.Add(transaction);
         }
-        public  List<Transactions> GetTransactions()
+        public  List<trans> GetTransactions()
         {
             return transactions;
             
@@ -30,7 +31,7 @@ namespace BMS.DL
             {
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    Transactions transaction = new Transactions(row["TransactionType"].ToString(),
+                    trans transaction = new trans(row["TransactionType"].ToString(),
                                                Convert.ToInt32(row["Amount"]), row["AccountHolder"].ToString());
                     transaction.SetDate(Convert.ToDateTime(row["Date"]));
                     AddTransaction(transaction);
@@ -38,7 +39,7 @@ namespace BMS.DL
             }  
             }
         }
-        public  bool SaveTransactionInfo(Transactions transaction)
+        public  bool SaveTransactionInfo(trans transaction)
         {
            string Query = "INSERT INTO Transactions (TransactionType, Amount, Date, AccountHolder) VALUES ('{0}',{1},'{2}','{3}')";
             Query = string.Format(Query, transaction.GetTransactionType(), transaction.GetAmount(), transaction.GetDate(), transaction.GetAccountHolder());
@@ -53,11 +54,10 @@ namespace BMS.DL
             
         }
         // specific Transactions for specific account holder
-        public  List<Transactions> GetTransactionsForSpecificAccount(string AccountHolder)
+        public  List<trans> GetTransactionsForSpecificAccount(string AccountHolder)
         {
-            MessageBox.Show(AccountHolder);
-            List<Transactions> transactionsForAccountHolder = new List<Transactions>();
-            foreach (Transactions transaction in transactions)
+            List<trans> transactionsForAccountHolder = new List<trans>();
+            foreach (trans transaction in transactions)
             {
                 if (transaction.GetAccountHolder().Trim().Equals(AccountHolder.Trim()))
                 {
@@ -66,25 +66,50 @@ namespace BMS.DL
             }
             return transactionsForAccountHolder;
         }
-        public void UpdtateAccountHolderInList(string AccountHolder, string NewAccountHolder)
+        public bool UpdtateAccountHolderInList(string AccountHolder, string NewAccountHolder)
         {
-            foreach (Transactions transaction in transactions)
+            foreach (trans transaction in transactions)
             {
                 if (transaction.GetAccountHolder().Trim().Equals(AccountHolder.Trim()))
                 {
                     transaction.SetAccountHolder(NewAccountHolder);
+                    return true;
                 }
             }
+            return false;
         }
-        public void UpdtateAccountHolder(string AccountHolder, string NewAccountHolder)
+        public bool UpdtateAccountHolder(string AccountHolder, string NewAccountHolder)
         {
             string Query = $"UPDATE Transactions SET AccountHolder = '{NewAccountHolder}' WHERE AccountHolder = '{AccountHolder}'";
             int rowsAffected = utills.SetData(Query);
             if (rowsAffected > 0)
             {
-                MessageBox.Show("Account holder updated");
+               
                 UpdtateAccountHolderInList(AccountHolder, NewAccountHolder);
+                return true;
             }
+            return false;
+        }
+        // delete transaction from list
+        public bool DeleteTransaction(string AccountHolder)
+        {
+            // delete  from all occurences
+            transactions.RemoveAll(transaction => transaction.GetAccountHolder().Trim().Equals(AccountHolder.Trim())); // remove all transactions with the account holder
+            // update in file
+            bool isDeletedInDb = DeleteTransactionInDb(AccountHolder);
+            return isDeletedInDb;
+        }
+        // delete transaction from database
+        public bool DeleteTransactionInDb(string AccountHolder)
+        {
+            string Query = "Delete FROM Transactions WHERE AccountHolder = '{0}'";
+            Query = string.Format(Query, AccountHolder);
+            int rowsAffected = utills.SetData(Query);
+            if (rowsAffected > 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

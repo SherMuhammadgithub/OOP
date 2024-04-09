@@ -31,7 +31,7 @@ namespace BMS
             ObjectHandler.GetLoanDL().LoadLoanData(); // bool
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminPannel());
+            Application.Run(new MainFrom());
         }
     }
 }

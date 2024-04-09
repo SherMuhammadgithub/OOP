@@ -15,11 +15,16 @@ namespace BMS.DL.FH
     {
         public static List<MUser> users = new List<MUser>();
         public static MUser currentUser;
-        public void SaveUserInfo(MUser user)
+        public bool SaveUserInfo(MUser user)
         {
             users.Add(user);
             // saving to file
-            SaveDataToFile(user);
+            bool isSavedInFile = SaveDataToFile(user);
+            if(isSavedInFile)
+            {
+                return true;
+            }
+            return false;
         }
         public bool SignIn(MUser user)
         {
@@ -74,7 +79,7 @@ namespace BMS.DL.FH
             return currentUser;
         }
          // updating in file
-        public void UpdateUserInfoInFile(MUser user, string prevUserName)
+        public bool UpdateUserInfoInFile(MUser user, string prevUserName)
         {
             string usersFile = "user.txt";
             // add the first line as column header
@@ -101,6 +106,7 @@ namespace BMS.DL.FH
                         {
                             // Add original line if not updated
                             updatedLines.Add(line);  
+                            
                         }
                     }
                 }
@@ -114,15 +120,16 @@ namespace BMS.DL.FH
                     }
                 }
 
-                MessageBox.Show("User information updated");
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error updating user information: " + ex.Message);
+                return false;
             }
         }
 
-        public void UpdateUserInfo(MUser user, string prevUserName)
+        public bool UpdateUserInfo(MUser user, string prevUserName)
         {
             foreach (MUser u in users)
             {
@@ -136,23 +143,26 @@ namespace BMS.DL.FH
                     StoreCurrentUser(user);
                     // updating in file
                     UpdateUserInfoInFile(user, prevUserName);
-                    break;
+                    return true;
                 }
             }
+            return false;
         }
         // saving to file
-     public void SaveDataToFile(MUser user)
+     public bool SaveDataToFile(MUser user)
         {
             try
             {
                 using(StreamWriter writer = new StreamWriter("user.txt", true)) // true to append
                 {
                     writer.WriteLine($"{user.GetUsername()},{user.GetPassword()},{user.GetRole()}");
+                    return true;
                 }
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return false;
             }
         }
     }

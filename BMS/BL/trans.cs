@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BMS.BL
 {
-    internal class Transactions
+    internal class trans
     {
         private string TransactionType;
         private int Amount;
         private DateTime Date;
         private string AccountHolder; // name for account holder foreign key****
-        public Transactions(string TransactionType, int Amount, string accountHolder)
+        public trans(string TransactionType, int Amount, string accountHolder)
         {
             this.TransactionType = TransactionType;
             this.Amount = Amount;

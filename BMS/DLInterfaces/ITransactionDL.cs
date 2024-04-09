@@ -9,10 +9,11 @@ namespace BMS.DLInterfaces
 {
     internal interface ITransactionDL
     {
-        List<Transactions> GetTransactions();
+        List<trans> GetTransactions();
         void LoadTransactionData();
-        bool SaveTransactionInfo(Transactions transaction);
-        List<Transactions> GetTransactionsForSpecificAccount(string AccountHolder);
-         void UpdtateAccountHolder(string AccountHolder, string NewAccountHolder);
+        bool SaveTransactionInfo(trans transaction);
+        List<trans> GetTransactionsForSpecificAccount(string AccountHolder);
+         bool UpdtateAccountHolder(string AccountHolder, string NewAccountHolder);
+        bool DeleteTransaction(string AccountHolder);
     }
 }

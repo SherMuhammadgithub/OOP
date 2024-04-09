@@ -53,8 +53,15 @@ namespace BMS.UI
         {
             // updating password only 
             currentUser.SetPassword(IpPass.Text);
-            ObjectHandler.GetUserDL().UpdateUserInfo(currentUser, currentUser.GetUsername());
-            MessageBox.Show("Password Updated");
+           bool isUserUpdated = ObjectHandler.GetUserDL().UpdateUserInfo(currentUser, currentUser.GetUsername());
+            if(isUserUpdated)
+            {
+                MessageBox.Show("Updated");
+            }
+            else
+            {
+                MessageBox.Show("not Updated");
+            }
         }
 
         private void IpPass_TextChanged(object sender, EventArgs e)

@@ -13,15 +13,15 @@ namespace BMS.DL.FH
 {
     internal class TransactionFH : ITransactionDL
     {
-        public static List<Transactions> transactions = new List<Transactions>();
-        public bool SaveTransactionInfo(Transactions transaction)
+        public static List<trans> transactions = new List<trans>();
+        public bool SaveTransactionInfo(trans transaction)
         {
             transactions.Add(transaction);
             // saving to file
             SaveDataToFile(transaction);
             return true;
         }
-        public List<Transactions> GetTransactions()
+        public List<trans> GetTransactions()
         {
             return transactions;
 
@@ -40,7 +40,7 @@ namespace BMS.DL.FH
 
                         try
                         {
-                            Transactions transaction = new Transactions(
+                            trans transaction = new trans(
                                 data[0],
                                 Convert.ToInt32(data[1]),
                                 data[2]
@@ -67,26 +67,27 @@ namespace BMS.DL.FH
         }
 
          // saving to file
-        public void SaveDataToFile(Transactions transaction)
+        public bool SaveDataToFile(trans transaction)
         {
             try
             {
                 using (StreamWriter writer = new StreamWriter("transactions.txt", true))
                 {
                     writer.WriteLine(transaction.GetTransactionType() + "," + transaction.GetAmount() + "," + transaction.GetAccountHolder() + "," + transaction.GetDate());
-                    MessageBox.Show("Transaction Saved in the file");
+                    return true;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return false;
             }
         }
-        public List<Transactions> GetTransactionsForSpecificAccount(string AccountHolder)
+        public List<trans> GetTransactionsForSpecificAccount(string AccountHolder)
         {
             MessageBox.Show(AccountHolder);
-            List<Transactions> transactionsForAccountHolder = new List<Transactions>();
-            foreach (Transactions transaction in transactions)
+            List<trans> transactionsForAccountHolder = new List<trans>();
+            foreach (trans transaction in transactions)
             {
                 if (transaction.GetAccountHolder().Trim().Equals(AccountHolder.Trim()))
                 {
@@ -96,19 +97,21 @@ namespace BMS.DL.FH
             return transactionsForAccountHolder;
         }
            // updating account holder when account holder is changed
-        public void UpdtateAccountHolder(string AccountHolder, string NewAccountHolder)
+        public bool UpdtateAccountHolder(string AccountHolder, string NewAccountHolder)
         {
-            foreach (Transactions transaction in transactions)
+            foreach (trans transaction in transactions)
             {
                 if (transaction.GetAccountHolder().Trim().Equals(AccountHolder.Trim()))
                 {
                     transaction.SetAccountHolder(NewAccountHolder);
                     // update in file
                     UpdateAccountHolderInFile(AccountHolder, NewAccountHolder);
+                    return true;
                 }
             }
+            return false;
         }
-          // updating account holder in file
+          // updating account holder in file (bool)
         public void UpdateAccountHolderInFile(string AccountHolder, string NewAccountHolder)
         {
             try
@@ -133,6 +136,40 @@ namespace BMS.DL.FH
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+        // delete transaction from list
+        public bool DeleteTransaction(string AccountHolder)
+        {
+            // delete  from all occurences
+            transactions.RemoveAll(transaction => transaction.GetAccountHolder().Trim().Equals(AccountHolder.Trim())); // remove all transactions with the account holder
+            // update in file
+            bool isDeletedInFIle = UpdateFileAfterDelete(AccountHolder);
+            return isDeletedInFIle;
+        }
+        // delete transaction from file
+        public bool UpdateFileAfterDelete(string AccountHolder)
+        {
+            try
+            {
+                string[] lines = File.ReadAllLines("transactions.txt");
+                using (StreamWriter writer = new StreamWriter("transactions.txt"))
+                {
+                    foreach (string line in lines)
+                    {
+                        string[] data = line.Split(',');
+                        if (!data[2].Trim().Equals(AccountHolder.Trim()))
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
             }
         }
     }

@@ -21,7 +21,7 @@ namespace BMS.BL
         protected int IntialDeposit;
         protected int AccountNumber;
         protected string AccountHolder;   // name for account holder foreign key****
-        protected List<Transactions> transactions;
+        protected List<trans> transactions;
         private Loan loan;
         protected string AccountType;
         public Account( string DateOfBirth, string Address, int Phone, string SocialSecurityNumber,
@@ -35,7 +35,7 @@ namespace BMS.BL
             this.IntialDeposit = IntialDeposit;
             this.AccountHolder = AccountHolder;
             this.AccountType = AccountType;
-            transactions = new List<Transactions>();
+            transactions = new List<trans>();
         }
         public string GetAccountType()
         {
@@ -123,67 +123,60 @@ namespace BMS.BL
         {
             return loan;
         }
-        public void Deposit(int amount)
+        public bool Deposit(int amount)
         {
             if(amount > 0)
             {
                 IntialDeposit += amount;
-                Transactions transaction = new Transactions("Deposit",amount,AccountHolder);
+                trans transaction = new trans("Deposit",amount,AccountHolder);
                 bool isSaved = ObjectHandler.GetTransactionDL().SaveTransactionInfo(transaction);
-                if (isSaved)
+                bool isUpdated = ObjectHandler.GetAccountDL().UpdateBalanceOnTransactions(IntialDeposit, AccountHolder);
+                    if (isSaved && isUpdated)
                 {
-                    MessageBox.Show("Transaction saved successfully");
-                    ObjectHandler.GetAccountDL().UpdateBalanceOnTransactions(IntialDeposit, AccountHolder);
-                }
                 transactions.Add(transaction);
-
+                    return true;
+                }
             }
+            return false;
         }
-        public void Withdraw(int amount)
+        public bool Withdraw(int amount)
         {
            if(IntialDeposit - amount >= 0)
             {
                 IntialDeposit -= amount;
-                Transactions transaction = new Transactions("Withdraw", amount, AccountHolder);
+                trans transaction = new trans("Withdraw", amount, AccountHolder);
                 bool isSaved = ObjectHandler.GetTransactionDL().SaveTransactionInfo(transaction);
-                if (isSaved)
+                bool isUpdated = ObjectHandler.GetAccountDL().UpdateBalanceOnTransactions(IntialDeposit, AccountHolder);
+                if (isSaved && isUpdated)
                 {
-                    MessageBox.Show("Transaction saved successfully");
-                    ObjectHandler.GetAccountDL().UpdateBalanceOnTransactions(IntialDeposit, AccountHolder);
+                   transactions.Add(transaction);
+                   return true;
                 }
-                transactions.Add(transaction);
             }
-           else
-            {
-                 MessageBox.Show("Insufficient balance");
-            }
+          return false;
         }
-        public void Transfer(int amount, Account accountToTransfer,Account currentAccount)
+        public bool Transfer(int amount, Account accountToTransfer,Account currentAccount)
         {
             int Balance = currentAccount.GetIntialDeposit();
             if(Balance - amount >= 0)
             {
                 Balance -= amount;
                 currentAccount.SetBalance(Balance);
-                accountToTransfer.Deposit(amount, accountToTransfer); // deposit to other account
-
-                Transactions transaction = new Transactions("Transfer", amount, currentAccount.GetAccountHolder());
+               bool isDespodited = accountToTransfer.Deposit(amount, accountToTransfer); // deposit to other account
+                trans transaction = new trans("Transfer", amount, currentAccount.GetAccountHolder());
                 bool isSaved = ObjectHandler.GetTransactionDL().SaveTransactionInfo(transaction);
-                if(isSaved)
+                bool isUpdated = ObjectHandler.GetAccountDL().UpdateBalanceOnTransactions(Balance, currentAccount.GetAccountHolder());
+                if(isSaved && isDespodited && isUpdated)
                 {
-                    MessageBox.Show("Transaction saved successfully");
-                    ObjectHandler.GetAccountDL().UpdateBalanceOnTransactions(Balance, currentAccount.GetAccountHolder());
+                    currentAccount.SetTransactions(transaction);
+                    return true;
                 }
-                currentAccount.SetTransactions(transaction); 
             }
-            else
-            {
-               MessageBox.Show("Insufficient balance");
-            }
+            return false;
         }
        
        //polymorphic method
-        private void Deposit(int amount,Account account)
+        private bool Deposit(int amount,Account account)
         {
             int Balance = account.GetIntialDeposit();
             if (amount > 0)
@@ -191,22 +184,23 @@ namespace BMS.BL
                 Balance += amount;
                 account.SetBalance(Balance);
                 // Add to transaction
-                Transactions transaction = new Transactions("Deposit", amount, account.GetAccountHolder());
+                trans transaction = new trans("Deposit", amount, account.GetAccountHolder());
                 bool isSaved = ObjectHandler.GetTransactionDL().SaveTransactionInfo(transaction);
-                if (isSaved)
+                bool isUpdated = ObjectHandler.GetAccountDL().UpdateBalanceOnTransactions(Balance, account.GetAccountHolder());
+                if (isSaved && isUpdated)
                 {
-                    MessageBox.Show("Transaction saved successfully");
-                    ObjectHandler.GetAccountDL().UpdateBalanceOnTransactions(Balance, account.GetAccountHolder());
+                    account.SetTransactions(transaction);
+                    return true;
                 }
-                account.SetTransactions(transaction);
                 
             }
+                return false;
         }
-        public void SetTransactions(List<Transactions> transactions) // overloading method for adding list of transactions
+        public void SetTransactions(List<trans> transactions) // overloading method for adding list of transactions
         {
             this.transactions = transactions;
         }
-        public void SetTransactions(Transactions transaction) // overloading method for adding single transaction
+        public void SetTransactions(trans transaction) // overloading method for adding single transaction
         {
             this.transactions.Add(transaction);
         }
@@ -220,7 +214,7 @@ namespace BMS.BL
             ObjectHandler.GetLoanDL().SaveLoan(loan); /// save loan
             return true;
         }
-        public List<Transactions> GetTransactions()
+        public List<trans> GetTransactions()
         {
             return transactions;
         }
