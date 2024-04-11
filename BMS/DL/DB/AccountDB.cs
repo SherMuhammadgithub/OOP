@@ -35,12 +35,14 @@ namespace BMS.DL
                     {
                         Savings savings = new Savings(row["DOB"].ToString(), row["Address"].ToString(), Convert.ToInt32(row["Phone"]), row["SSN"].ToString(), Convert.ToInt32(row["Income"]), Convert.ToInt32(row["Balance"]), row["AccountHolder"].ToString(), row["AccountType"].ToString());
                         savings.SetAccountNumber(Convert.ToInt32(row["AccountNumber"]));
+                        savings.SetDebt(Convert.ToInt32(row["Debt"]));
                         AddAccount(savings);
                     }
                     else
                     {
                         Checking checking = new Checking(row["DOB"].ToString(), row["Address"].ToString(), Convert.ToInt32(row["Phone"]), row["SSN"].ToString(), Convert.ToInt32(row["Income"]), Convert.ToInt32(row["Balance"]), row["AccountHolder"].ToString(), row["AccountType"].ToString());
                         checking.SetAccountNumber(Convert.ToInt32(row["AccountNumber"]));
+                        checking.SetDebt(Convert.ToInt32(row["Debt"]));
                         AddAccount(checking);
                     }
                 }
@@ -61,9 +63,10 @@ namespace BMS.DL
         }
         public  bool SaveAccountInfo(Account account)
         {
-            string Query = "INSERT INTO Accounts (DOB, Address, Phone, SSN, Income, Balance, AccountHolder,AccountType,AccountNumber) VALUES ('{0}','{1}',{2},'{3}',{4},{5},'{6}','{7}',{8})";
+            string Query = "INSERT INTO Accounts (DOB, Address, Phone, SSN, Income, Balance, AccountHolder,AccountType,AccountNumber,Debt) VALUES ('{0}','{1}',{2},'{3}',{4},{5},'{6}','{7}',{8},{9})";
             MessageBox.Show(account.GetAccountNumber().ToString());
-            Query = string.Format(Query, account.GetDateOfBirth(), account.GetAddress(), account.GetPhone(), account.GetSocialSecurityNumber(), account.GetMonthlyIncome(), account.GetIntialDeposit(), account.GetAccountHolder(),account.GetAccountType(),account.GetAccountNumber());
+            Query = string.Format(Query, account.GetDateOfBirth(), account.GetAddress(), account.GetPhone(), account.GetSocialSecurityNumber(), account.GetMonthlyIncome(), account.GetIntialDeposit(), account.GetAccountHolder(),account.GetAccountType(),account.GetAccountNumber(),account.GetDebt
+                ());
           int rowsAffected =   utills.SetData(Query);
             if (rowsAffected > 0)
             {
@@ -85,7 +88,8 @@ namespace BMS.DL
         // updating in database & list
         public bool UpdateAccountInfo(Account account, string prevAccountHolder)
         {
-            string Query = $"UPDATE Accounts SET AccountHolder = '{account.GetAccountHolder()}', DOB = '{account.GetDateOfBirth()}', Address = '{account.GetAddress()}', Phone = {account.GetPhone()}, SSN = '{account.GetSocialSecurityNumber()}', Income = {account.GetMonthlyIncome()}, Balance = {account.GetIntialDeposit()} WHERE AccountHolder = '{prevAccountHolder}'";
+            string Query = $"UPDATE Accounts SET AccountHolder = '{account.GetAccountHolder()}', DOB = '{account.GetDateOfBirth()}', Address = '{account.GetAddress()}', Phone = {account.GetPhone()}, SSN = '{account.GetSocialSecurityNumber()}'," +
+                $" Income = {account.GetMonthlyIncome()}, Balance = {account.GetIntialDeposit()}, Debt = {account.GetDebt()} WHERE AccountHolder = '{prevAccountHolder}'";
             int rowsAffected = utills.SetData(Query);
             if (rowsAffected > 0)
             {

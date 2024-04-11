@@ -40,7 +40,7 @@ namespace BMS.DL.FH
                     {
                         string[] data = line.Split(',');
                         // Ensure enough data for account columns
-                        if (data.Length >= 9) 
+                        if (data.Length >= 10) 
                         {
                             string accountType = data[0];
                             string dob = data[1];
@@ -51,10 +51,12 @@ namespace BMS.DL.FH
                             int balance = int.Parse(data[6]);
                             string accountHolder = data[7];
                             int accountNumber = int.Parse(data[8]);
+                            int Debt = int.Parse(data[9]);
                             if (accountType.Equals("savings"))
                             {
                               Savings  account = new Savings(dob, address, phone, ssn, income, balance, accountHolder,accountType);
                                 account.SetAccountNumber(accountNumber);
+                                account.SetDebt(Debt);
                                 // Add account to list
                                 accounts.Add(account);
                             }
@@ -62,6 +64,7 @@ namespace BMS.DL.FH
                             {
                               Checking  account = new Checking(dob, address, phone, ssn, income, balance, accountHolder, accountType);
                                 account.SetAccountNumber(accountNumber);
+                                account.SetDebt(Debt);
                                 // Add account to list
                                 accounts.Add(account);
                             }
@@ -97,7 +100,7 @@ namespace BMS.DL.FH
             {
                 using (StreamWriter writer = new StreamWriter("accounts.txt", true)) // Append mode
                 {
-                    string accountData = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
+                    string accountData = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9}",
                       account.GetAccountType(),
                       account.GetDateOfBirth(),
                       account.GetAddress(),
@@ -106,7 +109,8 @@ namespace BMS.DL.FH
                       account.GetMonthlyIncome(),
                       account.GetIntialDeposit(),
                       account.GetAccountHolder(),
-                      account.GetAccountNumber()
+                      account.GetAccountNumber(),
+                      account.GetDebt()
                     );
                     writer.WriteLine(accountData);
                 }
@@ -134,7 +138,7 @@ namespace BMS.DL.FH
                     {
                         string[] data = line.Split(',');
                         // Ensure enough data for account columns
-                        if (data.Length >= 9) 
+                        if (data.Length >= 10) 
                         {
                             string accountType = data[0];
                             string dob = data[1];
@@ -145,22 +149,25 @@ namespace BMS.DL.FH
                             int balance = int.Parse(data[6]);
                             string accountHolder = data[7];
                             int accountNumber = int.Parse(data[8]);
+                            int Debt = int.Parse(data[9]);
                             if (accountHolder.Equals(AccountHolder))
                             {
                                 // Update balance
                                 balance = newBalance;
                             }
-                            string accountData = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
-                                                                                            accountType,
-                                                                                                                                                                                     dob,
-                                                                                                                                                                                                                                                                                                           address,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                              phone,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ssn,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           income,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     balance,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            accountHolder,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                accountNumber
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     );
+                            // write string format line ]
+                            string accountData = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9}",
+                            accountType,
+                            dob,
+                            address,
+                            phone,
+                            ssn,
+                            income,
+                            balance,
+                            accountHolder,
+                            accountNumber,
+                            Debt
+                            );
                             writer.WriteLine(accountData);
                         }
                     }
@@ -193,7 +200,7 @@ namespace BMS.DL.FH
                     while ((line = reader.ReadLine()) != null)
                     {
                         string[] data = line.Split(',');
-                        if (data.Length >= 9)
+                        if (data.Length >= 10)
                         {
                             string accountHolder = data[7];
                             // Check if account holder matches
@@ -202,14 +209,15 @@ namespace BMS.DL.FH
                                 // Update account information
                                 string updatedLine = string.Join(",",
                                     data[0],  // Assuming accountType at index 0
-                                    account.GetDateOfBirth(),  
-                                    account.GetAddress(),  
+                                    account.GetDateOfBirth(),
+                                    account.GetAddress(),
                                     account.GetPhone(),
                                     data[4],  // Assuming ssn at index 4 , this will not be updated
                                     account.GetMonthlyIncome(),
                                     account.GetIntialDeposit(),
                                     account.GetAccountHolder(),
-                                    data[8]); // Assuming accountNumber at index 8, this will not be updated
+                                    data[8], // Assuming accountNumber at index 8, this will not be updated
+                                    account.GetDebt());// Assuming debt at index 9, this will not be updated
                                 updatedLines.Add(updatedLine);
                             }
                             else
@@ -269,7 +277,7 @@ namespace BMS.DL.FH
                     while ((line = reader.ReadLine()) != null)
                     {
                         string[] data = line.Split(',');
-                        if (data.Length >= 9)
+                        if (data.Length >= 10)
                         {
                             string accountHolder = data[7];
 

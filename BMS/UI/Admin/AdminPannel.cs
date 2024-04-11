@@ -22,5 +22,11 @@ namespace BMS.UI
             ViewUsers viewUsers = new ViewUsers();
             viewUsers.Show();
         }
+
+        private void VipUsersPg_Click(object sender, EventArgs e)
+        {
+            VipUsersForm vipUsersForm = new VipUsersForm();
+            vipUsersForm.Show();
+        }
     }
 }

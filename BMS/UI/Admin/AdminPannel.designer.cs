@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.ViewBtn = new FontAwesome.Sharp.IconButton();
+            this.VipUsersPg = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // ViewBtn
@@ -44,11 +45,25 @@
             this.ViewBtn.UseVisualStyleBackColor = true;
             this.ViewBtn.Click += new System.EventHandler(this.ViewBtn_Click);
             // 
+            // VipUsersPg
+            // 
+            this.VipUsersPg.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.VipUsersPg.IconColor = System.Drawing.Color.Black;
+            this.VipUsersPg.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.VipUsersPg.Location = new System.Drawing.Point(344, 271);
+            this.VipUsersPg.Name = "VipUsersPg";
+            this.VipUsersPg.Size = new System.Drawing.Size(75, 22);
+            this.VipUsersPg.TabIndex = 1;
+            this.VipUsersPg.Text = "Vip Users";
+            this.VipUsersPg.UseVisualStyleBackColor = true;
+            this.VipUsersPg.Click += new System.EventHandler(this.VipUsersPg_Click);
+            // 
             // AdminPannel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.VipUsersPg);
             this.Controls.Add(this.ViewBtn);
             this.Name = "AdminPannel";
             this.Text = "AdminPannel";
@@ -59,5 +74,6 @@
         #endregion
 
         private FontAwesome.Sharp.IconButton ViewBtn;
+        private FontAwesome.Sharp.IconButton VipUsersPg;
     }
 }

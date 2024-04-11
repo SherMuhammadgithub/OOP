@@ -50,6 +50,7 @@ namespace BMS.UI.Accounts
             IpAccountNum.Text = currentAccount.GetAccountNumber().ToString();
             BalanceLbl.Text = currentAccount.GetIntialDeposit().ToString();
             BalanceLbl.Text = $"Current Amount: {currentAccount.GetIntialDeposit()}";
+            DebtLbl.Text = $"Debt Amount: {currentAccount.GetDebt()}";
             MessageBox.Show(currentAccount.GetIntialDeposit().ToString());
         }
 

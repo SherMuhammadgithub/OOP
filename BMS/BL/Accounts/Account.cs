@@ -24,6 +24,7 @@ namespace BMS.BL
         protected List<trans> transactions;
         private Loan loan;
         protected string AccountType;
+        protected int Debt = 0; // debt for the account
         public Account( string DateOfBirth, string Address, int Phone, string SocialSecurityNumber,
             int MonthlyIncome, int IntialDeposit,string AccountHolder, string AccountType)
         {
@@ -123,6 +124,14 @@ namespace BMS.BL
         {
             return loan;
         }
+        public  int GetDebt()
+        {
+            return Debt;
+        }
+        public void SetDebt(int Debt)
+        {
+            this.Debt = Debt;
+        }
         public bool Deposit(int amount)
         {
             if(amount > 0)
@@ -176,7 +185,7 @@ namespace BMS.BL
         }
        
        //polymorphic method
-        private bool Deposit(int amount,Account account)
+        public bool Deposit(int amount,Account account)
         {
             int Balance = account.GetIntialDeposit();
             if (amount > 0)
