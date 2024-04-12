@@ -1,5 +1,6 @@
 ﻿using BMS.BL;
 using BMS.DL;
+using BMS.UI.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,9 +31,21 @@ namespace BMS.UI
            
                 // setting current customer Account
                 MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+                
                 Account account = ObjectHandler.GetAccountDL().isAccountExists(currentUser.GetUsername());
                 if (account != null)
                 {
+                    // check if the account is reported
+                    ReportedAccount reportedAccount = ObjectHandler.GetReportedAccountDL().isReported(account.GetAccountHolder());
+                    if (reportedAccount != null)
+                    {
+                        MessageBox.Show("Account is reported");
+                        Reported reported = new Reported();
+                        reported.IpRepAccountName.Text = reportedAccount.GetAccountHolder();
+                        reported.IpReason.Text = reportedAccount.GetReason();
+                        reported.Show();
+                        return;
+                    }
                     MessageBox.Show("Account found");
                     currentUser.SetCurrentAccount(account);
                     Loan loan = ObjectHandler.GetLoanDL().isLoanExists(account.GetAccountHolder());

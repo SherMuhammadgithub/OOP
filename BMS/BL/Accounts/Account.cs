@@ -126,6 +126,7 @@ namespace BMS.BL
         }
         public  int GetDebt()
         {
+            // add previous debt
             return Debt;
         }
         public void SetDebt(int Debt)

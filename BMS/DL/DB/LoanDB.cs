@@ -69,9 +69,10 @@ namespace BMS.DL.DB
         // updating accountolder in loan
       
         // updating in database
-        public bool UpdateLoanInfo(Loan loan, string prevAccountHolder)
+        public bool UpdateLoanInfo(string newAccountHolder, string prevAccountHolder)
         {
-            string Query = $"UPDATE Loan SET AccountHolder = '{loan.GetAccountHolder()}', Amount = {loan.GetLoanAmount()}, MonthlyPayment = {loan.GetMonthlyPayment()} WHERE AccountHolder = '{prevAccountHolder}'";
+
+            string Query = $"UPDATE Loan SET AccountHolder = '{newAccountHolder}' WHERE AccountHolder = '{prevAccountHolder}'";
             int rowsAffected = utills.SetData(Query);
             if (rowsAffected > 0)
             {

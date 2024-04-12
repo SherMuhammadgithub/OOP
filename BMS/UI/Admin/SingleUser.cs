@@ -1,4 +1,5 @@
 ﻿using BMS.BL;
+using BMS.UI.Admin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,25 @@ namespace BMS.UI
         public SingleUser()
         {
             InitializeComponent();
+           
 
+        }
+        private void isReeported()
+        {
+            string accountHolder = IpName.Text;
+            ReportedAccount reportedAccount = ObjectHandler.GetReportedAccountDL().isReported(accountHolder);
+            if (reportedAccount != null)
+            {
+                DeleteBtn.Enabled = false;
+                UnreportBtn.Enabled = true;
+                ReportedLbl.Visible = true;
+            }
+            else
+            {
+                DeleteBtn.Enabled = true;
+                UnreportBtn.Enabled = false;
+                ReportedLbl.Visible = false;
+            }
         }
         private void LoadTransactions()
         {
@@ -71,10 +90,6 @@ namespace BMS.UI
         {
 
         }
-        private void SingleUser_Load(object sender, EventArgs e)
-        {
-            LoadTransactions();
-        }
 
         private void chart1_Click(object sender, EventArgs e)
         {
@@ -83,24 +98,10 @@ namespace BMS.UI
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            string accountHolder = IpName.Text;
-            Account account = ObjectHandler.GetAccountDL().isAccountExists(accountHolder);
-            bool isDeleted = ObjectHandler.GetAccountDL().DeleteAccount(account);
-            bool isDeletedTransactions = ObjectHandler.GetTransactionDL().DeleteTransaction(accountHolder);
-            bool isDeletedLoan = ObjectHandler.GetLoanDL().DeleteLoan(account.GetLoan());
+            ReportAccountForm reportAccountForm = new ReportAccountForm();
+            reportAccountForm.IpRepAccountName.Text = IpName.Text;
+            reportAccountForm.Show();
 
-            
-            if (isDeleted && isDeletedTransactions && isDeletedLoan)
-            {
-                MessageBox.Show("Account deleted successfully");
-                this.Hide();
-                Menu menu = new Menu();
-                menu.Show();
-            }
-            else
-            {
-                MessageBox.Show("Account not deleted");
-            }
         }
 
         private void IpLoanBtn_Click(object sender, EventArgs e)
@@ -114,7 +115,9 @@ namespace BMS.UI
             if (isDelivered && isDeposited)
             {
                     // set debt for the account
-                    accountToGiveLoan.SetDebt(loan.GetLoanAmount());
+                    int prevDebt = accountToGiveLoan.GetDebt();
+                    int totalDebt = loan.GetLoanAmount() + prevDebt;
+                    accountToGiveLoan.SetDebt(totalDebt);
                     MessageBox.Show("Loan delivered successfully");
                    // update the account information
                    bool isUpdated = ObjectHandler.GetAccountDL().UpdateAccountInfo(accountToGiveLoan, AccountHolder);
@@ -165,6 +168,29 @@ namespace BMS.UI
         private void IpName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void UnreportBtn_Click(object sender, EventArgs e)
+        {
+            string accountHolder = IpName.Text;
+            bool isUnreported = ObjectHandler.GetReportedAccountDL().UnreportAccount(accountHolder);
+            if (isUnreported)
+            {
+                MessageBox.Show("Account unreported successfully");
+                this.Hide();
+                Menu menu = new Menu();
+                menu.Show();
+            }
+            else
+            {
+                MessageBox.Show("Account not unreported");
+            }
+        }
+
+        private void SingleUser_Load(object sender, EventArgs e)
+        {
+            LoadTransactions();
+            isReeported();
         }
     }
 }

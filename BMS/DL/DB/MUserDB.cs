@@ -64,8 +64,21 @@ namespace BMS.DL
         {
             return currentUser; // this was changed from static to instance
         }
+        public bool UpdateUserInfo(MUser user, string prevUserName)
+        {
+            foreach (MUser u in users)
+            {
+                if (u.GetUsername() == prevUserName)
+                {
+                    u.SetUsername(user.GetUsername());
+                    u.SetPassword(user.GetPassword());
+                    return UpdateUserInfoInDB(user,prevUserName);
+                }
+            }
+            return false;
+        }
         // updating in database
-        public  bool UpdateUserInfo(MUser user, string prevUserName)
+        public  bool UpdateUserInfoInDB(MUser user, string prevUserName)
         {
             string Query = $"UPDATE BMSUsers SET Name = '{user.GetUsername()}', Password = '{user.GetPassword()}' WHERE Name = '{prevUserName}'";
             int rowsAffected = utills.SetData(Query);

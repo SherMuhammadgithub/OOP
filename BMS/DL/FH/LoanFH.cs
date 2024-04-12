@@ -83,10 +83,11 @@ namespace BMS.DL.FH
                 return false;
         }
         // updating in file without creating new file
-      public bool UpdateLoanInfo(Loan loan, string prevAccountHolder)
+      public bool UpdateLoanInfo(string newAccountHolder, string prevAccountHolder)
         {
             try
             {
+               // update only AccountHolder
                 string tempFile = Path.GetTempFileName();
                 using (var sr = new StreamReader("loan.txt"))
                 using (var sw = new StreamWriter(tempFile))
@@ -97,7 +98,7 @@ namespace BMS.DL.FH
                         string[] data = line.Split(',');
                         if (data[0] == prevAccountHolder)
                         {
-                            sw.WriteLine(loan.GetAccountHolder() + "," + loan.GetLoanAmount() + "," + loan.GetMonthlyPayment());
+                            sw.WriteLine(newAccountHolder + "," + data[1] + "," + data[2]);
                         }
                         else
                         {

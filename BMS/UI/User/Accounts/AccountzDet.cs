@@ -73,17 +73,32 @@ namespace BMS.UI.Accounts
             currentAccount.SetAccountNumber(Convert.ToInt32(IpAccountNum.Text));
             prevUser.SetUsername(IpName.Text);
             // updating loan information if loan exists
+            bool isUpdated = true;
+            // updating information
+            if(!accountDL.UpdateAccountInfo(currentAccount, prevAccountHolder))
+            {
+                MessageBox.Show("account");
+                isUpdated = false;
+            }
+            if(!mUserDL.UpdateUserInfo(prevUser, prevAccountHolder))
+            {
+                MessageBox.Show("user");
+                isUpdated = false;
+            }
+            // check if the transactions for the current acccount exists
+            if(currentAccount.GetTransactions().Count > 0) // if transactions exists
+            {
+                MessageBox.Show("transactions");
+                isUpdated = transactionDL.UpdtateAccountHolder(prevAccountHolder, IpName.Text);
+            }
+            
             if (currentAccount.GetLoan() != null) 
             {
-            currentAccount.GetLoan().SetAccountHolder(IpName.Text);
-
+                MessageBox.Show("loan");
+                currentAccount.GetLoan().SetAccountHolder(IpName.Text);
+            isUpdated = ObjectHandler.GetLoanDL().UpdateLoanInfo(IpName.Text, prevAccountHolder);
             }
-            // updating information
-            bool isUpdated = accountDL.UpdateAccountInfo(currentAccount, prevAccountHolder);
-            bool isAccountUpdated = transactionDL.UpdtateAccountHolder(prevAccountHolder, IpName.Text); 
-            bool isUserUpdated = mUserDL.UpdateUserInfo(prevUser, prevAccountHolder);
-            bool isLoanUpdated = ObjectHandler.GetLoanDL().UpdateLoanInfo(currentAccount.GetLoan(), prevAccountHolder);
-            if(isAccountUpdated && isUpdated && isUserUpdated && isLoanUpdated)
+            if(isUpdated)
             {
                 MessageBox.Show("Information Updated"); return;
             }

@@ -34,10 +34,12 @@ namespace BMS.UI
         }
         private void LoadData()
         {
-           List<Account> accounts =  ObjectHandler.GetAccountDL().GetAccounts();
+            List<Account> accounts = ObjectHandler.GetAccountDL().GetAccounts();
+                  // load the data
             foreach (Account account in accounts)
             {
-                string[] row = new string[] { account.GetAccountHolder(), account.GetDateOfBirth(), account.GetAddress(), account.GetPhone().ToString(), account.GetSocialSecurityNumber(), account.GetMonthlyIncome().ToString(), account.GetIntialDeposit().ToString(), account.GetAccountType(), account.GetAccountNumber().ToString() };
+                string[] row = new string[] { account.GetAccountHolder(), account.GetDateOfBirth(), account.GetAddress(), account.GetPhone().ToString(),
+                               account.GetSocialSecurityNumber(), account.GetMonthlyIncome().ToString(), account.GetIntialDeposit().ToString(), account.GetAccountType(), account.GetAccountNumber().ToString() };
                 dataGridView.Rows.Add(row);
             }
         }

@@ -28,6 +28,9 @@ namespace BMS.UI
             if (isApplied)
             {
                 MessageBox.Show("Loan Applied");
+                // set loan for the account
+                Loan loan = ObjectHandler.GetLoanDL().isLoanExists(account.GetAccountHolder());
+                account.SetLoan(loan);
             }
             else
             {

@@ -29,6 +29,8 @@ namespace BMS
             // Loans Data
             MessageBox.Show("Loading Loans Data");
             ObjectHandler.GetLoanDL().LoadLoanData(); // bool
+            MessageBox.Show("Loading Reported Accounts Data");
+            ObjectHandler.GetReportedAccountDL().LoadReportedAccountData();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainFrom());

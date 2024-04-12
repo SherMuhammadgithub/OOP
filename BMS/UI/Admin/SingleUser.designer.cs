@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label8 = new System.Windows.Forms.Label();
             this.IpAccountNum = new System.Windows.Forms.TextBox();
@@ -56,6 +56,8 @@
             this.IpMonthlyPay = new System.Windows.Forms.TextBox();
             this.IpLoan = new System.Windows.Forms.TextBox();
             this.IpLoanBtn = new FontAwesome.Sharp.IconButton();
+            this.UnreportBtn = new FontAwesome.Sharp.IconButton();
+            this.ReportedLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -213,19 +215,19 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(404, 79);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.LabelForeColor = System.Drawing.Color.White;
-            series1.Legend = "Legend1";
-            series1.Name = "Amount";
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.LabelForeColor = System.Drawing.Color.White;
+            series3.Legend = "Legend1";
+            series3.Name = "Amount";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(416, 300);
             this.chart1.TabIndex = 84;
             this.chart1.Text = " ";
@@ -251,7 +253,7 @@
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.Size = new System.Drawing.Size(110, 23);
             this.DeleteBtn.TabIndex = 86;
-            this.DeleteBtn.Text = "Delete";
+            this.DeleteBtn.Text = "Report";
             this.DeleteBtn.UseVisualStyleBackColor = true;
             this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
@@ -304,12 +306,40 @@
             this.IpLoanBtn.UseVisualStyleBackColor = true;
             this.IpLoanBtn.Click += new System.EventHandler(this.IpLoanBtn_Click);
             // 
+            // UnreportBtn
+            // 
+            this.UnreportBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.UnreportBtn.IconColor = System.Drawing.Color.Black;
+            this.UnreportBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.UnreportBtn.Location = new System.Drawing.Point(538, 509);
+            this.UnreportBtn.Name = "UnreportBtn";
+            this.UnreportBtn.Size = new System.Drawing.Size(110, 23);
+            this.UnreportBtn.TabIndex = 92;
+            this.UnreportBtn.Text = "Un Report";
+            this.UnreportBtn.UseVisualStyleBackColor = true;
+            this.UnreportBtn.Click += new System.EventHandler(this.UnreportBtn_Click);
+            // 
+            // ReportedLbl
+            // 
+            this.ReportedLbl.AutoSize = true;
+            this.ReportedLbl.BackColor = System.Drawing.Color.Transparent;
+            this.ReportedLbl.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReportedLbl.ForeColor = System.Drawing.Color.Red;
+            this.ReportedLbl.Location = new System.Drawing.Point(201, 33);
+            this.ReportedLbl.Name = "ReportedLbl";
+            this.ReportedLbl.Size = new System.Drawing.Size(406, 21);
+            this.ReportedLbl.TabIndex = 93;
+            this.ReportedLbl.Text = "This Account is Currently Reported";
+            this.ReportedLbl.Visible = false;
+            // 
             // SingleUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(879, 583);
+            this.Controls.Add(this.ReportedLbl);
+            this.Controls.Add(this.UnreportBtn);
             this.Controls.Add(this.IpLoanBtn);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
@@ -370,5 +400,7 @@
         public System.Windows.Forms.TextBox IpMonthlyPay;
         public System.Windows.Forms.TextBox IpLoan;
         private FontAwesome.Sharp.IconButton IpLoanBtn;
+        private FontAwesome.Sharp.IconButton UnreportBtn;
+        private System.Windows.Forms.Label ReportedLbl;
     }
 }

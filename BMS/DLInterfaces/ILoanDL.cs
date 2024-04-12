@@ -12,7 +12,7 @@ namespace BMS.DLInterfaces
         bool SaveLoan(Loan loan);
          bool LoadLoanData();
         Loan isLoanExists(string AccountHolder);
-        bool UpdateLoanInfo(Loan loan, string prevAccountHolder);
+        bool UpdateLoanInfo(string newName, string prevAccountHolder);
         bool DeleteLoan(Loan loan);
     }
 }
