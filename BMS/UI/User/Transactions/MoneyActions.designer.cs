@@ -29,82 +29,144 @@
         private void InitializeComponent()
         {
             this.IpAmount = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DepositeBtn = new System.Windows.Forms.Button();
-            this.WithDrawBtn = new System.Windows.Forms.Button();
-            this.GoToTransferPgBtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.withdraw = new FontAwesome.Sharp.IconButton();
+            this.DepositBtn = new FontAwesome.Sharp.IconButton();
+            this.SignUpPgLink = new System.Windows.Forms.LinkLabel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // IpAmount
             // 
-            this.IpAmount.Location = new System.Drawing.Point(239, 107);
+            this.IpAmount.Location = new System.Drawing.Point(172, 154);
             this.IpAmount.Name = "IpAmount";
             this.IpAmount.Size = new System.Drawing.Size(219, 22);
             this.IpAmount.TabIndex = 0;
             // 
-            // label1
+            // panel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(305, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Enter Amount";
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.SignUpPgLink);
+            this.panel1.Controls.Add(this.DepositBtn);
+            this.panel1.Controls.Add(this.withdraw);
+            this.panel1.Controls.Add(this.guna2HtmlLabel1);
+            this.panel1.Controls.Add(this.BalanceLbl);
+            this.panel1.Controls.Add(this.IpAmount);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(10, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(593, 327);
+            this.panel1.TabIndex = 10;
             // 
-            // DepositeBtn
+            // BalanceLbl
             // 
-            this.DepositeBtn.Location = new System.Drawing.Point(236, 191);
-            this.DepositeBtn.Name = "DepositeBtn";
-            this.DepositeBtn.Size = new System.Drawing.Size(92, 25);
-            this.DepositeBtn.TabIndex = 7;
-            this.DepositeBtn.Text = "Deposite";
-            this.DepositeBtn.UseVisualStyleBackColor = true;
-            this.DepositeBtn.Click += new System.EventHandler(this.DepositeBtn_Click);
+            this.BalanceLbl.BackColor = System.Drawing.Color.Transparent;
+            this.BalanceLbl.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalanceLbl.ForeColor = System.Drawing.Color.White;
+            this.BalanceLbl.Location = new System.Drawing.Point(172, 34);
+            this.BalanceLbl.Name = "BalanceLbl";
+            this.BalanceLbl.Size = new System.Drawing.Size(240, 29);
+            this.BalanceLbl.TabIndex = 49;
+            this.BalanceLbl.Text = "Deposit or Withdraw Amount";
             // 
-            // WithDrawBtn
+            // guna2HtmlLabel1
             // 
-            this.WithDrawBtn.Location = new System.Drawing.Point(366, 191);
-            this.WithDrawBtn.Name = "WithDrawBtn";
-            this.WithDrawBtn.Size = new System.Drawing.Size(92, 25);
-            this.WithDrawBtn.TabIndex = 8;
-            this.WithDrawBtn.Text = "WithDraw";
-            this.WithDrawBtn.UseVisualStyleBackColor = true;
-            this.WithDrawBtn.Click += new System.EventHandler(this.WithDrawBtn_Click);
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(236, 114);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(100, 25);
+            this.guna2HtmlLabel1.TabIndex = 51;
+            this.guna2HtmlLabel1.Text = "Enter Amount";
             // 
-            // GoToTransferPgBtn
+            // withdraw
             // 
-            this.GoToTransferPgBtn.Location = new System.Drawing.Point(470, 277);
-            this.GoToTransferPgBtn.Name = "GoToTransferPgBtn";
-            this.GoToTransferPgBtn.Size = new System.Drawing.Size(175, 25);
-            this.GoToTransferPgBtn.TabIndex = 9;
-            this.GoToTransferPgBtn.Text = "Want to trasnfer";
-            this.GoToTransferPgBtn.UseVisualStyleBackColor = true;
-            this.GoToTransferPgBtn.Click += new System.EventHandler(this.GoToTransferPgBtn_Click);
+            this.withdraw.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.withdraw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.withdraw.FlatAppearance.BorderSize = 0;
+            this.withdraw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.withdraw.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.withdraw.ForeColor = System.Drawing.Color.White;
+            this.withdraw.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.withdraw.IconColor = System.Drawing.Color.White;
+            this.withdraw.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.withdraw.IconSize = 32;
+            this.withdraw.Location = new System.Drawing.Point(307, 210);
+            this.withdraw.Name = "withdraw";
+            this.withdraw.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.withdraw.Size = new System.Drawing.Size(168, 36);
+            this.withdraw.TabIndex = 59;
+            this.withdraw.Text = "Withdraw";
+            this.withdraw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.withdraw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.withdraw.UseMnemonic = false;
+            this.withdraw.UseVisualStyleBackColor = false;
+            // 
+            // DepositBtn
+            // 
+            this.DepositBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DepositBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.DepositBtn.FlatAppearance.BorderSize = 0;
+            this.DepositBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DepositBtn.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DepositBtn.ForeColor = System.Drawing.Color.White;
+            this.DepositBtn.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.DepositBtn.IconColor = System.Drawing.Color.White;
+            this.DepositBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.DepositBtn.IconSize = 32;
+            this.DepositBtn.Location = new System.Drawing.Point(112, 210);
+            this.DepositBtn.Name = "DepositBtn";
+            this.DepositBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.DepositBtn.Size = new System.Drawing.Size(168, 36);
+            this.DepositBtn.TabIndex = 61;
+            this.DepositBtn.Text = "Deposit";
+            this.DepositBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DepositBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.DepositBtn.UseMnemonic = false;
+            this.DepositBtn.UseVisualStyleBackColor = false;
+            // 
+            // SignUpPgLink
+            // 
+            this.SignUpPgLink.AutoSize = true;
+            this.SignUpPgLink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
+            this.SignUpPgLink.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignUpPgLink.ForeColor = System.Drawing.Color.White;
+            this.SignUpPgLink.LinkColor = System.Drawing.Color.White;
+            this.SignUpPgLink.Location = new System.Drawing.Point(373, 288);
+            this.SignUpPgLink.Name = "SignUpPgLink";
+            this.SignUpPgLink.Size = new System.Drawing.Size(200, 23);
+            this.SignUpPgLink.TabIndex = 62;
+            this.SignUpPgLink.TabStop = true;
+            this.SignUpPgLink.Text = "Wants to transfer? Transfer";
             // 
             // MoneyActions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 314);
-            this.Controls.Add(this.GoToTransferPgBtn);
-            this.Controls.Add(this.WithDrawBtn);
-            this.Controls.Add(this.DepositeBtn);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.IpAmount);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(613, 347);
+            this.Controls.Add(this.panel1);
             this.Name = "MoneyActions";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "MoneyActions";
             this.Load += new System.EventHandler(this.MoneyActions_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.TextBox IpAmount;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button DepositeBtn;
-        private System.Windows.Forms.Button WithDrawBtn;
-        private System.Windows.Forms.Button GoToTransferPgBtn;
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel BalanceLbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private FontAwesome.Sharp.IconButton DepositBtn;
+        private FontAwesome.Sharp.IconButton withdraw;
+        private System.Windows.Forms.LinkLabel SignUpPgLink;
     }
 }

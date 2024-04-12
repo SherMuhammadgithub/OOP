@@ -17,8 +17,8 @@ namespace BMS.BL
         protected string Address;
         protected int Phone;
         protected string SocialSecurityNumber;
-        protected int MonthlyIncome;
-        protected int IntialDeposit;
+        protected int MonthlyIncome = 0;
+        protected int IntialDeposit = 0;
         protected int AccountNumber;
         protected string AccountHolder;   // name for account holder foreign key****
         protected List<trans> transactions;

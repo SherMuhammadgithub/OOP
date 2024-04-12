@@ -51,9 +51,12 @@ namespace BMS.UI
             {
                 MessageBox.Show("Account not created successfully");
             }
-            this.Hide();
-            AccountzDet accountzDet = new AccountzDet();
-            accountzDet.Show();
+            this.Close();
+            Dashboard dashboard = new Dashboard();
+            dashboard.BalanceLbl.Text = currentUser.GetAccount().GetIntialDeposit().ToString();
+            dashboard.SalaryLbl.Text = currentUser.GetAccount().GetMonthlyIncome().ToString();
+            dashboard.DebtLbl.Text = currentUser.GetAccount().GetDebt().ToString();
+            dashboard.Show();
             
         }
 
@@ -65,6 +68,16 @@ namespace BMS.UI
         private void IpDOB_TextChanged(object sender, EventArgs e)
         {
             AddBtn.Enabled = !string.IsNullOrEmpty(IpDOB.Text); 
+        }
+
+        private void IpPhone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void IpSSN_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

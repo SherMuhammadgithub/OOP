@@ -64,11 +64,21 @@ namespace BMS.UI
                 else
                 {
                     MessageBox.Show("Account not found");
-                    currentUser.SetCurrentAccount(null); 
+                    this.Close();
+                    Dashboard dashboard1 = new Dashboard();
+                    dashboard1.NameLbl.Text = currentUser.GetUsername().ToString();
+                    dashboard1.Show();
+                    currentUser.SetCurrentAccount(null);
+                    return;
                 }
-                this.Hide();
-                Menu menu = new Menu();
-                menu.Show();    
+                // when account found
+                this.Close();
+                Dashboard dashboard = new Dashboard();
+                dashboard.NameLbl.Text = currentUser.GetUsername().ToString();
+                dashboard.BalanceLbl.Text = account.GetIntialDeposit().ToString();
+                dashboard.SalaryLbl.Text = account.GetMonthlyIncome().ToString();
+                dashboard.DebtLbl.Text = account.GetDebt().ToString();
+                dashboard.Show();
             }
             else
             {

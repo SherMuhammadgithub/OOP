@@ -28,120 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label8 = new System.Windows.Forms.Label();
-            this.IpAccountNum = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.IpIntialDeposite = new System.Windows.Forms.TextBox();
-            this.IpMontlySalary = new System.Windows.Forms.TextBox();
-            this.IpSSN = new System.Windows.Forms.TextBox();
-            this.IpPhone = new System.Windows.Forms.TextBox();
-            this.IpDOB = new System.Windows.Forms.TextBox();
-            this.IpAddress = new System.Windows.Forms.TextBox();
             this.IpName = new System.Windows.Forms.TextBox();
-            this.EditBtn = new System.Windows.Forms.Button();
+            this.IpAddress = new System.Windows.Forms.TextBox();
+            this.IpDOB = new System.Windows.Forms.TextBox();
+            this.IpPhone = new System.Windows.Forms.TextBox();
+            this.IpSSN = new System.Windows.Forms.TextBox();
+            this.IpMontlySalary = new System.Windows.Forms.TextBox();
+            this.IpIntialDeposite = new System.Windows.Forms.TextBox();
+            this.IpAccountNum = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.DebtLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.EditBtn = new FontAwesome.Sharp.IconButton();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label8
+            // IpName
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(422, 309);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 16);
-            this.label8.TabIndex = 45;
-            this.label8.Text = "Account Number";
+            this.IpName.Location = new System.Drawing.Point(88, 124);
+            this.IpName.Name = "IpName";
+            this.IpName.Size = new System.Drawing.Size(147, 22);
+            this.IpName.TabIndex = 30;
             // 
-            // IpAccountNum
+            // IpAddress
             // 
-            this.IpAccountNum.Location = new System.Drawing.Point(425, 352);
-            this.IpAccountNum.Name = "IpAccountNum";
-            this.IpAccountNum.ReadOnly = true;
-            this.IpAccountNum.Size = new System.Drawing.Size(147, 22);
-            this.IpAccountNum.TabIndex = 44;
+            this.IpAddress.Location = new System.Drawing.Point(568, 124);
+            this.IpAddress.Name = "IpAddress";
+            this.IpAddress.Size = new System.Drawing.Size(147, 22);
+            this.IpAddress.TabIndex = 31;
             // 
-            // label7
+            // IpDOB
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(173, 309);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 16);
-            this.label7.TabIndex = 43;
-            this.label7.Text = " Intial Deposite";
+            this.IpDOB.Location = new System.Drawing.Point(317, 124);
+            this.IpDOB.Name = "IpDOB";
+            this.IpDOB.Size = new System.Drawing.Size(147, 22);
+            this.IpDOB.TabIndex = 32;
             // 
-            // label6
+            // IpPhone
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(565, 184);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 16);
-            this.label6.TabIndex = 42;
-            this.label6.Text = " MonthlySalary";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(325, 184);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 16);
-            this.label5.TabIndex = 41;
-            this.label5.Text = " SSN";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(565, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 16);
-            this.label4.TabIndex = 40;
-            this.label4.Text = " Address";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(85, 184);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 16);
-            this.label3.TabIndex = 39;
-            this.label3.Text = " Phone";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(314, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 16);
-            this.label2.TabIndex = 38;
-            this.label2.Text = " DOB";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(85, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
-            this.label1.TabIndex = 37;
-            this.label1.Text = "Full Name";
-            // 
-            // IpIntialDeposite
-            // 
-            this.IpIntialDeposite.Location = new System.Drawing.Point(176, 352);
-            this.IpIntialDeposite.Name = "IpIntialDeposite";
-            this.IpIntialDeposite.Size = new System.Drawing.Size(147, 22);
-            this.IpIntialDeposite.TabIndex = 36;
-            // 
-            // IpMontlySalary
-            // 
-            this.IpMontlySalary.Location = new System.Drawing.Point(568, 234);
-            this.IpMontlySalary.Name = "IpMontlySalary";
-            this.IpMontlySalary.Size = new System.Drawing.Size(147, 22);
-            this.IpMontlySalary.TabIndex = 35;
+            this.IpPhone.Location = new System.Drawing.Point(88, 234);
+            this.IpPhone.Name = "IpPhone";
+            this.IpPhone.Size = new System.Drawing.Size(147, 22);
+            this.IpPhone.TabIndex = 33;
             // 
             // IpSSN
             // 
@@ -151,80 +87,187 @@
             this.IpSSN.Size = new System.Drawing.Size(147, 22);
             this.IpSSN.TabIndex = 34;
             // 
-            // IpPhone
+            // IpMontlySalary
             // 
-            this.IpPhone.Location = new System.Drawing.Point(88, 234);
-            this.IpPhone.Name = "IpPhone";
-            this.IpPhone.Size = new System.Drawing.Size(147, 22);
-            this.IpPhone.TabIndex = 33;
+            this.IpMontlySalary.Location = new System.Drawing.Point(568, 234);
+            this.IpMontlySalary.Name = "IpMontlySalary";
+            this.IpMontlySalary.Size = new System.Drawing.Size(147, 22);
+            this.IpMontlySalary.TabIndex = 35;
             // 
-            // IpDOB
+            // IpIntialDeposite
             // 
-            this.IpDOB.Location = new System.Drawing.Point(317, 124);
-            this.IpDOB.Name = "IpDOB";
-            this.IpDOB.Size = new System.Drawing.Size(147, 22);
-            this.IpDOB.TabIndex = 32;
+            this.IpIntialDeposite.Location = new System.Drawing.Point(176, 352);
+            this.IpIntialDeposite.Name = "IpIntialDeposite";
+            this.IpIntialDeposite.Size = new System.Drawing.Size(147, 22);
+            this.IpIntialDeposite.TabIndex = 36;
             // 
-            // IpAddress
+            // IpAccountNum
             // 
-            this.IpAddress.Location = new System.Drawing.Point(568, 124);
-            this.IpAddress.Name = "IpAddress";
-            this.IpAddress.Size = new System.Drawing.Size(147, 22);
-            this.IpAddress.TabIndex = 31;
+            this.IpAccountNum.Location = new System.Drawing.Point(425, 352);
+            this.IpAccountNum.Name = "IpAccountNum";
+            this.IpAccountNum.ReadOnly = true;
+            this.IpAccountNum.Size = new System.Drawing.Size(147, 22);
+            this.IpAccountNum.TabIndex = 44;
             // 
-            // IpName
+            // panel1
             // 
-            this.IpName.Location = new System.Drawing.Point(88, 124);
-            this.IpName.Name = "IpName";
-            this.IpName.Size = new System.Drawing.Size(147, 22);
-            this.IpName.TabIndex = 30;
-            // 
-            // EditBtn
-            // 
-            this.EditBtn.Location = new System.Drawing.Point(667, 466);
-            this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(75, 23);
-            this.EditBtn.TabIndex = 46;
-            this.EditBtn.Text = "Edit";
-            this.EditBtn.UseVisualStyleBackColor = true;
-            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.EditBtn);
+            this.panel1.Controls.Add(this.guna2HtmlLabel8);
+            this.panel1.Controls.Add(this.guna2HtmlLabel7);
+            this.panel1.Controls.Add(this.guna2HtmlLabel6);
+            this.panel1.Controls.Add(this.guna2HtmlLabel5);
+            this.panel1.Controls.Add(this.guna2HtmlLabel4);
+            this.panel1.Controls.Add(this.guna2HtmlLabel3);
+            this.panel1.Controls.Add(this.guna2HtmlLabel2);
+            this.panel1.Controls.Add(this.guna2HtmlLabel1);
+            this.panel1.Controls.Add(this.DebtLbl);
+            this.panel1.Controls.Add(this.BalanceLbl);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(10, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(789, 477);
+            this.panel1.TabIndex = 49;
             // 
             // BalanceLbl
             // 
             this.BalanceLbl.BackColor = System.Drawing.Color.Transparent;
-            this.BalanceLbl.Location = new System.Drawing.Point(12, 12);
+            this.BalanceLbl.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalanceLbl.ForeColor = System.Drawing.Color.White;
+            this.BalanceLbl.Location = new System.Drawing.Point(19, 23);
             this.BalanceLbl.Name = "BalanceLbl";
-            this.BalanceLbl.Size = new System.Drawing.Size(87, 18);
-            this.BalanceLbl.TabIndex = 47;
-            this.BalanceLbl.Text = "Total Balance";
-            this.BalanceLbl.Click += new System.EventHandler(this.BalanceLbl_Click);
+            this.BalanceLbl.Size = new System.Drawing.Size(134, 29);
+            this.BalanceLbl.TabIndex = 48;
+            this.BalanceLbl.Text = "Current Balance";
             // 
             // DebtLbl
             // 
             this.DebtLbl.BackColor = System.Drawing.Color.Transparent;
-            this.DebtLbl.Location = new System.Drawing.Point(635, 12);
+            this.DebtLbl.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DebtLbl.ForeColor = System.Drawing.Color.White;
+            this.DebtLbl.Location = new System.Drawing.Point(584, 23);
             this.DebtLbl.Name = "DebtLbl";
-            this.DebtLbl.Size = new System.Drawing.Size(80, 18);
-            this.DebtLbl.TabIndex = 48;
-            this.DebtLbl.Text = "Debt Amount";
+            this.DebtLbl.Size = new System.Drawing.Size(110, 29);
+            this.DebtLbl.TabIndex = 49;
+            this.DebtLbl.Text = "Current Debt";
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(78, 77);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(43, 25);
+            this.guna2HtmlLabel1.TabIndex = 50;
+            this.guna2HtmlLabel1.Text = "Name";
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(307, 77);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(33, 25);
+            this.guna2HtmlLabel2.TabIndex = 51;
+            this.guna2HtmlLabel2.Text = "DOB";
+            // 
+            // guna2HtmlLabel3
+            // 
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(558, 77);
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(59, 25);
+            this.guna2HtmlLabel3.TabIndex = 52;
+            this.guna2HtmlLabel3.Text = "Address";
+            // 
+            // guna2HtmlLabel4
+            // 
+            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(78, 184);
+            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(46, 25);
+            this.guna2HtmlLabel4.TabIndex = 53;
+            this.guna2HtmlLabel4.Text = "Phone";
+            // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(307, 184);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(124, 25);
+            this.guna2HtmlLabel5.TabIndex = 54;
+            this.guna2HtmlLabel5.Text = "Social Security No";
+            // 
+            // guna2HtmlLabel6
+            // 
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(558, 184);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(105, 25);
+            this.guna2HtmlLabel6.TabIndex = 55;
+            this.guna2HtmlLabel6.Text = "Monthly Salary";
+            // 
+            // guna2HtmlLabel7
+            // 
+            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel7.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(415, 300);
+            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(101, 25);
+            this.guna2HtmlLabel7.TabIndex = 56;
+            this.guna2HtmlLabel7.Text = "Intial Deposite";
+            // 
+            // guna2HtmlLabel8
+            // 
+            this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel8.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(166, 300);
+            this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(95, 25);
+            this.guna2HtmlLabel8.TabIndex = 57;
+            this.guna2HtmlLabel8.Text = "Intial Balance";
+            // 
+            // EditBtn
+            // 
+            this.EditBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EditBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.EditBtn.FlatAppearance.BorderSize = 0;
+            this.EditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditBtn.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditBtn.ForeColor = System.Drawing.Color.White;
+            this.EditBtn.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.EditBtn.IconColor = System.Drawing.Color.White;
+            this.EditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EditBtn.IconSize = 32;
+            this.EditBtn.Location = new System.Drawing.Point(566, 400);
+            this.EditBtn.Name = "EditBtn";
+            this.EditBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.EditBtn.Size = new System.Drawing.Size(168, 36);
+            this.EditBtn.TabIndex = 58;
+            this.EditBtn.Text = "Edit Info";
+            this.EditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.EditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.EditBtn.UseMnemonic = false;
+            this.EditBtn.UseVisualStyleBackColor = false;
             // 
             // AccountzDet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 545);
-            this.Controls.Add(this.DebtLbl);
-            this.Controls.Add(this.BalanceLbl);
-            this.Controls.Add(this.EditBtn);
-            this.Controls.Add(this.label8);
+            this.ClientSize = new System.Drawing.Size(809, 497);
             this.Controls.Add(this.IpAccountNum);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.IpIntialDeposite);
             this.Controls.Add(this.IpMontlySalary);
             this.Controls.Add(this.IpSSN);
@@ -232,34 +275,38 @@
             this.Controls.Add(this.IpDOB);
             this.Controls.Add(this.IpAddress);
             this.Controls.Add(this.IpName);
+            this.Controls.Add(this.panel1);
             this.Name = "AccountzDet";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "AccountzDet";
             this.Load += new System.EventHandler(this.AccountzDet_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox IpAccountNum;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox IpIntialDeposite;
-        private System.Windows.Forms.TextBox IpMontlySalary;
-        private System.Windows.Forms.TextBox IpSSN;
-        private System.Windows.Forms.TextBox IpPhone;
-        private System.Windows.Forms.TextBox IpDOB;
-        private System.Windows.Forms.TextBox IpAddress;
         private System.Windows.Forms.TextBox IpName;
-        private System.Windows.Forms.Button EditBtn;
-        private Guna.UI2.WinForms.Guna2HtmlLabel BalanceLbl;
+        private System.Windows.Forms.TextBox IpAddress;
+        private System.Windows.Forms.TextBox IpDOB;
+        private System.Windows.Forms.TextBox IpPhone;
+        private System.Windows.Forms.TextBox IpSSN;
+        private System.Windows.Forms.TextBox IpMontlySalary;
+        private System.Windows.Forms.TextBox IpIntialDeposite;
+        private System.Windows.Forms.TextBox IpAccountNum;
+        private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel DebtLbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel BalanceLbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        private FontAwesome.Sharp.IconButton EditBtn;
     }
 }

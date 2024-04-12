@@ -61,5 +61,10 @@ namespace BMS.UI
              MessageBox.Show("Trnsaction wwas not successful......");
             }
         }
+
+        private void AccountCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

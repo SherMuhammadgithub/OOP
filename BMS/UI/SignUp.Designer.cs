@@ -57,6 +57,7 @@
             this.InputPass.Name = "InputPass";
             this.InputPass.Size = new System.Drawing.Size(159, 22);
             this.InputPass.TabIndex = 2;
+            this.InputPass.Text = " ";
             // 
             // InputRole
             // 
