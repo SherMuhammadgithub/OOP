@@ -38,10 +38,16 @@ namespace BMS.UI
                 AccountCb.Items.Add(account.GetAccountHolder());
             }
         }
-        private void TransferBtn_Click(object sender, EventArgs e)
+       
+        private void AccountCb_SelectedIndexChanged(object sender, EventArgs e)
         {
-   
-             Account currectAccount = ObjectHandler.GetUserDL().GetCurrentUser().GetAccount();
+
+        }
+
+        private void TransferBtn_Click_1(object sender, EventArgs e)
+        {
+
+            Account currectAccount = ObjectHandler.GetUserDL().GetCurrentUser().GetAccount();
             string accountHolder = AccountCb.SelectedItem.ToString();
             int amount = Convert.ToInt32(IpAmount.Text);
             Account account = ObjectHandler.GetAccountDL().isAccountExists(accountHolder);
@@ -50,21 +56,16 @@ namespace BMS.UI
                 MessageBox.Show("Account not found");
                 return;
             }
-            bool isTransferred =  account.Transfer(amount, account, currectAccount); // deposit money
+            bool isTransferred = account.Transfer(amount, account, currectAccount); // deposit money
             if (isTransferred)
             {
 
-            MessageBox.Show("Transfer successful");
+                MessageBox.Show("Transfer successful");
             }
             else
             {
-             MessageBox.Show("Trnsaction wwas not successful......");
+                MessageBox.Show("Trnsaction wwas not successful......");
             }
-        }
-
-        private void AccountCb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

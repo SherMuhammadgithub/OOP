@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LogoutBtn = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.settings = new FontAwesome.Sharp.IconButton();
             this.AccountPgBtn = new FontAwesome.Sharp.IconButton();
             this.Students = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -70,16 +70,19 @@
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.NameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.ReadMoreBtn = new FontAwesome.Sharp.IconButton();
             this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.NameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.restrictionPanel = new System.Windows.Forms.Panel();
             this.AddBtn = new FontAwesome.Sharp.IconButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LogoutBtn = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -100,15 +103,17 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
+            this.restrictionPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoutBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(104)))), ((int)(((byte)(120)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.LogoutBtn);
-            this.panel1.Controls.Add(this.iconButton2);
+            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.settings);
             this.panel1.Controls.Add(this.AccountPgBtn);
             this.panel1.Controls.Add(this.Students);
             this.panel1.Controls.Add(this.label1);
@@ -119,52 +124,43 @@
             this.panel1.Size = new System.Drawing.Size(238, 526);
             this.panel1.TabIndex = 0;
             // 
-            // LogoutBtn
+            // linkLabel1
             // 
-            this.LogoutBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LogoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
-            this.LogoutBtn.FlatAppearance.BorderSize = 0;
-            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutBtn.Font = new System.Drawing.Font("Copperplate Gothic Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutBtn.ForeColor = System.Drawing.Color.White;
-            this.LogoutBtn.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
-            this.LogoutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
-            this.LogoutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.LogoutBtn.IconSize = 32;
-            this.LogoutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.LogoutBtn.Location = new System.Drawing.Point(-5, 425);
-            this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.LogoutBtn.Size = new System.Drawing.Size(243, 51);
-            this.LogoutBtn.TabIndex = 47;
-            this.LogoutBtn.Text = "Logout";
-            this.LogoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LogoutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.LogoutBtn.UseVisualStyleBackColor = false;
-            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Dosis", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.ForeColor = System.Drawing.Color.White;
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(24, 490);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(170, 18);
+            this.linkLabel1.TabIndex = 48;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Powered by SM.Tec Companies";
+            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // iconButton2
+            // settings
             // 
-            this.iconButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Copperplate Gothic Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 32;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton2.Location = new System.Drawing.Point(-1, 354);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton2.Size = new System.Drawing.Size(239, 47);
-            this.iconButton2.TabIndex = 46;
-            this.iconButton2.Text = "Settings";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.settings.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
+            this.settings.FlatAppearance.BorderSize = 0;
+            this.settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settings.Font = new System.Drawing.Font("Copperplate Gothic Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settings.ForeColor = System.Drawing.Color.White;
+            this.settings.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
+            this.settings.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.settings.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.settings.IconSize = 32;
+            this.settings.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.settings.Location = new System.Drawing.Point(-1, 354);
+            this.settings.Name = "settings";
+            this.settings.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.settings.Size = new System.Drawing.Size(239, 47);
+            this.settings.TabIndex = 46;
+            this.settings.Text = "Settings";
+            this.settings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.settings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.settings.UseVisualStyleBackColor = false;
+            this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
             // AccountPgBtn
             // 
@@ -238,6 +234,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(104)))), ((int)(((byte)(120)))));
+            this.panel3.Controls.Add(this.restrictionPanel);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.panel11);
             this.panel3.Controls.Add(this.panel8);
@@ -249,7 +246,7 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Location = new System.Drawing.Point(255, 10);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(915, 526);
+            this.panel3.Size = new System.Drawing.Size(891, 526);
             this.panel3.TabIndex = 2;
             // 
             // panel2
@@ -258,9 +255,9 @@
             this.panel2.Controls.Add(this.guna2HtmlLabel11);
             this.panel2.Controls.Add(this.TransferBtn);
             this.panel2.Controls.Add(this.pictureBox9);
-            this.panel2.Location = new System.Drawing.Point(352, 132);
+            this.panel2.Location = new System.Drawing.Point(335, 119);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(307, 256);
+            this.panel2.Size = new System.Drawing.Size(307, 283);
             this.panel2.TabIndex = 7;
             // 
             // guna2HtmlLabel11
@@ -268,7 +265,7 @@
             this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel11.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
-            this.guna2HtmlLabel11.Location = new System.Drawing.Point(14, 25);
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(28, 39);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             this.guna2HtmlLabel11.Size = new System.Drawing.Size(73, 29);
             this.guna2HtmlLabel11.TabIndex = 43;
@@ -286,7 +283,7 @@
             this.TransferBtn.IconColor = System.Drawing.Color.White;
             this.TransferBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.TransferBtn.IconSize = 32;
-            this.TransferBtn.Location = new System.Drawing.Point(73, 191);
+            this.TransferBtn.Location = new System.Drawing.Point(87, 218);
             this.TransferBtn.Name = "TransferBtn";
             this.TransferBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.TransferBtn.Size = new System.Drawing.Size(160, 36);
@@ -295,11 +292,12 @@
             this.TransferBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.TransferBtn.UseMnemonic = false;
             this.TransferBtn.UseVisualStyleBackColor = false;
+            this.TransferBtn.Click += new System.EventHandler(this.TransferBtn_Click);
             // 
             // pictureBox9
             // 
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(43, 25);
+            this.pictureBox9.Location = new System.Drawing.Point(57, 39);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(216, 145);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -312,9 +310,9 @@
             this.panel11.Controls.Add(this.guna2HtmlLabel10);
             this.panel11.Controls.Add(this.MoneyActionPgBtn);
             this.panel11.Controls.Add(this.pictureBox8);
-            this.panel11.Location = new System.Drawing.Point(30, 132);
+            this.panel11.Location = new System.Drawing.Point(13, 119);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(307, 256);
+            this.panel11.Size = new System.Drawing.Size(307, 283);
             this.panel11.TabIndex = 6;
             // 
             // guna2HtmlLabel10
@@ -322,7 +320,7 @@
             this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel10.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(14, 25);
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(23, 39);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             this.guna2HtmlLabel10.Size = new System.Drawing.Size(75, 29);
             this.guna2HtmlLabel10.TabIndex = 42;
@@ -340,7 +338,7 @@
             this.MoneyActionPgBtn.IconColor = System.Drawing.Color.White;
             this.MoneyActionPgBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MoneyActionPgBtn.IconSize = 32;
-            this.MoneyActionPgBtn.Location = new System.Drawing.Point(55, 191);
+            this.MoneyActionPgBtn.Location = new System.Drawing.Point(64, 218);
             this.MoneyActionPgBtn.Name = "MoneyActionPgBtn";
             this.MoneyActionPgBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.MoneyActionPgBtn.Size = new System.Drawing.Size(211, 36);
@@ -349,11 +347,12 @@
             this.MoneyActionPgBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MoneyActionPgBtn.UseMnemonic = false;
             this.MoneyActionPgBtn.UseVisualStyleBackColor = false;
+            this.MoneyActionPgBtn.Click += new System.EventHandler(this.MoneyActionPgBtn_Click);
             // 
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(50, 25);
+            this.pictureBox8.Location = new System.Drawing.Point(59, 39);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(216, 145);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -366,7 +365,7 @@
             this.panel8.Controls.Add(this.HistoryPgBtn);
             this.panel8.Controls.Add(this.guna2HtmlLabel7);
             this.panel8.Controls.Add(this.pictureBox6);
-            this.panel8.Location = new System.Drawing.Point(245, 409);
+            this.panel8.Location = new System.Drawing.Point(228, 409);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(196, 100);
             this.panel8.TabIndex = 5;
@@ -412,7 +411,7 @@
             this.panel9.Controls.Add(this.BankFeePgBtn);
             this.panel9.Controls.Add(this.guna2HtmlLabel9);
             this.panel9.Controls.Add(this.pictureBox7);
-            this.panel9.Location = new System.Drawing.Point(463, 409);
+            this.panel9.Location = new System.Drawing.Point(446, 409);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(196, 100);
             this.panel9.TabIndex = 4;
@@ -429,6 +428,7 @@
             this.BankFeePgBtn.TabIndex = 8;
             this.BankFeePgBtn.TabStop = true;
             this.BankFeePgBtn.Text = "Check";
+            this.BankFeePgBtn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BankFeePgBtn_LinkClicked);
             // 
             // guna2HtmlLabel9
             // 
@@ -457,7 +457,7 @@
             this.panel10.Controls.Add(this.LoanPgBtn);
             this.panel10.Controls.Add(this.guna2HtmlLabel8);
             this.panel10.Controls.Add(this.pictureBox5);
-            this.panel10.Location = new System.Drawing.Point(30, 409);
+            this.panel10.Location = new System.Drawing.Point(13, 409);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(196, 100);
             this.panel10.TabIndex = 3;
@@ -474,6 +474,7 @@
             this.LoanPgBtn.TabIndex = 5;
             this.LoanPgBtn.TabStop = true;
             this.LoanPgBtn.Text = "Apply";
+            this.LoanPgBtn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LoanPgBtn_LinkClicked);
             // 
             // guna2HtmlLabel8
             // 
@@ -502,7 +503,7 @@
             this.panel7.Controls.Add(this.SalaryLbl);
             this.panel7.Controls.Add(this.guna2HtmlLabel4);
             this.panel7.Controls.Add(this.pictureBox3);
-            this.panel7.Location = new System.Drawing.Point(245, 13);
+            this.panel7.Location = new System.Drawing.Point(228, 13);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(196, 100);
             this.panel7.TabIndex = 2;
@@ -545,7 +546,7 @@
             this.panel6.Controls.Add(this.DebtLbl);
             this.panel6.Controls.Add(this.guna2HtmlLabel6);
             this.panel6.Controls.Add(this.pictureBox4);
-            this.panel6.Location = new System.Drawing.Point(463, 13);
+            this.panel6.Location = new System.Drawing.Point(446, 13);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(196, 100);
             this.panel6.TabIndex = 2;
@@ -588,7 +589,7 @@
             this.panel5.Controls.Add(this.BalanceLbl);
             this.panel5.Controls.Add(this.guna2HtmlLabel1);
             this.panel5.Controls.Add(this.pictureBox2);
-            this.panel5.Location = new System.Drawing.Point(30, 13);
+            this.panel5.Location = new System.Drawing.Point(13, 13);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(196, 100);
             this.panel5.TabIndex = 1;
@@ -628,7 +629,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
-            this.panel4.Controls.Add(this.AddBtn);
+            this.panel4.Controls.Add(this.ReadMoreBtn);
             this.panel4.Controls.Add(this.guna2HtmlLabel15);
             this.panel4.Controls.Add(this.guna2HtmlLabel16);
             this.panel4.Controls.Add(this.guna2HtmlLabel14);
@@ -637,79 +638,34 @@
             this.panel4.Controls.Add(this.guna2HtmlLabel5);
             this.panel4.Controls.Add(this.NameLbl);
             this.panel4.Controls.Add(this.guna2HtmlLabel2);
-            this.panel4.Location = new System.Drawing.Point(683, 13);
+            this.panel4.Location = new System.Drawing.Point(658, 13);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(221, 496);
             this.panel4.TabIndex = 0;
             // 
-            // guna2HtmlLabel2
+            // ReadMoreBtn
             // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(26, 37);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(81, 29);
-            this.guna2HtmlLabel2.TabIndex = 2;
-            this.guna2HtmlLabel2.Text = "Welcome";
-            // 
-            // NameLbl
-            // 
-            this.NameLbl.BackColor = System.Drawing.Color.Transparent;
-            this.NameLbl.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameLbl.ForeColor = System.Drawing.Color.White;
-            this.NameLbl.Location = new System.Drawing.Point(26, 77);
-            this.NameLbl.Name = "NameLbl";
-            this.NameLbl.Size = new System.Drawing.Size(121, 25);
-            this.NameLbl.TabIndex = 3;
-            this.NameLbl.Text = "Sher Muhammad";
-            this.NameLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2HtmlLabel5
-            // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(26, 119);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(64, 29);
-            this.guna2HtmlLabel5.TabIndex = 4;
-            this.guna2HtmlLabel5.Text = "Savings";
-            // 
-            // guna2HtmlLabel12
-            // 
-            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel12.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel12.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel12.Location = new System.Drawing.Point(26, 169);
-            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            this.guna2HtmlLabel12.Size = new System.Drawing.Size(130, 25);
-            this.guna2HtmlLabel12.TabIndex = 5;
-            this.guna2HtmlLabel12.Text = "Accout Fees is 10%";
-            this.guna2HtmlLabel12.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2HtmlLabel13
-            // 
-            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel13.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
-            this.guna2HtmlLabel13.Location = new System.Drawing.Point(26, 249);
-            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
-            this.guna2HtmlLabel13.Size = new System.Drawing.Size(85, 29);
-            this.guna2HtmlLabel13.TabIndex = 6;
-            this.guna2HtmlLabel13.Text = "Checkings";
-            // 
-            // guna2HtmlLabel14
-            // 
-            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel14.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel14.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel14.Location = new System.Drawing.Point(26, 200);
-            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            this.guna2HtmlLabel14.Size = new System.Drawing.Size(136, 25);
-            this.guna2HtmlLabel14.TabIndex = 7;
-            this.guna2HtmlLabel14.Text = "Monthly Fee is 20%";
-            this.guna2HtmlLabel14.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ReadMoreBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ReadMoreBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.ReadMoreBtn.FlatAppearance.BorderSize = 0;
+            this.ReadMoreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReadMoreBtn.Font = new System.Drawing.Font("Copperplate Gothic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReadMoreBtn.ForeColor = System.Drawing.Color.White;
+            this.ReadMoreBtn.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.ReadMoreBtn.IconColor = System.Drawing.Color.White;
+            this.ReadMoreBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ReadMoreBtn.IconSize = 32;
+            this.ReadMoreBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ReadMoreBtn.Location = new System.Drawing.Point(13, 439);
+            this.ReadMoreBtn.Name = "ReadMoreBtn";
+            this.ReadMoreBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.ReadMoreBtn.Size = new System.Drawing.Size(192, 36);
+            this.ReadMoreBtn.TabIndex = 45;
+            this.ReadMoreBtn.Text = "Relaod";
+            this.ReadMoreBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ReadMoreBtn.UseMnemonic = false;
+            this.ReadMoreBtn.UseVisualStyleBackColor = false;
+            this.ReadMoreBtn.Click += new System.EventHandler(this.ReadMoreBtn_Click);
             // 
             // guna2HtmlLabel15
             // 
@@ -735,18 +691,84 @@
             this.guna2HtmlLabel16.Text = "Accout Fees is 10%";
             this.guna2HtmlLabel16.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // linkLabel1
+            // guna2HtmlLabel14
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Dosis", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.ForeColor = System.Drawing.Color.White;
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(24, 490);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(170, 18);
-            this.linkLabel1.TabIndex = 48;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Powered by SM.Tec Companies";
+            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel14.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel14.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel14.Location = new System.Drawing.Point(26, 200);
+            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
+            this.guna2HtmlLabel14.Size = new System.Drawing.Size(136, 25);
+            this.guna2HtmlLabel14.TabIndex = 7;
+            this.guna2HtmlLabel14.Text = "Monthly Fee is 20%";
+            this.guna2HtmlLabel14.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel13
+            // 
+            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel13.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.guna2HtmlLabel13.Location = new System.Drawing.Point(26, 249);
+            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
+            this.guna2HtmlLabel13.Size = new System.Drawing.Size(85, 29);
+            this.guna2HtmlLabel13.TabIndex = 6;
+            this.guna2HtmlLabel13.Text = "Checkings";
+            // 
+            // guna2HtmlLabel12
+            // 
+            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel12.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel12.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel12.Location = new System.Drawing.Point(26, 169);
+            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
+            this.guna2HtmlLabel12.Size = new System.Drawing.Size(130, 25);
+            this.guna2HtmlLabel12.TabIndex = 5;
+            this.guna2HtmlLabel12.Text = "Accout Fees is 10%";
+            this.guna2HtmlLabel12.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(26, 119);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(64, 29);
+            this.guna2HtmlLabel5.TabIndex = 4;
+            this.guna2HtmlLabel5.Text = "Savings";
+            // 
+            // NameLbl
+            // 
+            this.NameLbl.BackColor = System.Drawing.Color.Transparent;
+            this.NameLbl.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameLbl.ForeColor = System.Drawing.Color.White;
+            this.NameLbl.Location = new System.Drawing.Point(26, 77);
+            this.NameLbl.Name = "NameLbl";
+            this.NameLbl.Size = new System.Drawing.Size(121, 25);
+            this.NameLbl.TabIndex = 3;
+            this.NameLbl.Text = "Sher Muhammad";
+            this.NameLbl.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(26, 37);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(81, 29);
+            this.guna2HtmlLabel2.TabIndex = 2;
+            this.guna2HtmlLabel2.Text = "Welcome";
+            // 
+            // restrictionPanel
+            // 
+            this.restrictionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(104)))), ((int)(((byte)(120)))));
+            this.restrictionPanel.Controls.Add(this.AddBtn);
+            this.restrictionPanel.Controls.Add(this.label2);
+            this.restrictionPanel.Location = new System.Drawing.Point(13, 213);
+            this.restrictionPanel.Name = "restrictionPanel";
+            this.restrictionPanel.Size = new System.Drawing.Size(691, 141);
+            this.restrictionPanel.TabIndex = 44;
             // 
             // AddBtn
             // 
@@ -760,21 +782,43 @@
             this.AddBtn.IconColor = System.Drawing.Color.White;
             this.AddBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.AddBtn.IconSize = 32;
-            this.AddBtn.Location = new System.Drawing.Point(14, 448);
+            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddBtn.Location = new System.Drawing.Point(243, 89);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.AddBtn.Size = new System.Drawing.Size(192, 36);
-            this.AddBtn.TabIndex = 43;
+            this.AddBtn.TabIndex = 44;
             this.AddBtn.Text = "Add Account";
             this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.AddBtn.UseMnemonic = false;
             this.AddBtn.UseVisualStyleBackColor = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(50, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(557, 27);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "You Don\'t have An Account Create Account For Further Intercations";
+            // 
+            // LogoutBtn
+            // 
+            this.LogoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("LogoutBtn.Image")));
+            this.LogoutBtn.Location = new System.Drawing.Point(64, 423);
+            this.LogoutBtn.Name = "LogoutBtn";
+            this.LogoutBtn.Size = new System.Drawing.Size(100, 64);
+            this.LogoutBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LogoutBtn.TabIndex = 49;
+            this.LogoutBtn.TabStop = false;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click_1);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 546);
+            this.ClientSize = new System.Drawing.Size(1150, 546);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -784,7 +828,6 @@
             this.Padding = new System.Windows.Forms.Padding(10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
-            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -815,6 +858,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.restrictionPanel.ResumeLayout(false);
+            this.restrictionPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoutBtn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -835,8 +881,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton Students;
-        private FontAwesome.Sharp.IconButton LogoutBtn;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton settings;
         private FontAwesome.Sharp.IconButton AccountPgBtn;
         private System.Windows.Forms.PictureBox pictureBox2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
@@ -871,6 +916,10 @@
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private FontAwesome.Sharp.IconButton ReadMoreBtn;
+        private System.Windows.Forms.Panel restrictionPanel;
         private FontAwesome.Sharp.IconButton AddBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox LogoutBtn;
     }
 }

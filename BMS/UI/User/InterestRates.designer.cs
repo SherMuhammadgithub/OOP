@@ -28,66 +28,125 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.IpInterestRate = new System.Windows.Forms.TextBox();
-            this.IpBankFee = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.InterestRateLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.BankFeeLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.SignUpPgLink = new System.Windows.Forms.LinkLabel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
+            // panel1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(440, 191);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 16);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "Interest Rate";
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.SignUpPgLink);
+            this.panel1.Controls.Add(this.guna2HtmlLabel2);
+            this.panel1.Controls.Add(this.guna2HtmlLabel1);
+            this.panel1.Controls.Add(this.BankFeeLbl);
+            this.panel1.Controls.Add(this.InterestRateLbl);
+            this.panel1.Controls.Add(this.BalanceLbl);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(10, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(519, 399);
+            this.panel1.TabIndex = 43;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label1
+            // BalanceLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(211, 191);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "Bank Fees";
+            this.BalanceLbl.BackColor = System.Drawing.Color.Transparent;
+            this.BalanceLbl.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalanceLbl.ForeColor = System.Drawing.Color.White;
+            this.BalanceLbl.Location = new System.Drawing.Point(125, 83);
+            this.BalanceLbl.Name = "BalanceLbl";
+            this.BalanceLbl.Size = new System.Drawing.Size(272, 29);
+            this.BalanceLbl.TabIndex = 50;
+            this.BalanceLbl.Text = "Your Monthly Fee & Interest Rate";
             // 
-            // IpInterestRate
+            // InterestRateLbl
             // 
-            this.IpInterestRate.Location = new System.Drawing.Point(443, 238);
-            this.IpInterestRate.Name = "IpInterestRate";
-            this.IpInterestRate.Size = new System.Drawing.Size(147, 22);
-            this.IpInterestRate.TabIndex = 40;
+            this.InterestRateLbl.BackColor = System.Drawing.Color.Transparent;
+            this.InterestRateLbl.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InterestRateLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.InterestRateLbl.Location = new System.Drawing.Point(285, 166);
+            this.InterestRateLbl.Name = "InterestRateLbl";
+            this.InterestRateLbl.Size = new System.Drawing.Size(59, 25);
+            this.InterestRateLbl.TabIndex = 54;
+            this.InterestRateLbl.Text = "Amount";
             // 
-            // IpBankFee
+            // BankFeeLbl
             // 
-            this.IpBankFee.Location = new System.Drawing.Point(214, 238);
-            this.IpBankFee.Name = "IpBankFee";
-            this.IpBankFee.Size = new System.Drawing.Size(147, 22);
-            this.IpBankFee.TabIndex = 39;
+            this.BankFeeLbl.BackColor = System.Drawing.Color.Transparent;
+            this.BankFeeLbl.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BankFeeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.BankFeeLbl.Location = new System.Drawing.Point(285, 228);
+            this.BankFeeLbl.Name = "BankFeeLbl";
+            this.BankFeeLbl.Size = new System.Drawing.Size(59, 25);
+            this.BankFeeLbl.TabIndex = 55;
+            this.BankFeeLbl.Text = "Amount";
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(155, 224);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(81, 29);
+            this.guna2HtmlLabel1.TabIndex = 56;
+            this.guna2HtmlLabel1.Text = "Bank Fee:";
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(155, 162);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(113, 29);
+            this.guna2HtmlLabel2.TabIndex = 57;
+            this.guna2HtmlLabel2.Text = "Interest Rate:";
+            // 
+            // SignUpPgLink
+            // 
+            this.SignUpPgLink.AutoSize = true;
+            this.SignUpPgLink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
+            this.SignUpPgLink.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignUpPgLink.ForeColor = System.Drawing.Color.White;
+            this.SignUpPgLink.LinkColor = System.Drawing.Color.White;
+            this.SignUpPgLink.Location = new System.Drawing.Point(24, 333);
+            this.SignUpPgLink.Name = "SignUpPgLink";
+            this.SignUpPgLink.Size = new System.Drawing.Size(482, 23);
+            this.SignUpPgLink.TabIndex = 63;
+            this.SignUpPgLink.TabStop = true;
+            this.SignUpPgLink.Text = "These Interest Rate and Bank Fee is Calculated based on your Balance";
             // 
             // InterestRates
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 444);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.IpInterestRate);
-            this.Controls.Add(this.IpBankFee);
+            this.ClientSize = new System.Drawing.Size(539, 419);
+            this.Controls.Add(this.panel1);
             this.Name = "InterestRates";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InterestRates";
             this.Load += new System.EventHandler(this.InterestRates_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox IpInterestRate;
-        private System.Windows.Forms.TextBox IpBankFee;
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel BalanceLbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel BankFeeLbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel InterestRateLbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private System.Windows.Forms.LinkLabel SignUpPgLink;
     }
 }

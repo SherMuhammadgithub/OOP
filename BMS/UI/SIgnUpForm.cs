@@ -36,7 +36,7 @@ namespace BMS.UI
                 {
                     MessageBox.Show("User not Saved....");
                 }
-                this.Hide();
+                this.Close();
                 LoginForm signIn = new LoginForm();
                 signIn.Show();
             }

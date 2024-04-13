@@ -18,28 +18,28 @@ namespace BMS.UI
         public MoneyActions()
         {
             InitializeComponent();
-            CheckIfAccountExists();
-        }
-        private void CheckIfAccountExists()
-        {
-            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser(); // get current user
-            Account account = currentUser.GetAccount(); // get current account
-            if (account == null)
-            {
-                MessageBox.Show("Account not found");
-                return;
-            }
         }
 
-        private void DepositeBtn_Click(object sender, EventArgs e)
+        private void GoToTransferPgBtn_Click(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        private void MoneyActions_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DepositBtn_Click(object sender, EventArgs e)
         {
             MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser(); // get current user
             Account account = currentUser.GetAccount(); // get current account
             int amount = Convert.ToInt32(IpAmount.Text);
-           bool isDeposited = account.Deposit(amount);
-            if(isDeposited)
+            bool isDeposited = account.Deposit(amount);
+            if (isDeposited)
             {
-            MessageBox.Show("Deposite successful");
+                MessageBox.Show("Deposite successful");
 
 
             }
@@ -49,15 +49,15 @@ namespace BMS.UI
             }
         }
 
-        private void WithDrawBtn_Click(object sender, EventArgs e)
+        private void withdraw_Click(object sender, EventArgs e)
         {
             MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser(); // get current user
             Account account = currentUser.GetAccount(); // get current account
             int amount = Convert.ToInt32(IpAmount.Text);
             bool isWithdrawed = account.Withdraw(amount);
-            if(isWithdrawed)
+            if (isWithdrawed)
             {
-            MessageBox.Show("Withdraw successful");
+                MessageBox.Show("Withdraw successful");
 
             }
             else
@@ -66,26 +66,11 @@ namespace BMS.UI
             }
         }
 
-        private void TransferBtn_Click(object sender, EventArgs e)
+        private void SignUpPgLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-        }
-
-        private void AccountLbl_Click(object sender, EventArgs e)
-        {
-
-           
-        }
-
-        private void GoToTransferPgBtn_Click(object sender, EventArgs e)
-        {
+            this.Close();
             Transfer transfer = new Transfer();
             transfer.Show();
-
-        }
-
-        private void MoneyActions_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

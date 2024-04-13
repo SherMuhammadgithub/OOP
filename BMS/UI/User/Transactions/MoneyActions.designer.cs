@@ -30,11 +30,11 @@
         {
             this.IpAmount = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.withdraw = new FontAwesome.Sharp.IconButton();
-            this.DepositBtn = new FontAwesome.Sharp.IconButton();
             this.SignUpPgLink = new System.Windows.Forms.LinkLabel();
+            this.DepositBtn = new FontAwesome.Sharp.IconButton();
+            this.withdraw = new FontAwesome.Sharp.IconButton();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,50 +60,20 @@
             this.panel1.Size = new System.Drawing.Size(593, 327);
             this.panel1.TabIndex = 10;
             // 
-            // BalanceLbl
+            // SignUpPgLink
             // 
-            this.BalanceLbl.BackColor = System.Drawing.Color.Transparent;
-            this.BalanceLbl.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BalanceLbl.ForeColor = System.Drawing.Color.White;
-            this.BalanceLbl.Location = new System.Drawing.Point(172, 34);
-            this.BalanceLbl.Name = "BalanceLbl";
-            this.BalanceLbl.Size = new System.Drawing.Size(240, 29);
-            this.BalanceLbl.TabIndex = 49;
-            this.BalanceLbl.Text = "Deposit or Withdraw Amount";
-            // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(236, 114);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(100, 25);
-            this.guna2HtmlLabel1.TabIndex = 51;
-            this.guna2HtmlLabel1.Text = "Enter Amount";
-            // 
-            // withdraw
-            // 
-            this.withdraw.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.withdraw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
-            this.withdraw.FlatAppearance.BorderSize = 0;
-            this.withdraw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.withdraw.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.withdraw.ForeColor = System.Drawing.Color.White;
-            this.withdraw.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
-            this.withdraw.IconColor = System.Drawing.Color.White;
-            this.withdraw.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.withdraw.IconSize = 32;
-            this.withdraw.Location = new System.Drawing.Point(307, 210);
-            this.withdraw.Name = "withdraw";
-            this.withdraw.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.withdraw.Size = new System.Drawing.Size(168, 36);
-            this.withdraw.TabIndex = 59;
-            this.withdraw.Text = "Withdraw";
-            this.withdraw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.withdraw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.withdraw.UseMnemonic = false;
-            this.withdraw.UseVisualStyleBackColor = false;
+            this.SignUpPgLink.AutoSize = true;
+            this.SignUpPgLink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
+            this.SignUpPgLink.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignUpPgLink.ForeColor = System.Drawing.Color.White;
+            this.SignUpPgLink.LinkColor = System.Drawing.Color.White;
+            this.SignUpPgLink.Location = new System.Drawing.Point(373, 288);
+            this.SignUpPgLink.Name = "SignUpPgLink";
+            this.SignUpPgLink.Size = new System.Drawing.Size(200, 23);
+            this.SignUpPgLink.TabIndex = 62;
+            this.SignUpPgLink.TabStop = true;
+            this.SignUpPgLink.Text = "Wants to transfer? Transfer";
+            this.SignUpPgLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.SignUpPgLink_LinkClicked);
             // 
             // DepositBtn
             // 
@@ -127,20 +97,53 @@
             this.DepositBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.DepositBtn.UseMnemonic = false;
             this.DepositBtn.UseVisualStyleBackColor = false;
+            this.DepositBtn.Click += new System.EventHandler(this.DepositBtn_Click);
             // 
-            // SignUpPgLink
+            // withdraw
             // 
-            this.SignUpPgLink.AutoSize = true;
-            this.SignUpPgLink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
-            this.SignUpPgLink.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignUpPgLink.ForeColor = System.Drawing.Color.White;
-            this.SignUpPgLink.LinkColor = System.Drawing.Color.White;
-            this.SignUpPgLink.Location = new System.Drawing.Point(373, 288);
-            this.SignUpPgLink.Name = "SignUpPgLink";
-            this.SignUpPgLink.Size = new System.Drawing.Size(200, 23);
-            this.SignUpPgLink.TabIndex = 62;
-            this.SignUpPgLink.TabStop = true;
-            this.SignUpPgLink.Text = "Wants to transfer? Transfer";
+            this.withdraw.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.withdraw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.withdraw.FlatAppearance.BorderSize = 0;
+            this.withdraw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.withdraw.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.withdraw.ForeColor = System.Drawing.Color.White;
+            this.withdraw.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.withdraw.IconColor = System.Drawing.Color.White;
+            this.withdraw.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.withdraw.IconSize = 32;
+            this.withdraw.Location = new System.Drawing.Point(307, 210);
+            this.withdraw.Name = "withdraw";
+            this.withdraw.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.withdraw.Size = new System.Drawing.Size(168, 36);
+            this.withdraw.TabIndex = 59;
+            this.withdraw.Text = "Withdraw";
+            this.withdraw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.withdraw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.withdraw.UseMnemonic = false;
+            this.withdraw.UseVisualStyleBackColor = false;
+            this.withdraw.Click += new System.EventHandler(this.withdraw_Click);
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(236, 114);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(100, 25);
+            this.guna2HtmlLabel1.TabIndex = 51;
+            this.guna2HtmlLabel1.Text = "Enter Amount";
+            // 
+            // BalanceLbl
+            // 
+            this.BalanceLbl.BackColor = System.Drawing.Color.Transparent;
+            this.BalanceLbl.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalanceLbl.ForeColor = System.Drawing.Color.White;
+            this.BalanceLbl.Location = new System.Drawing.Point(172, 34);
+            this.BalanceLbl.Name = "BalanceLbl";
+            this.BalanceLbl.Size = new System.Drawing.Size(240, 29);
+            this.BalanceLbl.TabIndex = 49;
+            this.BalanceLbl.Text = "Deposit or Withdraw Amount";
             // 
             // MoneyActions
             // 
@@ -151,6 +154,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "MoneyActions";
             this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MoneyActions";
             this.Load += new System.EventHandler(this.MoneyActions_Load);
             this.panel1.ResumeLayout(false);

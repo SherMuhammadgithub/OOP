@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace BMS.UI.User
 {
-    public partial class Reported : Form
+    public partial class PopupForm : Form
     {
-        public Reported()
+        public PopupForm()
         {
             InitializeComponent();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SIgnUpForm));
             this.LoginPgLink = new System.Windows.Forms.LinkLabel();
             this.InputPass = new System.Windows.Forms.TextBox();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.Students = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.InputName = new System.Windows.Forms.TextBox();
@@ -55,7 +54,7 @@
             this.LoginPgLink.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginPgLink.ForeColor = System.Drawing.Color.White;
             this.LoginPgLink.LinkColor = System.Drawing.Color.White;
-            this.LoginPgLink.Location = new System.Drawing.Point(465, 498);
+            this.LoginPgLink.Location = new System.Drawing.Point(433, 501);
             this.LoginPgLink.Name = "LoginPgLink";
             this.LoginPgLink.Size = new System.Drawing.Size(100, 23);
             this.LoginPgLink.TabIndex = 59;
@@ -67,22 +66,11 @@
             // 
             this.InputPass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.InputPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.InputPass.Location = new System.Drawing.Point(407, 298);
+            this.InputPass.Location = new System.Drawing.Point(373, 281);
             this.InputPass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.InputPass.Name = "InputPass";
             this.InputPass.Size = new System.Drawing.Size(233, 22);
             this.InputPass.TabIndex = 55;
-            // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Copperplate Gothic Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(345, 555);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(316, 22);
-            this.guna2HtmlLabel1.TabIndex = 58;
-            this.guna2HtmlLabel1.Text = "We Inspire,Believe and Create";
             // 
             // Students
             // 
@@ -97,7 +85,7 @@
             this.Students.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Students.IconSize = 32;
             this.Students.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Students.Location = new System.Drawing.Point(407, 113);
+            this.Students.Location = new System.Drawing.Point(373, 96);
             this.Students.Name = "Students";
             this.Students.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.Students.Size = new System.Drawing.Size(233, 47);
@@ -120,7 +108,7 @@
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 32;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(407, 227);
+            this.iconButton1.Location = new System.Drawing.Point(373, 210);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton1.Size = new System.Drawing.Size(233, 47);
@@ -134,7 +122,7 @@
             // 
             this.InputName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.InputName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.InputName.Location = new System.Drawing.Point(407, 187);
+            this.InputName.Location = new System.Drawing.Point(373, 170);
             this.InputName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.InputName.Name = "InputName";
             this.InputName.Size = new System.Drawing.Size(233, 22);
@@ -152,7 +140,7 @@
             this.SignUpBtn.IconColor = System.Drawing.Color.White;
             this.SignUpBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SignUpBtn.IconSize = 32;
-            this.SignUpBtn.Location = new System.Drawing.Point(446, 450);
+            this.SignUpBtn.Location = new System.Drawing.Point(412, 433);
             this.SignUpBtn.Name = "SignUpBtn";
             this.SignUpBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.SignUpBtn.Size = new System.Drawing.Size(142, 36);
@@ -168,7 +156,7 @@
             this.guna2PictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(270, 12);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(241, 12);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(495, 530);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -185,7 +173,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(222, 589);
+            this.guna2Panel1.Size = new System.Drawing.Size(222, 554);
             this.guna2Panel1.TabIndex = 51;
             // 
             // linkLabel1
@@ -194,12 +182,13 @@
             this.linkLabel1.Font = new System.Drawing.Font("Dosis", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.ForeColor = System.Drawing.Color.White;
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(28, 551);
+            this.linkLabel1.Location = new System.Drawing.Point(28, 515);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(170, 18);
             this.linkLabel1.TabIndex = 49;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Powered by SM.Tec Companies";
+            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2HtmlLabel3
             // 
@@ -227,7 +216,7 @@
             // 
             this.InputRole.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.InputRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.InputRole.Location = new System.Drawing.Point(407, 412);
+            this.InputRole.Location = new System.Drawing.Point(373, 395);
             this.InputRole.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.InputRole.Name = "InputRole";
             this.InputRole.Size = new System.Drawing.Size(233, 22);
@@ -246,7 +235,7 @@
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 32;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(407, 341);
+            this.iconButton2.Location = new System.Drawing.Point(373, 324);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton2.Size = new System.Drawing.Size(233, 47);
@@ -261,12 +250,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(104)))), ((int)(((byte)(120)))));
-            this.ClientSize = new System.Drawing.Size(818, 589);
+            this.ClientSize = new System.Drawing.Size(751, 554);
             this.Controls.Add(this.InputRole);
             this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.LoginPgLink);
             this.Controls.Add(this.InputPass);
-            this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.Students);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.InputName);
@@ -289,7 +277,6 @@
 
         private System.Windows.Forms.LinkLabel LoginPgLink;
         private System.Windows.Forms.TextBox InputPass;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private FontAwesome.Sharp.IconButton Students;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.TextBox InputName;

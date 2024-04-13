@@ -23,11 +23,6 @@ namespace BMS.UI.Accounts
             InitializeComponent();
             LoadAccountInfo();
         }
-
-        private void AccountzDet_Load(object sender, EventArgs e)
-        {
-
-        }
         private void LoadAccountInfo()
         {
         MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
@@ -54,15 +49,18 @@ namespace BMS.UI.Accounts
             MessageBox.Show(currentAccount.GetIntialDeposit().ToString());
         }
 
-        private void EditBtn_Click(object sender, EventArgs e)
+
+
+        private void EditBtn_Click_1(object sender, EventArgs e)
         {
+
             IAccountDL accountDL = ObjectHandler.GetAccountDL();
             IMUserDL mUserDL = ObjectHandler.GetUserDL();
             ITransactionDL transactionDL = ObjectHandler.GetTransactionDL();
             MUser prevUser = mUserDL.GetCurrentUser();
             Account currentAccount = prevUser.GetAccount();
             // get the previous account holder name
-            string prevAccountHolder = currentAccount.GetAccountHolder(); 
+            string prevAccountHolder = currentAccount.GetAccountHolder();
             currentAccount.SetAccountHolder(IpName.Text);
             currentAccount.SetDateOfBirth(IpDOB.Text);
             currentAccount.SetAddress(IpAddress.Text);
@@ -75,44 +73,46 @@ namespace BMS.UI.Accounts
             // updating loan information if loan exists
             bool isUpdated = true;
             // updating information
-            if(!accountDL.UpdateAccountInfo(currentAccount, prevAccountHolder))
+            if (!accountDL.UpdateAccountInfo(currentAccount, prevAccountHolder))
             {
                 MessageBox.Show("account");
                 isUpdated = false;
             }
-            if(!mUserDL.UpdateUserInfo(prevUser, prevAccountHolder))
+            if (!mUserDL.UpdateUserInfo(prevUser, prevAccountHolder))
             {
                 MessageBox.Show("user");
                 isUpdated = false;
             }
             // check if the transactions for the current acccount exists
-            if(currentAccount.GetTransactions().Count > 0) // if transactions exists
+            if (currentAccount.GetTransactions().Count > 0) // if transactions exists
             {
                 MessageBox.Show("transactions");
                 isUpdated = transactionDL.UpdtateAccountHolder(prevAccountHolder, IpName.Text);
             }
-            
-            if (currentAccount.GetLoan() != null) 
+
+            if (currentAccount.GetLoan() != null)
             {
                 MessageBox.Show("loan");
                 currentAccount.GetLoan().SetAccountHolder(IpName.Text);
-            isUpdated = ObjectHandler.GetLoanDL().UpdateLoanInfo(IpName.Text, prevAccountHolder);
+                isUpdated = ObjectHandler.GetLoanDL().UpdateLoanInfo(IpName.Text, prevAccountHolder);
             }
-            if(isUpdated)
+            if (isUpdated)
             {
-                MessageBox.Show("Information Updated"); return;
+                
+                MessageBox.Show("Information Updated");
+             
+                this.Close();
+               //Dashboard dashboard = new Dashboard();
+               // dashboard.NameLbl.Text = currentAccount.GetAccountHolder();
+               // dashboard.BalanceLbl.Text = currentAccount.GetIntialDeposit().ToString();
+               // dashboard.SalaryLbl.Text = currentAccount.GetMonthlyIncome().ToString();
+               // dashboard.DebtLbl.Text = currentAccount.GetDebt().ToString();
+               // dashboard.Show();
+
+
+                return;
             }
             MessageBox.Show("Error Updating information");
-        }
-
-        private void BalanceLbl_Click(object sender, EventArgs e)
-        {
-        
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

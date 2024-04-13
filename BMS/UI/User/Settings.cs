@@ -21,25 +21,7 @@ namespace BMS.UI
             LoadData();
         }
 
-        private void UploadBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                    //allow jppg, png and gif files
-                    openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png, *.gif)|*.jpg; *.jpeg; *.png; *.gif";
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string filePath = openFileDialog.FileName;
-                    Image image = Image.FromFile(filePath);
-                    Image1.Image = image;
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+       
 
         private void Settings_Load(object sender, EventArgs e)
         {
@@ -49,12 +31,18 @@ namespace BMS.UI
         {
             IpPass.Text = currentUser.GetPassword();
         }
-        private void EditBtn_Click(object sender, EventArgs e)
+
+        private void IpPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void edit_Click(object sender, EventArgs e)
         {
             // updating password only 
             currentUser.SetPassword(IpPass.Text);
-           bool isUserUpdated = ObjectHandler.GetUserDL().UpdateUserInfo(currentUser, currentUser.GetUsername());
-            if(isUserUpdated)
+            bool isUserUpdated = ObjectHandler.GetUserDL().UpdateUserInfo(currentUser, currentUser.GetUsername());
+            if (isUserUpdated)
             {
                 MessageBox.Show("Updated");
             }
@@ -64,10 +52,24 @@ namespace BMS.UI
             }
         }
 
-        private void IpPass_TextChanged(object sender, EventArgs e)
+        private void upload_Click(object sender, EventArgs e)
         {
-            EditBtn.Enabled = !string.IsNullOrEmpty(IpPass.Text);
-
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                //allow jppg, png and gif files
+                openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png, *.gif)|*.jpg; *.jpeg; *.png; *.gif";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    Image image = Image.FromFile(filePath);
+                    Image1.Image = image;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

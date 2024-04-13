@@ -47,8 +47,8 @@ namespace DatabaseProject
                     {
                         MessageBox.Show("Account is reported");
                         Reported reported = new Reported();
-                        reported.IpRepAccountName.Text = reportedAccount.GetAccountHolder();
-                        reported.IpReason.Text = reportedAccount.GetReason();
+                        reported.NameLbl.Text = reportedAccount.GetAccountHolder();
+                        reported.ReasonLbl.Text = reportedAccount.GetReason();
                         reported.Show();
                         return;
                     }
@@ -105,6 +105,11 @@ namespace DatabaseProject
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
         }

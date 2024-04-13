@@ -24,11 +24,22 @@ namespace BMS
         {
             
             Account account = ObjectHandler.GetUserDL().GetCurrentUser().GetAccount();
-            IpBankFee.Text = account.MonthlyFee().ToString();
-            IpInterestRate.Text = account.InterestRate().ToString();
+            // display the interest rates and monthly fee according to the intial deposit
+            int initialDeposit = account.GetIntialDeposit();
+            int monthlyFee = initialDeposit / account.MonthlyFee();
+            int interestRate = initialDeposit /  account.InterestRate();
+            InterestRateLbl.Text = $"${interestRate}";
+            BankFeeLbl.Text = $"${monthlyFee}";
+            
+
 
         }
         private void InterestRates_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

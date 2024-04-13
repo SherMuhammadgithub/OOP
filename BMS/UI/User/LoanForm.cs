@@ -20,11 +20,25 @@ namespace BMS.UI
             LoadData();
         }
 
-        private void ApplyBtn_Click(object sender, EventArgs e)
+      
+        private void LoadData()
         {
             MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
             Account account = currentUser.GetAccount();
-            bool isApplied = account.CreateLoan(account.GetAccountHolder(),Convert.ToInt32(IpAmount.Text), Convert.ToInt32(IpMonthlyPay.Text));
+            IpName.Text = account.GetAccountHolder();
+        }
+
+        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ApplyBtn_Click_1(object sender, EventArgs e)
+        {
+
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+            Account account = currentUser.GetAccount();
+            bool isApplied = account.CreateLoan(account.GetAccountHolder(), Convert.ToInt32(IpAmount.Text), Convert.ToInt32(IpMonthlyPay.Text));
             if (isApplied)
             {
                 MessageBox.Show("Loan Applied");
@@ -36,15 +50,6 @@ namespace BMS.UI
             {
                 MessageBox.Show("Loan already applied....");
             }
-           
-           
-
-        }
-        private void LoadData()
-        {
-            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
-            Account account = currentUser.GetAccount();
-            IpName.Text = account.GetAccountHolder();
         }
     }
 }

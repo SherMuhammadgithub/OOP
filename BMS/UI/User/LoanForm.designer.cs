@@ -28,101 +28,151 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.IpAmount = new System.Windows.Forms.TextBox();
             this.IpName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.IpMonthlyPay = new System.Windows.Forms.TextBox();
-            this.ApplyBtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.ApplyBtn = new FontAwesome.Sharp.IconButton();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(445, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 16);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Enter Amount";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(216, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Full Name";
             // 
             // IpAmount
             // 
-            this.IpAmount.Location = new System.Drawing.Point(448, 124);
+            this.IpAmount.Location = new System.Drawing.Point(283, 190);
             this.IpAmount.Name = "IpAmount";
             this.IpAmount.Size = new System.Drawing.Size(147, 22);
             this.IpAmount.TabIndex = 10;
             // 
             // IpName
             // 
-            this.IpName.Location = new System.Drawing.Point(219, 124);
+            this.IpName.Location = new System.Drawing.Point(70, 190);
             this.IpName.Name = "IpName";
             this.IpName.ReadOnly = true;
-            this.IpName.Size = new System.Drawing.Size(147, 22);
+            this.IpName.Size = new System.Drawing.Size(144, 22);
             this.IpName.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(308, 197);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 16);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Enter Monthly Payment";
             // 
             // IpMonthlyPay
             // 
-            this.IpMonthlyPay.Location = new System.Drawing.Point(311, 244);
+            this.IpMonthlyPay.Location = new System.Drawing.Point(165, 286);
             this.IpMonthlyPay.Name = "IpMonthlyPay";
-            this.IpMonthlyPay.Size = new System.Drawing.Size(147, 22);
+            this.IpMonthlyPay.Size = new System.Drawing.Size(165, 22);
             this.IpMonthlyPay.TabIndex = 13;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.ApplyBtn);
+            this.panel1.Controls.Add(this.IpMonthlyPay);
+            this.panel1.Controls.Add(this.IpAmount);
+            this.panel1.Controls.Add(this.guna2HtmlLabel3);
+            this.panel1.Controls.Add(this.IpName);
+            this.panel1.Controls.Add(this.guna2HtmlLabel2);
+            this.panel1.Controls.Add(this.guna2HtmlLabel1);
+            this.panel1.Controls.Add(this.BalanceLbl);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(10, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(507, 426);
+            this.panel1.TabIndex = 16;
+            // 
+            // BalanceLbl
+            // 
+            this.BalanceLbl.BackColor = System.Drawing.Color.Transparent;
+            this.BalanceLbl.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalanceLbl.ForeColor = System.Drawing.Color.White;
+            this.BalanceLbl.Location = new System.Drawing.Point(185, 62);
+            this.BalanceLbl.Name = "BalanceLbl";
+            this.BalanceLbl.Size = new System.Drawing.Size(136, 29);
+            this.BalanceLbl.TabIndex = 50;
+            this.BalanceLbl.Text = "Apply For a Loan";
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(70, 147);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(160, 25);
+            this.guna2HtmlLabel1.TabIndex = 53;
+            this.guna2HtmlLabel1.Text = "Account Holder\'s Name";
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(283, 147);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(100, 25);
+            this.guna2HtmlLabel2.TabIndex = 54;
+            this.guna2HtmlLabel2.Text = "Enter Amount";
+            this.guna2HtmlLabel2.Click += new System.EventHandler(this.guna2HtmlLabel2_Click);
+            // 
+            // guna2HtmlLabel3
+            // 
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(165, 241);
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(165, 25);
+            this.guna2HtmlLabel3.TabIndex = 55;
+            this.guna2HtmlLabel3.Text = "Enter Monthly Payment";
             // 
             // ApplyBtn
             // 
-            this.ApplyBtn.Location = new System.Drawing.Point(230, 337);
+            this.ApplyBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ApplyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.ApplyBtn.FlatAppearance.BorderSize = 0;
+            this.ApplyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ApplyBtn.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApplyBtn.ForeColor = System.Drawing.Color.White;
+            this.ApplyBtn.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.ApplyBtn.IconColor = System.Drawing.Color.White;
+            this.ApplyBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ApplyBtn.IconSize = 32;
+            this.ApplyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ApplyBtn.Location = new System.Drawing.Point(115, 346);
             this.ApplyBtn.Name = "ApplyBtn";
-            this.ApplyBtn.Size = new System.Drawing.Size(301, 29);
-            this.ApplyBtn.TabIndex = 15;
-            this.ApplyBtn.Text = "Apply";
-            this.ApplyBtn.UseVisualStyleBackColor = true;
-            this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click);
+            this.ApplyBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.ApplyBtn.Size = new System.Drawing.Size(251, 36);
+            this.ApplyBtn.TabIndex = 63;
+            this.ApplyBtn.Text = "Apply Loan";
+            this.ApplyBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ApplyBtn.UseMnemonic = false;
+            this.ApplyBtn.UseVisualStyleBackColor = false;
+            this.ApplyBtn.Click += new System.EventHandler(this.ApplyBtn_Click_1);
             // 
             // LoanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ApplyBtn);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.IpMonthlyPay);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.IpAmount);
-            this.Controls.Add(this.IpName);
+            this.ClientSize = new System.Drawing.Size(527, 446);
+            this.Controls.Add(this.panel1);
             this.Name = "LoanForm";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loan";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox IpAmount;
         private System.Windows.Forms.TextBox IpName;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox IpMonthlyPay;
-        private System.Windows.Forms.Button ApplyBtn;
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel BalanceLbl;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private FontAwesome.Sharp.IconButton ApplyBtn;
     }
 }
