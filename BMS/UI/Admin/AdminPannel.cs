@@ -19,20 +19,19 @@ namespace BMS.UI
         {
             InitializeComponent();
             LoadData();
-            LoadTotalBalance(); 
+            LoadTotalBalance();
             LoadReportedAccounts();
         }
         private void LoadData()
         {
             List<Account> accounts = ObjectHandler.GetAccountDL().GetAccounts();
-            // 
+            // clear the chart
+            chart1.Series["AccountType"].Points.Clear();
             var amountSeries = chart1.Series["AccountType"];
 
             // Check if there are transactions
             if (accounts.Count > 0)
             {
-                // Loop through transactions and add data points (existing code)
-                // show how many have savings and checkings accounts
                 int savings = 0;
                 int checkings = 0;
                 foreach (Account acc in accounts)
@@ -46,9 +45,6 @@ namespace BMS.UI
                         checkings++;
                     }
                 }
-               
-                    
-                    // show the data on the chart
                     MessageBox.Show("Loading Accounts Data" + savings + " " + checkings);
                     amountSeries.Points.AddXY("Savings", savings);
                 amountSeries.Points.AddXY("Checkings", checkings);
@@ -109,6 +105,25 @@ namespace BMS.UI
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+        }
+
+        private void viewPgBtn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ViewUsers viewUsers = new ViewUsers();
+            viewUsers.Show();
+        }
+
+        private void RefreshPgBtn_Click(object sender, EventArgs e)
+        {
+            LoadData();
+            LoadTotalBalance();
+            LoadReportedAccounts();
+        }
+
+        private void vipUsersPgLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            VipUsersForm vipUsersForm = new VipUsersForm();
+            vipUsersForm.Show();
         }
     }
 }

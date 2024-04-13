@@ -72,15 +72,15 @@ namespace BMS.DL.FH
                         Loan loan = new Loan(data[0], Convert.ToInt32(data[1]), Convert.ToInt32(data[2]));
                         // add to list
                         loans.Add(loan);
-                        return true;
                     }
+                        return true;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }
                 return false;
+            }
         }
         // updating in file without creating new file
       public bool UpdateLoanInfo(string newAccountHolder, string prevAccountHolder)

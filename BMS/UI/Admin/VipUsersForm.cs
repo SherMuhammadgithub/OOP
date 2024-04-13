@@ -20,11 +20,11 @@ namespace BMS.UI
 
             dataGridView.ColumnCount = 6;
             dataGridView.Columns[0].Name = "Account Holder";
-            dataGridView.Columns[1].Name = "Social Security Number";
-            dataGridView.Columns[2].Name = "Monthly Income";
-            dataGridView.Columns[3].Name = "Initial Deposit";
-            dataGridView.Columns[4].Name = "Account Type";
-            dataGridView.Columns[5].Name = "Account Number";
+            dataGridView.Columns[1].Name = "SSN";
+            dataGridView.Columns[2].Name = "Income";
+            dataGridView.Columns[3].Name = "Deposit";
+            dataGridView.Columns[4].Name = "Account";
+            dataGridView.Columns[5].Name = "Account No";
             LoadData();
 
         }
@@ -51,6 +51,11 @@ namespace BMS.UI
         }
 
         private void noVipUsersLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VipUsersForm_Load(object sender, EventArgs e)
         {
 
         }

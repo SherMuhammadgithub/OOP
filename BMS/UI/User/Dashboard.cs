@@ -55,6 +55,7 @@ namespace BMS.UI
                 TransferBtn.Enabled = true;
                 MoneyActionPgBtn.Enabled = true;
                 BankFeePgBtn.Enabled = true;
+                HistoryPgBtn.Enabled = true;
                 LoanPgBtn.Enabled = true;
                 settings.Enabled = true;
                 restrictionPanel.Visible = false;
@@ -68,6 +69,7 @@ namespace BMS.UI
                 AccountPgBtn.Enabled = false;
                 TransferBtn.Enabled = false;
                 MoneyActionPgBtn.Enabled = false;
+                HistoryPgBtn.Enabled = false;
                 BankFeePgBtn.Enabled = false;
                 LoanPgBtn.Enabled = false;
                 settings.Enabled = false;
@@ -104,12 +106,6 @@ namespace BMS.UI
             settings.Show();
         }
 
-        private void AddBtn_Click_1(object sender, EventArgs e)
-        {
-            //this.Close();
-            AccountForm accountForm = new AccountForm();
-            accountForm.Show();
-        }
 
         private void ReadMoreBtn_Click(object sender, EventArgs e)
         {
@@ -121,6 +117,12 @@ namespace BMS.UI
             this.Close();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            AccountForm accountForm = new AccountForm();
+            accountForm.Show();
         }
     }
 }

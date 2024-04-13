@@ -23,7 +23,7 @@ namespace BMS.UI
            
 
         }
-        private void isReeported()
+        private void IsReeported()
         {
             string accountHolder = IpName.Text;
             ReportedAccount reportedAccount = ObjectHandler.GetReportedAccountDL().isReported(accountHolder);
@@ -65,16 +65,27 @@ namespace BMS.UI
             // Check if there are transactions
             if (transactions.Count > 0)
             {
-                // Loop through transactions and add data points (existing code)
-                foreach (trans transaction in transactions)
+                int Deposit = 0;
+                int Transfer = 0;
+                int Withdraw = 0;
+                foreach (trans trasnsaction in transactions)
                 {
-                    string type = transaction.GetTransactionType();
-                    int amount = transaction.GetAmount();
-                    amountSeries.Points.AddXY(type, amount);
+                    if (trasnsaction.GetTransactionType() == "Deposit")
+                    {
+                        Deposit++;
+                    }
+                    else if(trasnsaction.GetTransactionType() == "Transfer")
+                    {
+                        Transfer++;
+                    }   
+                    {
+                        Withdraw++;
+                    }
                 }
-
-                // Hide the "No Transactions" label
-                noTransactionsLabel.Visible = false; // Assuming your label name is "noTransactionsLabel"
+                amountSeries.Points.AddXY("Transfer", Transfer);
+                amountSeries.Points.AddXY("Withdraw", Withdraw);
+                amountSeries.Points.AddXY("Deposit", Deposit);
+                noTransactionsLabel.Visible = false;
             }
             else
             {
@@ -83,55 +94,6 @@ namespace BMS.UI
 
                 // Optionally, clear the chart series (optional)
                 amountSeries.Points.Clear();
-            }
-        }
-
-        private void LoadBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DeleteBtn_Click(object sender, EventArgs e)
-        {
-            ReportAccountForm reportAccountForm = new ReportAccountForm();
-            reportAccountForm.IpRepAccountName.Text = IpName.Text;
-            reportAccountForm.Show();
-
-        }
-
-        private void IpLoanBtn_Click(object sender, EventArgs e)
-        {
-            string AccountHolder = IpName.Text;
-            Account accountToGiveLoan = ObjectHandler.GetAccountDL().isAccountExists(AccountHolder);
-            Loan loan = ObjectHandler.GetLoanDL().isLoanExists(AccountHolder);
-            // delete loan after giving the loan to the account holder
-            bool isDelivered =  ObjectHandler.GetLoanDL().DeleteLoan(loan);
-            bool isDeposited = accountToGiveLoan.Deposit(loan.GetLoanAmount(), accountToGiveLoan); // Deposit the loan amount to the account
-            if (isDelivered && isDeposited)
-            {
-                    // set debt for the account
-                    int prevDebt = accountToGiveLoan.GetDebt();
-                    int totalDebt = loan.GetLoanAmount() + prevDebt;
-                    accountToGiveLoan.SetDebt(totalDebt);
-                    MessageBox.Show("Loan delivered successfully");
-                   // update the account information
-                   bool isUpdated = ObjectHandler.GetAccountDL().UpdateAccountInfo(accountToGiveLoan, AccountHolder);
-                   if (isUpdated)
-                {
-                    MessageBox.Show("Debt Amount Applied successfully");
-                }
-                    this.Hide();
-                    Menu menu = new Menu();
-                    menu.Show();  
-            }
-            else
-            {
-                MessageBox.Show("Loan not delivered");
             }
         }
 
@@ -169,33 +131,74 @@ namespace BMS.UI
         {
 
         }
-
-        private void UnreportBtn_Click(object sender, EventArgs e)
-        {
-            string accountHolder = IpName.Text;
-            bool isUnreported = ObjectHandler.GetReportedAccountDL().UnreportAccount(accountHolder);
-            if (isUnreported)
-            {
-                MessageBox.Show("Account unreported successfully");
-                this.Hide();
-                Menu menu = new Menu();
-                menu.Show();
-            }
-            else
-            {
-                MessageBox.Show("Account not unreported");
-            }
-        }
-
         private void SingleUser_Load(object sender, EventArgs e)
         {
             LoadTransactions();
-            isReeported();
+            IsReeported();
         }
 
         private void chart1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteBtn_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            ReportAccountForm reportAccountForm = new ReportAccountForm();
+            reportAccountForm.IpRepAccountName.Text = IpName.Text;
+            reportAccountForm.Show();
+        }
+
+        private void IpLoanBtn_Click_1(object sender, EventArgs e)
+        {
+            string AccountHolder = IpName.Text;
+            Account accountToGiveLoan = ObjectHandler.GetAccountDL().isAccountExists(AccountHolder);
+            Loan loan = ObjectHandler.GetLoanDL().isLoanExists(AccountHolder);
+            // delete loan after giving the loan to the account holder
+            bool isDelivered = ObjectHandler.GetLoanDL().DeleteLoan(loan);
+            bool isDeposited = accountToGiveLoan.Deposit(loan.GetLoanAmount(), accountToGiveLoan); // Deposit the loan amount to the account
+            if (isDelivered && isDeposited)
+            {
+                // set debt for the account
+                int prevDebt = accountToGiveLoan.GetDebt();
+                int totalDebt = loan.GetLoanAmount() + prevDebt;
+                accountToGiveLoan.SetDebt(totalDebt);
+                MessageBox.Show("Loan delivered successfully");
+                // update the account information
+                bool isUpdated = ObjectHandler.GetAccountDL().UpdateAccountInfo(accountToGiveLoan, AccountHolder);
+                if (isUpdated)
+                {
+                    MessageBox.Show("Debt Amount Applied successfully");
+                }
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Loan not delivered");
+            }
+        }
+
+        private void UnreportBtn_Click_1(object sender, EventArgs e)
+        {
+
+            string accountHolder = IpName.Text;
+            bool isUnreported = ObjectHandler.GetReportedAccountDL().UnreportAccount(accountHolder);
+            if (isUnreported)
+            {
+                MessageBox.Show("Account unreported successfully");
+                this.Close();
+                
+            }
+            else
+            {
+                MessageBox.Show("Account not unreported");
+            }
         }
     }
 }

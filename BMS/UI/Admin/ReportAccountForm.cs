@@ -19,7 +19,8 @@ namespace BMS.UI.Admin
             InitializeComponent();
         }
 
-        private void ReportBtn_Click(object sender, EventArgs e)
+
+        private void report_Click(object sender, EventArgs e)
         {
             string accountHolder = IpRepAccountName.Text;
             string reason = IpReason.Text;
@@ -29,10 +30,8 @@ namespace BMS.UI.Admin
             if (isReported)
             {
                 MessageBox.Show("Account reported successfully");
-                    this.Hide();
-                    Menu menu = new Menu();
-                    menu.Show();
-                
+                this.Close();
+
             }
             else
             {

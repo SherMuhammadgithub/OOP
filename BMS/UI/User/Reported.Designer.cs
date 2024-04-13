@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.noTransactionsLabel = new System.Windows.Forms.Label();
-            this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.NameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.ReasonLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SignUpPgLink = new System.Windows.Forms.LinkLabel();
+            this.ReasonLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.NameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.noTransactionsLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,63 +54,6 @@
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // noTransactionsLabel
-            // 
-            this.noTransactionsLabel.AutoSize = true;
-            this.noTransactionsLabel.BackColor = System.Drawing.Color.Transparent;
-            this.noTransactionsLabel.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noTransactionsLabel.ForeColor = System.Drawing.Color.Red;
-            this.noTransactionsLabel.Location = new System.Drawing.Point(43, 40);
-            this.noTransactionsLabel.Name = "noTransactionsLabel";
-            this.noTransactionsLabel.Size = new System.Drawing.Size(373, 21);
-            this.noTransactionsLabel.TabIndex = 87;
-            this.noTransactionsLabel.Text = "Your Account has been Reported";
-            this.noTransactionsLabel.Visible = false;
-            // 
-            // BalanceLbl
-            // 
-            this.BalanceLbl.BackColor = System.Drawing.Color.Transparent;
-            this.BalanceLbl.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BalanceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
-            this.BalanceLbl.Location = new System.Drawing.Point(47, 99);
-            this.BalanceLbl.Name = "BalanceLbl";
-            this.BalanceLbl.Size = new System.Drawing.Size(128, 29);
-            this.BalanceLbl.TabIndex = 88;
-            this.BalanceLbl.Text = "Account Holder";
-            // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(47, 201);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(61, 29);
-            this.guna2HtmlLabel1.TabIndex = 89;
-            this.guna2HtmlLabel1.Text = "Reason";
-            // 
-            // NameLbl
-            // 
-            this.NameLbl.BackColor = System.Drawing.Color.Transparent;
-            this.NameLbl.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameLbl.ForeColor = System.Drawing.Color.White;
-            this.NameLbl.Location = new System.Drawing.Point(47, 154);
-            this.NameLbl.Name = "NameLbl";
-            this.NameLbl.Size = new System.Drawing.Size(158, 25);
-            this.NameLbl.TabIndex = 90;
-            this.NameLbl.Text = "Sher Muhammad Iqbal";
-            // 
-            // ReasonLbl
-            // 
-            this.ReasonLbl.BackColor = System.Drawing.Color.Transparent;
-            this.ReasonLbl.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReasonLbl.ForeColor = System.Drawing.Color.White;
-            this.ReasonLbl.Location = new System.Drawing.Point(47, 248);
-            this.ReasonLbl.Name = "ReasonLbl";
-            this.ReasonLbl.Size = new System.Drawing.Size(44, 25);
-            this.ReasonLbl.TabIndex = 91;
-            this.ReasonLbl.Text = "Fraud";
-            // 
             // SignUpPgLink
             // 
             this.SignUpPgLink.AutoSize = true;
@@ -126,6 +69,62 @@
             this.SignUpPgLink.Text = "You were Reported by the Bank Administration";
             this.SignUpPgLink.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ReasonLbl
+            // 
+            this.ReasonLbl.BackColor = System.Drawing.Color.Transparent;
+            this.ReasonLbl.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReasonLbl.ForeColor = System.Drawing.Color.White;
+            this.ReasonLbl.Location = new System.Drawing.Point(47, 237);
+            this.ReasonLbl.Name = "ReasonLbl";
+            this.ReasonLbl.Size = new System.Drawing.Size(44, 25);
+            this.ReasonLbl.TabIndex = 91;
+            this.ReasonLbl.Text = "Fraud";
+            // 
+            // NameLbl
+            // 
+            this.NameLbl.BackColor = System.Drawing.Color.Transparent;
+            this.NameLbl.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameLbl.ForeColor = System.Drawing.Color.White;
+            this.NameLbl.Location = new System.Drawing.Point(47, 143);
+            this.NameLbl.Name = "NameLbl";
+            this.NameLbl.Size = new System.Drawing.Size(158, 25);
+            this.NameLbl.TabIndex = 90;
+            this.NameLbl.Text = "Sher Muhammad Iqbal";
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(47, 190);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(61, 29);
+            this.guna2HtmlLabel1.TabIndex = 89;
+            this.guna2HtmlLabel1.Text = "Reason";
+            // 
+            // BalanceLbl
+            // 
+            this.BalanceLbl.BackColor = System.Drawing.Color.Transparent;
+            this.BalanceLbl.Font = new System.Drawing.Font("Dosis", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalanceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.BalanceLbl.Location = new System.Drawing.Point(47, 99);
+            this.BalanceLbl.Name = "BalanceLbl";
+            this.BalanceLbl.Size = new System.Drawing.Size(128, 29);
+            this.BalanceLbl.TabIndex = 88;
+            this.BalanceLbl.Text = "Account Holder";
+            // 
+            // noTransactionsLabel
+            // 
+            this.noTransactionsLabel.AutoSize = true;
+            this.noTransactionsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.noTransactionsLabel.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noTransactionsLabel.ForeColor = System.Drawing.Color.Red;
+            this.noTransactionsLabel.Location = new System.Drawing.Point(43, 40);
+            this.noTransactionsLabel.Name = "noTransactionsLabel";
+            this.noTransactionsLabel.Size = new System.Drawing.Size(373, 21);
+            this.noTransactionsLabel.TabIndex = 87;
+            this.noTransactionsLabel.Text = "Your Account has been Reported";
+            // 
             // Reported
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -134,7 +133,9 @@
             this.Controls.Add(this.panel1);
             this.Name = "Reported";
             this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reported";
+            this.Load += new System.EventHandler(this.Reported_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

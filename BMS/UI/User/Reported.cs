@@ -21,5 +21,10 @@ namespace BMS.UI.User
         {
 
         }
+
+        private void Reported_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

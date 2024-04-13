@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LogoutBtn = new System.Windows.Forms.PictureBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.settings = new FontAwesome.Sharp.IconButton();
             this.AccountPgBtn = new FontAwesome.Sharp.IconButton();
@@ -37,6 +38,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.restrictionPanel = new System.Windows.Forms.Panel();
+            this.AddBtn = new FontAwesome.Sharp.IconButton();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.TransferBtn = new FontAwesome.Sharp.IconButton();
@@ -79,13 +83,11 @@
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.NameLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.restrictionPanel = new System.Windows.Forms.Panel();
-            this.AddBtn = new FontAwesome.Sharp.IconButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LogoutBtn = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoutBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            this.restrictionPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel11.SuspendLayout();
@@ -103,8 +105,6 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
-            this.restrictionPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoutBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -123,6 +123,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(238, 526);
             this.panel1.TabIndex = 0;
+            // 
+            // LogoutBtn
+            // 
+            this.LogoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("LogoutBtn.Image")));
+            this.LogoutBtn.Location = new System.Drawing.Point(64, 423);
+            this.LogoutBtn.Name = "LogoutBtn";
+            this.LogoutBtn.Size = new System.Drawing.Size(100, 64);
+            this.LogoutBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LogoutBtn.TabIndex = 49;
+            this.LogoutBtn.TabStop = false;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click_1);
             // 
             // linkLabel1
             // 
@@ -248,6 +259,50 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(891, 526);
             this.panel3.TabIndex = 2;
+            // 
+            // restrictionPanel
+            // 
+            this.restrictionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(104)))), ((int)(((byte)(120)))));
+            this.restrictionPanel.Controls.Add(this.AddBtn);
+            this.restrictionPanel.Controls.Add(this.label2);
+            this.restrictionPanel.Location = new System.Drawing.Point(13, 213);
+            this.restrictionPanel.Name = "restrictionPanel";
+            this.restrictionPanel.Size = new System.Drawing.Size(691, 141);
+            this.restrictionPanel.TabIndex = 44;
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
+            this.AddBtn.FlatAppearance.BorderSize = 0;
+            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddBtn.Font = new System.Drawing.Font("Copperplate Gothic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddBtn.ForeColor = System.Drawing.Color.White;
+            this.AddBtn.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.AddBtn.IconColor = System.Drawing.Color.White;
+            this.AddBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AddBtn.IconSize = 32;
+            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AddBtn.Location = new System.Drawing.Point(243, 89);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.AddBtn.Size = new System.Drawing.Size(192, 36);
+            this.AddBtn.TabIndex = 44;
+            this.AddBtn.Text = "Add Account";
+            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AddBtn.UseMnemonic = false;
+            this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(50, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(557, 27);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "You Don\'t have An Account Create Account For Further Intercations";
             // 
             // panel2
             // 
@@ -760,60 +815,6 @@
             this.guna2HtmlLabel2.TabIndex = 2;
             this.guna2HtmlLabel2.Text = "Welcome";
             // 
-            // restrictionPanel
-            // 
-            this.restrictionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(104)))), ((int)(((byte)(120)))));
-            this.restrictionPanel.Controls.Add(this.AddBtn);
-            this.restrictionPanel.Controls.Add(this.label2);
-            this.restrictionPanel.Location = new System.Drawing.Point(13, 213);
-            this.restrictionPanel.Name = "restrictionPanel";
-            this.restrictionPanel.Size = new System.Drawing.Size(691, 141);
-            this.restrictionPanel.TabIndex = 44;
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(78)))), ((int)(((byte)(60)))));
-            this.AddBtn.FlatAppearance.BorderSize = 0;
-            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddBtn.Font = new System.Drawing.Font("Copperplate Gothic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBtn.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
-            this.AddBtn.IconColor = System.Drawing.Color.White;
-            this.AddBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AddBtn.IconSize = 32;
-            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AddBtn.Location = new System.Drawing.Point(243, 89);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.AddBtn.Size = new System.Drawing.Size(192, 36);
-            this.AddBtn.TabIndex = 44;
-            this.AddBtn.Text = "Add Account";
-            this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.AddBtn.UseMnemonic = false;
-            this.AddBtn.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(50, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(557, 27);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "You Don\'t have An Account Create Account For Further Intercations";
-            // 
-            // LogoutBtn
-            // 
-            this.LogoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("LogoutBtn.Image")));
-            this.LogoutBtn.Location = new System.Drawing.Point(64, 423);
-            this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Size = new System.Drawing.Size(100, 64);
-            this.LogoutBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LogoutBtn.TabIndex = 49;
-            this.LogoutBtn.TabStop = false;
-            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click_1);
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 27F);
@@ -830,8 +831,11 @@
             this.Text = "Dashboard";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoutBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.restrictionPanel.ResumeLayout(false);
+            this.restrictionPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -858,9 +862,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.restrictionPanel.ResumeLayout(false);
-            this.restrictionPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoutBtn)).EndInit();
             this.ResumeLayout(false);
 
         }

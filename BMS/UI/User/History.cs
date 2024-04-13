@@ -32,21 +32,33 @@ namespace BMS.UI
             {
                 TransactionDataGrid.Rows.Add(transaction.GetTransactionType(), transaction.GetAmount(), transaction.GetDate());
             }
+            // Assuming your chart series are named "Amount"
             var amountSeries = chart1.Series["Amount"];
 
             // Check if there are transactions
             if (transactions.Count > 0)
             {
-                // Loop through transactions and add data points (existing code)
-                foreach (trans transaction in transactions)
+                int Deposit = 0;
+                int Transfer = 0;
+                int Withdraw = 0;
+                foreach (trans trasnsaction in transactions)
                 {
-                    string type = transaction.GetTransactionType();
-                    int amount = transaction.GetAmount();
-                    amountSeries.Points.AddXY(type, amount);
+                    if (trasnsaction.GetTransactionType() == "Deposit")
+                    {
+                        Deposit++;
+                    }
+                    else if (trasnsaction.GetTransactionType() == "Transfer")
+                    {
+                        Transfer++;
+                    }
+                    {
+                        Withdraw++;
+                    }
                 }
-
-                // Hide the "No Transactions" label
-                noTransactionsLabel.Visible = false; // Assuming your label name is "noTransactionsLabel"
+                amountSeries.Points.AddXY("Transfer", Transfer);
+                amountSeries.Points.AddXY("Withdraw", Withdraw);
+                amountSeries.Points.AddXY("Deposit", Deposit);
+                noTransactionsLabel.Visible = false;
             }
             else
             {

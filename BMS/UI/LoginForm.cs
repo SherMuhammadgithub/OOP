@@ -86,6 +86,12 @@ namespace DatabaseProject
                 dashboard.DebtLbl.Text = account.GetDebt().ToString();
                 dashboard.Show();
             }
+            else if(InputName.Text == "admin" && InputPass.Text == "admin")
+            {
+                this.Hide();
+                AdminPannel adminPannel = new AdminPannel();
+                adminPannel.Show();
+            }
             else
             {
                 MessageBox.Show("User not found");
