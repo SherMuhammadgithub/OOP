@@ -51,10 +51,12 @@ namespace BMS.UI
                     {
                         Transfer++;
                     }
+                    else
                     {
                         Withdraw++;
                     }
                 }
+                MessageBox.Show(Transfer + " " + Withdraw + " " + Deposit);
                 amountSeries.Points.AddXY("Transfer", Transfer);
                 amountSeries.Points.AddXY("Withdraw", Withdraw);
                 amountSeries.Points.AddXY("Deposit", Deposit);

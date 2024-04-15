@@ -30,12 +30,14 @@ namespace BMS.UI
             if (reportedAccount != null)
             {
                 DeleteBtn.Enabled = false;
+                IpLoanBtn.Enabled = false;
                 UnreportBtn.Enabled = true;
                 ReportedLbl.Visible = true;
             }
             else
             {
                 DeleteBtn.Enabled = true;
+                IpLoanBtn.Enabled = true;
                 UnreportBtn.Enabled = false;
                 ReportedLbl.Visible = false;
             }
@@ -162,13 +164,20 @@ namespace BMS.UI
             Loan loan = ObjectHandler.GetLoanDL().isLoanExists(AccountHolder);
             // delete loan after giving the loan to the account holder
             bool isDelivered = ObjectHandler.GetLoanDL().DeleteLoan(loan);
-            bool isDeposited = accountToGiveLoan.Deposit(loan.GetLoanAmount(), accountToGiveLoan); // Deposit the loan amount to the account
+            bool isDeposited = accountToGiveLoan.Deposit(loan.GetLoanAmount()); // Deposit the loan amount to the account
+
             if (isDelivered && isDeposited)
             {
                 // set debt for the account
                 int prevDebt = accountToGiveLoan.GetDebt();
                 int totalDebt = loan.GetLoanAmount() + prevDebt;
                 accountToGiveLoan.SetDebt(totalDebt);
+                trans transaction = new trans("Deposit", loan.GetLoanAmount(), accountToGiveLoan.GetAccountHolder());
+                bool isSaved = ObjectHandler.GetTransactionDL().SaveTransactionInfo(transaction);
+                if (isSaved)
+                {
+                    accountToGiveLoan.SetTransactions(transaction);
+                }
                 MessageBox.Show("Loan delivered successfully");
                 // update the account information
                 bool isUpdated = ObjectHandler.GetAccountDL().UpdateAccountInfo(accountToGiveLoan, AccountHolder);

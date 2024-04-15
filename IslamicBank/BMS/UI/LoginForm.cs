@@ -33,6 +33,7 @@ namespace DatabaseProject
             if (ObjectHandler.GetUserDL().SignIn(user))
             {
                 MessageBox.Show("User signed in successfully");
+                // setting the current user
                 ObjectHandler.GetUserDL().StoreCurrentUser(user);
 
                 // setting current customer Account
@@ -52,8 +53,8 @@ namespace DatabaseProject
                         reported.Show();
                         return;
                     }
-                    MessageBox.Show("Account found");
-                    currentUser.SetCurrentAccount(account);
+                    currentUser.SetCurrentAccount(account); // setting the current account
+                    // setting the loan for the account
                     Loan loan = ObjectHandler.GetLoanDL().isLoanExists(account.GetAccountHolder());
                     if (loan != null)
                     {
@@ -65,6 +66,7 @@ namespace DatabaseProject
                     }
                     // setting transactions for the account
                     account.SetTransactions(ObjectHandler.GetTransactionDL().GetTransactionsForSpecificAccount(account.GetAccountHolder()));
+                    MessageBox.Show("Account found");
                 }
                 // if account not found
                 else

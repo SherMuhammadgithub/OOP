@@ -40,6 +40,11 @@ namespace BMS.UI
         private void edit_Click(object sender, EventArgs e)
         {
             // updating password only 
+            bool isValid = ValidatePassword();
+            if (!isValid)
+            {
+                return;
+            }
             currentUser.SetPassword(IpPass.Text);
             bool isUserUpdated = ObjectHandler.GetUserDL().UpdateUserInfo(currentUser, currentUser.GetUsername());
             if (isUserUpdated)
@@ -51,7 +56,15 @@ namespace BMS.UI
                 MessageBox.Show("not Updated");
             }
         }
-
+        private bool ValidatePassword()
+        {
+            if (IpPass.Text.Length < 8)
+            {
+                MessageBox.Show("Password must be at least 8 characters long");
+                return false;
+            }
+            return true;
+        }
         private void upload_Click(object sender, EventArgs e)
         {
             try

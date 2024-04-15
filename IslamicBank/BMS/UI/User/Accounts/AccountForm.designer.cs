@@ -52,6 +52,11 @@ namespace BMS.UI
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.Students = new FontAwesome.Sharp.IconButton();
+            this.validateDOB = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.validatePhone = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.validateSSN = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.validateSalary = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.validateDep = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -140,6 +145,11 @@ namespace BMS.UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.validateDep);
+            this.panel1.Controls.Add(this.validateSalary);
+            this.panel1.Controls.Add(this.validateSSN);
+            this.panel1.Controls.Add(this.validatePhone);
+            this.panel1.Controls.Add(this.validateDOB);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.guna2HtmlLabel3);
             this.panel1.Controls.Add(this.AccountTypeCb);
@@ -394,6 +404,66 @@ namespace BMS.UI
             this.Students.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Students.UseVisualStyleBackColor = false;
             // 
+            // validateDOB
+            // 
+            this.validateDOB.BackColor = System.Drawing.Color.Transparent;
+            this.validateDOB.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validateDOB.ForeColor = System.Drawing.Color.Red;
+            this.validateDOB.Location = new System.Drawing.Point(345, 217);
+            this.validateDOB.Name = "validateDOB";
+            this.validateDOB.Size = new System.Drawing.Size(83, 25);
+            this.validateDOB.TabIndex = 66;
+            this.validateDOB.Text = "DD/MM/YY";
+            this.validateDOB.Visible = false;
+            // 
+            // validatePhone
+            // 
+            this.validatePhone.BackColor = System.Drawing.Color.Transparent;
+            this.validatePhone.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validatePhone.ForeColor = System.Drawing.Color.Red;
+            this.validatePhone.Location = new System.Drawing.Point(116, 328);
+            this.validatePhone.Name = "validatePhone";
+            this.validatePhone.Size = new System.Drawing.Size(175, 25);
+            this.validatePhone.TabIndex = 67;
+            this.validatePhone.Text = "Must Contain 11 numbers!";
+            this.validatePhone.Visible = false;
+            // 
+            // validateSSN
+            // 
+            this.validateSSN.BackColor = System.Drawing.Color.Transparent;
+            this.validateSSN.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validateSSN.ForeColor = System.Drawing.Color.Red;
+            this.validateSSN.Location = new System.Drawing.Point(336, 328);
+            this.validateSSN.Name = "validateSSN";
+            this.validateSSN.Size = new System.Drawing.Size(100, 25);
+            this.validateSSN.TabIndex = 68;
+            this.validateSSN.Text = "Only Numbers";
+            this.validateSSN.Visible = false;
+            // 
+            // validateSalary
+            // 
+            this.validateSalary.BackColor = System.Drawing.Color.Transparent;
+            this.validateSalary.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validateSalary.ForeColor = System.Drawing.Color.Red;
+            this.validateSalary.Location = new System.Drawing.Point(567, 328);
+            this.validateSalary.Name = "validateSalary";
+            this.validateSalary.Size = new System.Drawing.Size(100, 25);
+            this.validateSalary.TabIndex = 69;
+            this.validateSalary.Text = "Only Numbers";
+            this.validateSalary.Visible = false;
+            // 
+            // validateDep
+            // 
+            this.validateDep.BackColor = System.Drawing.Color.Transparent;
+            this.validateDep.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validateDep.ForeColor = System.Drawing.Color.Red;
+            this.validateDep.Location = new System.Drawing.Point(223, 440);
+            this.validateDep.Name = "validateDep";
+            this.validateDep.Size = new System.Drawing.Size(100, 25);
+            this.validateDep.TabIndex = 70;
+            this.validateDep.Text = "Only Numbers";
+            this.validateDep.Visible = false;
+            // 
             // AccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -434,5 +504,10 @@ namespace BMS.UI
         private FontAwesome.Sharp.IconButton AddBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel validateDOB;
+        private Guna.UI2.WinForms.Guna2HtmlLabel validateSSN;
+        private Guna.UI2.WinForms.Guna2HtmlLabel validatePhone;
+        private Guna.UI2.WinForms.Guna2HtmlLabel validateDep;
+        private Guna.UI2.WinForms.Guna2HtmlLabel validateSalary;
     }
 }

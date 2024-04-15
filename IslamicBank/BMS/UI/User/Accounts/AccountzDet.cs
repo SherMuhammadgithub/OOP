@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,10 +26,10 @@ namespace BMS.UI.Accounts
         }
         private void LoadAccountInfo()
         {
-        MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
-        Account currentAccount = currentUser.GetAccount();
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+            Account currentAccount = currentUser.GetAccount();
 
-           
+
 
             if (currentAccount == null)
             {
@@ -53,7 +54,35 @@ namespace BMS.UI.Accounts
 
         private void EditBtn_Click_1(object sender, EventArgs e)
         {
-
+            bool isValid = ValidateInput();
+            if (!isValid)
+            {
+                return;
+            }
+            bool isValidPhone = ValidatePhone();
+            if (!isValidPhone)
+            {
+                validateph.Visible = true;
+                return;
+            }
+            bool isValidDOB = ValidateDOB();
+            if (!isValidDOB)
+            {
+                vlaidateDob.Visible = true;
+                return;
+            }
+            bool isValidMonthlySalary = ValidateNumber(IpMontlySalary.Text);
+            if (!isValidMonthlySalary)
+            {
+                 validateMonthlyPay.Visible = true;
+                return;
+            }
+           bool isValidName = ValidateName();
+            if (!isValidName)
+            {
+                validateName.Visible = true;
+                return;
+            }
             IAccountDL accountDL = ObjectHandler.GetAccountDL();
             IMUserDL mUserDL = ObjectHandler.GetUserDL();
             ITransactionDL transactionDL = ObjectHandler.GetTransactionDL();
@@ -64,7 +93,7 @@ namespace BMS.UI.Accounts
             currentAccount.SetAccountHolder(IpName.Text);
             currentAccount.SetDateOfBirth(IpDOB.Text);
             currentAccount.SetAddress(IpAddress.Text);
-            currentAccount.SetPhone(Convert.ToInt32(IpPhone.Text));
+            currentAccount.SetPhone(IpPhone.Text);
             currentAccount.SetSocialSecurityNumber(IpSSN.Text);
             currentAccount.SetMonthlyIncome(Convert.ToInt32(IpMontlySalary.Text));
             currentAccount.SetIntialDeposit(Convert.ToInt32(IpIntialDeposite.Text));
@@ -98,21 +127,61 @@ namespace BMS.UI.Accounts
             }
             if (isUpdated)
             {
-                
+
                 MessageBox.Show("Information Updated");
-             
+
                 this.Close();
-               //Dashboard dashboard = new Dashboard();
-               // dashboard.NameLbl.Text = currentAccount.GetAccountHolder();
-               // dashboard.BalanceLbl.Text = currentAccount.GetIntialDeposit().ToString();
-               // dashboard.SalaryLbl.Text = currentAccount.GetMonthlyIncome().ToString();
-               // dashboard.DebtLbl.Text = currentAccount.GetDebt().ToString();
-               // dashboard.Show();
-
-
                 return;
             }
             MessageBox.Show("Error Updating information");
+        }
+        private bool ValidateInput()
+        {
+            // all fields are required
+            if (IpName.Text == "" || IpDOB.Text == "" || IpAddress.Text == "" || IpPhone.Text == "" || IpSSN.Text == "" || IpMontlySalary.Text == "" || IpIntialDeposite.Text == "")
+            {
+                MessageBox.Show("Please fill all the fields");
+                return false;
+            }
+            return true;
+        }
+        private bool ValidatePhone()
+        {
+            string regex = @"^[0-9]+$";
+            // and must be 11 numbelong
+            if (!Regex.IsMatch(IpPhone.Text, regex) || IpPhone.Text.Length != 11)
+            {
+                return false;
+            }
+            return true;
+        }
+        private bool ValidateDOB()
+        {
+            string regex = @"^(0?[1-9]|[12][0-9]|3[01])[-](0?[1-9]|1[012])[-]\d{4}$";
+            // format be like DD/MM/YYYY
+            if (!Regex.IsMatch(IpDOB.Text, regex))
+            {
+                return false;
+            }
+            return true;
+        }
+        private bool ValidateNumber(string num)
+        {
+            string regex = @"^[0-9]+$";
+            if (!Regex.IsMatch(num, regex))
+            {
+                return false;
+            }
+            return true;
+        }
+        private bool ValidateName()
+        {
+            string regex = @"^[a-zA-Z]+$";
+            if (!Regex.IsMatch(IpName.Text, regex))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

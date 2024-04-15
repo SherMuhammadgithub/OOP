@@ -48,6 +48,10 @@
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.DebtLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.validateName = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.vlaidateDob = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.validateph = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.validateMonthlyPay = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,6 +102,7 @@
             // 
             this.IpIntialDeposite.Location = new System.Drawing.Point(176, 352);
             this.IpIntialDeposite.Name = "IpIntialDeposite";
+            this.IpIntialDeposite.ReadOnly = true;
             this.IpIntialDeposite.Size = new System.Drawing.Size(147, 22);
             this.IpIntialDeposite.TabIndex = 36;
             // 
@@ -112,6 +117,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.validateMonthlyPay);
+            this.panel1.Controls.Add(this.validateph);
+            this.panel1.Controls.Add(this.vlaidateDob);
+            this.panel1.Controls.Add(this.validateName);
             this.panel1.Controls.Add(this.EditBtn);
             this.panel1.Controls.Add(this.guna2HtmlLabel8);
             this.panel1.Controls.Add(this.guna2HtmlLabel7);
@@ -171,9 +180,9 @@
             this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel7.Location = new System.Drawing.Point(415, 300);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(101, 25);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(118, 25);
             this.guna2HtmlLabel7.TabIndex = 56;
-            this.guna2HtmlLabel7.Text = "Intial Deposite";
+            this.guna2HtmlLabel7.Text = "Account Number";
             // 
             // guna2HtmlLabel6
             // 
@@ -263,6 +272,54 @@
             this.BalanceLbl.TabIndex = 48;
             this.BalanceLbl.Text = "Current Balance";
             // 
+            // validateName
+            // 
+            this.validateName.BackColor = System.Drawing.Color.Transparent;
+            this.validateName.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validateName.ForeColor = System.Drawing.Color.Red;
+            this.validateName.Location = new System.Drawing.Point(78, 142);
+            this.validateName.Name = "validateName";
+            this.validateName.Size = new System.Drawing.Size(179, 25);
+            this.validateName.TabIndex = 68;
+            this.validateName.Text = "Must Contain Letters Only";
+            this.validateName.Visible = false;
+            // 
+            // vlaidateDob
+            // 
+            this.vlaidateDob.BackColor = System.Drawing.Color.Transparent;
+            this.vlaidateDob.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vlaidateDob.ForeColor = System.Drawing.Color.Red;
+            this.vlaidateDob.Location = new System.Drawing.Point(307, 142);
+            this.vlaidateDob.Name = "vlaidateDob";
+            this.vlaidateDob.Size = new System.Drawing.Size(103, 25);
+            this.vlaidateDob.TabIndex = 69;
+            this.vlaidateDob.Text = "DD/MM/YYYY";
+            this.vlaidateDob.Visible = false;
+            // 
+            // validateph
+            // 
+            this.validateph.BackColor = System.Drawing.Color.Transparent;
+            this.validateph.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validateph.ForeColor = System.Drawing.Color.Red;
+            this.validateph.Location = new System.Drawing.Point(78, 252);
+            this.validateph.Name = "validateph";
+            this.validateph.Size = new System.Drawing.Size(175, 25);
+            this.validateph.TabIndex = 70;
+            this.validateph.Text = "Must Contain 11 numbers!";
+            this.validateph.Visible = false;
+            // 
+            // validateMonthlyPay
+            // 
+            this.validateMonthlyPay.BackColor = System.Drawing.Color.Transparent;
+            this.validateMonthlyPay.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validateMonthlyPay.ForeColor = System.Drawing.Color.Red;
+            this.validateMonthlyPay.Location = new System.Drawing.Point(558, 252);
+            this.validateMonthlyPay.Name = "validateMonthlyPay";
+            this.validateMonthlyPay.Size = new System.Drawing.Size(159, 25);
+            this.validateMonthlyPay.TabIndex = 71;
+            this.validateMonthlyPay.Text = "Must Contain Numbers";
+            this.validateMonthlyPay.Visible = false;
+            // 
             // AccountzDet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -309,5 +366,9 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private FontAwesome.Sharp.IconButton EditBtn;
+        private Guna.UI2.WinForms.Guna2HtmlLabel vlaidateDob;
+        private Guna.UI2.WinForms.Guna2HtmlLabel validateName;
+        private Guna.UI2.WinForms.Guna2HtmlLabel validateph;
+        private Guna.UI2.WinForms.Guna2HtmlLabel validateMonthlyPay;
     }
 }

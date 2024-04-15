@@ -35,6 +35,7 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.validateAmount = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +58,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.validateAmount);
             this.panel1.Controls.Add(this.TransferBtn);
             this.panel1.Controls.Add(this.AccountCb);
             this.panel1.Controls.Add(this.IpAmount);
@@ -66,7 +68,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(10, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(593, 327);
+            this.panel1.Size = new System.Drawing.Size(593, 345);
             this.panel1.TabIndex = 17;
             // 
             // TransferBtn
@@ -82,7 +84,7 @@
             this.TransferBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.TransferBtn.IconSize = 32;
             this.TransferBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.TransferBtn.Location = new System.Drawing.Point(154, 254);
+            this.TransferBtn.Location = new System.Drawing.Point(150, 274);
             this.TransferBtn.Name = "TransferBtn";
             this.TransferBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.TransferBtn.Size = new System.Drawing.Size(251, 36);
@@ -126,11 +128,23 @@
             this.BalanceLbl.TabIndex = 50;
             this.BalanceLbl.Text = "Transfer Your Amount to Other Account";
             // 
+            // validateAmount
+            // 
+            this.validateAmount.BackColor = System.Drawing.Color.Transparent;
+            this.validateAmount.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validateAmount.ForeColor = System.Drawing.Color.Red;
+            this.validateAmount.Location = new System.Drawing.Point(171, 241);
+            this.validateAmount.Name = "validateAmount";
+            this.validateAmount.Size = new System.Drawing.Size(126, 25);
+            this.validateAmount.TabIndex = 66;
+            this.validateAmount.Text = "Must be a number";
+            this.validateAmount.Visible = false;
+            // 
             // Transfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 347);
+            this.ClientSize = new System.Drawing.Size(613, 365);
             this.Controls.Add(this.panel1);
             this.Name = "Transfer";
             this.Padding = new System.Windows.Forms.Padding(10);
@@ -152,5 +166,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private FontAwesome.Sharp.IconButton TransferBtn;
+        private Guna.UI2.WinForms.Guna2HtmlLabel validateAmount;
     }
 }

@@ -35,6 +35,7 @@
             this.withdraw = new FontAwesome.Sharp.IconButton();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.BalanceLbl = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.validateAmount = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.validateAmount);
             this.panel1.Controls.Add(this.SignUpPgLink);
             this.panel1.Controls.Add(this.DepositBtn);
             this.panel1.Controls.Add(this.withdraw);
@@ -87,7 +89,7 @@
             this.DepositBtn.IconColor = System.Drawing.Color.White;
             this.DepositBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.DepositBtn.IconSize = 32;
-            this.DepositBtn.Location = new System.Drawing.Point(112, 210);
+            this.DepositBtn.Location = new System.Drawing.Point(99, 223);
             this.DepositBtn.Name = "DepositBtn";
             this.DepositBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.DepositBtn.Size = new System.Drawing.Size(168, 36);
@@ -111,7 +113,7 @@
             this.withdraw.IconColor = System.Drawing.Color.White;
             this.withdraw.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.withdraw.IconSize = 32;
-            this.withdraw.Location = new System.Drawing.Point(307, 210);
+            this.withdraw.Location = new System.Drawing.Point(301, 223);
             this.withdraw.Name = "withdraw";
             this.withdraw.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.withdraw.Size = new System.Drawing.Size(168, 36);
@@ -145,6 +147,18 @@
             this.BalanceLbl.TabIndex = 49;
             this.BalanceLbl.Text = "Deposit or Withdraw Amount";
             // 
+            // validateAmount
+            // 
+            this.validateAmount.BackColor = System.Drawing.Color.Transparent;
+            this.validateAmount.Font = new System.Drawing.Font("Dosis", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validateAmount.ForeColor = System.Drawing.Color.Red;
+            this.validateAmount.Location = new System.Drawing.Point(172, 182);
+            this.validateAmount.Name = "validateAmount";
+            this.validateAmount.Size = new System.Drawing.Size(126, 25);
+            this.validateAmount.TabIndex = 65;
+            this.validateAmount.Text = "Must be a number";
+            this.validateAmount.Visible = false;
+            // 
             // MoneyActions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -172,5 +186,6 @@
         private FontAwesome.Sharp.IconButton DepositBtn;
         private FontAwesome.Sharp.IconButton withdraw;
         private System.Windows.Forms.LinkLabel SignUpPgLink;
+        private Guna.UI2.WinForms.Guna2HtmlLabel validateAmount;
     }
 }
