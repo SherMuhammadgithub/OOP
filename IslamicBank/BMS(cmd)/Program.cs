@@ -95,7 +95,43 @@ namespace BMS_cmd_
                                         UserInterface.ShowMessage("Account Updation Failed");
                                     }
                                 }
-                                // Handle user menu options here (e.g., Console.WriteLine)
+                                else if(userMenuOption == UserInterface.UserMenu.deposit)
+                                {
+                                    bool isDeposited = UserUI.Deposit();
+                                    if (isDeposited)
+                                    {
+                                        UserInterface.ShowMessage("Amount Deposited Successfully");
+                                    }
+                                    else
+                                    {
+                                        UserInterface.ShowMessage("Amount Deposit Failed");
+                                    }
+                                }
+                                else if(userMenuOption == UserInterface.UserMenu.withdraw)
+                                {
+                                    bool isWithdrawn = UserUI.Withdraw();
+                                    if (isWithdrawn)
+                                    {
+                                        UserInterface.ShowMessage("Amount Withdrawn Successfully");
+                                    }
+                                    else
+                                    {
+                                        UserInterface.ShowMessage("Amount Withdraw Failed");
+                                    }
+                                }
+                                else if(userMenuOption == UserInterface.UserMenu.transfer)
+                                {
+                                    bool isTransfered = UserUI.Transfer();
+                                    if (isTransfered)
+                                    {
+                                        UserInterface.ShowMessage("Amount Transfered Successfully");
+                                    }
+                                    else
+                                    {
+                                        UserInterface.ShowMessage("Amount Transfer Failed");
+                                    }
+                                }
+                                
                                 Console.ReadKey();
                             }
                         }

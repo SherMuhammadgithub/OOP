@@ -26,7 +26,7 @@ namespace BMS_cmd_.UI
             string address = Console.ReadLine();
 
             Console.Write("Enter phone number: ");
-            int phone = Convert.ToInt32(Console.ReadLine());
+            string phone = Console.ReadLine();
 
             Console.Write("Enter social security number (for illustration only): ");
             string socialSecurityNumber = Console.ReadLine();  // Avoid storing in practice
@@ -63,7 +63,7 @@ namespace BMS_cmd_.UI
             string address = Console.ReadLine();
             currentAccount.SetAddress(address);
             Console.WriteLine("Enter the new phone number: ");
-            int phone = Convert.ToInt32(Console.ReadLine());
+            string  phone = Console.ReadLine();
             currentAccount.SetPhone(phone);
             Console.WriteLine("Enter the new monthly income: ");
             int monthlyIncome = Convert.ToInt32(Console.ReadLine());
@@ -92,7 +92,7 @@ namespace BMS_cmd_.UI
                  ObjectHandler.GetLoanDL().UpdateLoanInfo(newAccountHolder, prevAccountHolder);
             }
         }
-        public static bool isAccountAlreadyExist()
+        public static bool isAccountAlreadyExist() // current user account
         {
             MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
 
@@ -102,6 +102,59 @@ namespace BMS_cmd_.UI
                 return true;
             }
             return false;
+        }
+        public static bool Deposit()
+        {
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+            Account currentAccount = currentUser.GetAccount();
+            Console.WriteLine("Enter the amount to deposit: ");
+            int amount = Convert.ToInt32(Console.ReadLine());
+           bool isDeposited = currentAccount.Deposit(amount);
+            bool isUpdated = ObjectHandler.GetAccountDL().UpdateAccountInfo(currentAccount, currentAccount.GetAccountHolder());
+            bool isSaved = SaveTransaction("Deposit", amount, currentAccount.GetAccountHolder());
+            return isDeposited && isSaved && isUpdated;
+        }
+        public static bool Withdraw()
+        {
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+            Account currentAccount = currentUser.GetAccount();
+            Console.WriteLine("Enter the amount to withdraw: ");
+            int amount = Convert.ToInt32(Console.ReadLine());
+            bool isWithdraw = currentAccount.Withdraw(amount);
+            bool isUpdated = ObjectHandler.GetAccountDL().UpdateAccountInfo(currentAccount, currentAccount.GetAccountHolder());
+            bool isSaved = SaveTransaction("Withdraw", amount, currentAccount.GetAccountHolder());
+            return isWithdraw && isSaved && isUpdated;
+        }
+        public static bool Transfer()
+        {
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+            Account currentAccount = currentUser.GetAccount();
+            Console.WriteLine("Enter the amount to transfer: ");
+            int amount = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the account holder to transfer: ");
+            string accountHolder = Console.ReadLine();
+            Account accountToTransfer = ObjectHandler.GetAccountDL().isAccountExists(accountHolder);
+            if (accountToTransfer != null)
+            {
+                bool isTransfered = currentAccount.Transfer(amount); // - amount from current account
+                bool isSenderAccountUpdated = ObjectHandler.GetAccountDL().UpdateAccountInfo(currentAccount, currentAccount.GetAccountHolder());
+                bool isTransferSaved = SaveTransaction("Transfer", amount, currentAccount.GetAccountHolder());
+                // deposit amount to the account to transfer
+                bool isDeposited = accountToTransfer.Deposit(amount);
+                bool isReceiverAccountUpdated = ObjectHandler.GetAccountDL().UpdateAccountInfo(accountToTransfer, accountHolder);
+                bool isDepositSaved = SaveTransaction("Deposit", amount, accountHolder);
+
+                return (isTransfered && isSenderAccountUpdated && isTransferSaved)
+                    && (isDeposited && isReceiverAccountUpdated && isDepositSaved);
+            }
+            return false;
+
+        }
+        public static bool SaveTransaction(string type, int amount, string accountHolder)
+        {
+            trans transaction = new trans(type, amount, accountHolder);
+            bool isSaved = ObjectHandler.GetTransactionDL().SaveTransactionInfo(transaction);
+            return isSaved;
         }
 
     }
