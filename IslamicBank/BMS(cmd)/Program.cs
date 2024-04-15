@@ -73,11 +73,11 @@ namespace BMS_cmd_
                                     {
                                          bool isCreated = UserUI.CreateAccount();
                                          if (isCreated)
-                                        {
+                                         {
                                               UserInterface.ShowMessage("Account Created Successfully");
                                          }
                                          else
-                                        {
+                                         {
                                               UserInterface.ShowMessage("Account Creation Failed");
                                          }
                                     }
@@ -130,6 +130,36 @@ namespace BMS_cmd_
                                     {
                                         UserInterface.ShowMessage("Amount Transfer Failed");
                                     }
+                                }
+                                else if(userMenuOption == UserInterface.UserMenu.ApplyForLoan)
+                                {
+                                    bool isLoanAlreadyApplied = UserUI.IsLoanAlreadyExist();
+                                    if (isLoanAlreadyApplied)
+                                    {
+                                        UserInterface.ShowMessage("Loan Already Applied");
+                                    }
+                                    else
+                                    {
+                                        bool isLoanApplied = UserUI.ApplyLoan();
+                                        if (isLoanApplied)
+                                        {
+                                            UserInterface.ShowMessage("Loan Applied Successfully");
+                                        }
+                                        else
+                                        {
+                                            UserInterface.ShowMessage("Loan Application Failed");
+                                        }
+                                    }
+                                   
+
+                                }
+                                else if(userMenuOption == UserInterface.UserMenu.AccountInformation)
+                                {
+                                    UserUI.ViewAccountInfo();
+                                }
+                                else if(userMenuOption == UserInterface.UserMenu.logout)
+                                {
+                                    UserInterface.ShowMessage("Logged Out Successfully");
                                 }
                                 
                                 Console.ReadKey();

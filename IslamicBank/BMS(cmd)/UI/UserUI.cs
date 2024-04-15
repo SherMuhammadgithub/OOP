@@ -156,6 +156,57 @@ namespace BMS_cmd_.UI
             bool isSaved = ObjectHandler.GetTransactionDL().SaveTransactionInfo(transaction);
             return isSaved;
         }
+        public static bool ApplyLoan()
+        {
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+            Account currentAccount = currentUser.GetAccount();
+            Console.WriteLine("Enter the loan amount: ");
+            int loanAmount = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the Monthly Payment: ");
+            int monthlyPayment = Convert.ToInt32(Console.ReadLine());
+            Loan loan = new Loan(currentAccount.GetAccountHolder(), loanAmount, monthlyPayment);
+            bool isLoanCreated = currentAccount.CreateLoan(loan);
+            bool isSaved = SaveLoan(loan);
+            return isLoanCreated && isSaved;
+            
+        }
+        public static bool SaveLoan(Loan loan)
+        {
+            if (loan == null)
+            {
+                return false;
+            }
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+            Account currentAccount = currentUser.GetAccount();
+            currentAccount.SetLoan(loan);
+            bool isSaved = ObjectHandler.GetLoanDL().SaveLoan(loan);
+            return isSaved;
 
+        }
+        public static void ViewAccountInfo()
+        {
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+            Account currentAccount = currentUser.GetAccount();
+            Console.WriteLine("Account Holder: " + currentAccount.GetAccountHolder());
+            Console.WriteLine("Account Number: " + currentAccount.GetAccountNumber());
+            Console.WriteLine("Address: " + currentAccount.GetAddress());
+            Console.WriteLine("Phone: " + currentAccount.GetPhone());
+            Console.WriteLine("Monthly Income: " + currentAccount.GetMonthlyIncome());
+            Console.WriteLine("Bank Balance: " + currentAccount.GetIntialDeposit());
+            Console.WriteLine("Account Type: " + currentAccount.GetAccountType());
+            Console.WriteLine("Debt: " + currentAccount.GetDebt());
+            Console.WriteLine("Loan: " + currentAccount.GetLoan());
+        }
+        public static bool IsLoanAlreadyExist()
+        {
+            MUser currentUser = ObjectHandler.GetUserDL().GetCurrentUser();
+            Account currentAccount = currentUser.GetAccount();
+            Loan loan = ObjectHandler.GetLoanDL().isLoanExists(currentAccount.GetAccountHolder());
+            if (loan != null)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

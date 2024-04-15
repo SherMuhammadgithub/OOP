@@ -24,7 +24,8 @@ namespace BMS_cmd_.UI
             deposit = 4,
             UpdateAccount = 5,
             ApplyForLoan = 6,
-            logout = 7
+            AccountInformation = 7,
+            logout = 8
         }
         public enum AdminMenu
         {
@@ -51,7 +52,8 @@ namespace BMS_cmd_.UI
             Console.WriteLine("4. Deposit");
             Console.WriteLine("5. Update Account");
             Console.WriteLine("6. Apply For Loan");
-            Console.WriteLine("7. Logout");
+            Console.WriteLine("7. View Account Information");
+            Console.WriteLine("8. Logout");
             int option = Convert.ToInt32(Console.ReadLine());
             return (UserMenu)option;
         }
